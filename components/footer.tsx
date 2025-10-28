@@ -140,7 +140,7 @@ export default function ModernFooter() {
         </div>
 
         <div className="mt-16 pt-8 border-t border-border/10 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-foreground/50 text-sm mb-4 md:mb-0">© {new Date().getFullYear()} Nova. All rights reserved.</p>
+          <p className="text-foreground/50 text-sm mb-4 md:mb-0">© {new Date().getFullYear()} Tennissine's Space. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="#" className="text-foreground/50 hover:text-foreground text-sm transition-colors">
               Privacy Policy

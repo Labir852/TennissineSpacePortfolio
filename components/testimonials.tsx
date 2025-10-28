@@ -10,7 +10,7 @@ export default function ModernTestimonials() {
   const testimonials = [
     {
       quote:
-        "Nova has completely transformed how we manage our projects. The AI features are genuinely helpful and the interface is beautiful.",
+        "Tennissine's Space has completely transformed how we manage our projects. The AI features are genuinely helpful and the interface is beautiful.",
       author: "Sarah Johnson",
       role: "Product Manager, TechCorp",
       avatar:

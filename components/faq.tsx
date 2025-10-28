@@ -99,7 +99,7 @@ export default function FaqSection() {
         >
           <p className="text-sm sm:text-base text-white/70">
             Still have questions? {" "}
-            <a href="#contact" className="text-amber-400 hover:text-amber-300 underline underline-offset-2">
+            <a href="#contact" className="text-blue-400 hover:text-purple-400 underline underline-offset-2">
               Contact our support team
             </a>
           </p>
