@@ -85,15 +85,20 @@
 
 /* Custom cursor styles */
 .cursor-dot {
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
   background-color: hsl(var(--foreground));
+  border-radius: 9999px;
+  mix-blend-mode: difference;
 }
 
 .cursor-outline {
-  width: 30px;
-  height: 30px;
-  border: 2px solid hsl(var(--foreground) / 0.5);
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid hsl(var(--foreground) / 0.6);
+  border-radius: 9999px;
+  transition: width 160ms ease, height 160ms ease, border-color 160ms ease, background-color 160ms ease, transform 40ms linear;
+  will-change: transform;
 }
 
 .cursor-dot,
@@ -102,30 +107,16 @@
   top: 0;
   left: 0;
   transform: translate(-50%, -50%);
-  border-radius: 50%;
   z-index: 9999;
   pointer-events: none;
 }
 
-.custom-cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 20px;
-    height: 20px;
-    border: 1px solid white;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: width 0.2s, height 0.2s;
-  }
-
-  .custom-cursor.active {
-    width: 50px;
-    height: 50px;
-    background-color: rgba(255, 255, 255, 0.1);
-  }
+.cursor-outline--hover {
+  width: 44px;
+  height: 44px;
+  border-color: hsl(var(--primary));
+  background-color: hsl(var(--primary) / 0.12);
+}
 
 /* Glassmorphism */
 .glass {

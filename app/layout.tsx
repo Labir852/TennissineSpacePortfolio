@@ -4,6 +4,7 @@ import "./globals.css"
 import { ThemeProvider } from "@/hooks/use-theme"
 import ModernHeader from "@/components/header"
 import ParallaxBackground from "@/components/ParallaxBackground"
+import CursorFollower from "@/components/CursorFollower"
 import ModernFooter from "@/components/footer"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -51,6 +52,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ParallaxBackground />
+          <CursorFollower />
           <ModernHeader />
           <main>{children}</main>
           <ModernFooter />
