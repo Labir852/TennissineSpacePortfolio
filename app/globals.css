@@ -107,6 +107,26 @@
   pointer-events: none;
 }
 
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border: 1px solid white;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s, height 0.2s;
+  }
+
+  .custom-cursor.active {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
 /* Glassmorphism */
 .glass {
   background: hsl(var(--surface) / 0.05);
@@ -242,4 +262,11 @@ html {
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;  /* Chrome, Safari and Opera */
+}
+.bg-picture-background{
+  background-image: url('/images/world-map.svg');
+}
+.bg-picture-background-opacity{
+  background-image: url('/images/world-map.svg');
+  opacity: 0.8;
 }

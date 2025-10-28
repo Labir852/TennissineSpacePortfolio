@@ -66,8 +66,8 @@ export default function HowItWorks() {
     <section className="py-12 sm:py-16 md:py-24 bg-black relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-red-500/10 rounded-full blur-[100px]"></div>
-        <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-amber-500/10 rounded-full blur-[100px]"></div>
+        <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 rounded-full blur-[100px]"></div>
+        <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 rounded-full blur-[100px]"></div>
         <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-repeat opacity-5"></div>
       </div>
 
@@ -98,7 +98,7 @@ export default function HowItWorks() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group relative h-full"
             >
-              <div className="absolute -inset-1 bg-gradient-to-r from-red-500 to-amber-500 rounded-xl blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-gradient-from to-gradient-to hover:opacity-90 text-foreground border-0 rounded-xl blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="relative bg-black/80 backdrop-blur-sm border border-white/10 rounded-lg overflow-hidden h-full flex flex-col">
                 <div className="relative h-40 sm:h-48 overflow-hidden">
                   <Image
@@ -110,7 +110,7 @@ export default function HowItWorks() {
                     priority={index < 2}
                   />
                   <div className="absolute inset-0 bg-black/50"></div>
-                  <div className="absolute top-4 left-4 bg-gradient-to-r from-red-500 to-amber-500 text-white rounded-lg w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-lg sm:text-xl font-bold">
+                  <div className="absolute top-4 left-4 bg-gradient-to-r from-gradient-from to-gradient-to hover:opacity-90 text-foreground border-0 text-white rounded-lg w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-lg sm:text-xl font-bold">
                     {step.number}
                   </div>
                 </div>

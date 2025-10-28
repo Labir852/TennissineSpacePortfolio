@@ -66,8 +66,8 @@ export default function ModernPricing() {
     >
       {/* Background elements */}
       <div className="absolute inset-0 z-0" aria-hidden="true">
-        <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-red-500/10 rounded-full blur-[100px]"></div>
-        <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-amber-500/10 rounded-full blur-[100px]"></div>
+        <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 hover:opacity-90 rounded-full blur-[100px]"></div>
+        <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 hover:opacity-90 rounded-full blur-[100px]"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -95,8 +95,8 @@ export default function ModernPricing() {
               <div className="relative flex">
                 <button
                   onClick={() => setAnnual(true)}
-                  className={`relative z-10 px-4 sm:px-6 py-1.5 sm:py-2 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-white ${
-                    annual ? "text-white" : "text-white/70"
+                  className={`relative z-10 px-4 sm:px-6 py-1.5 sm:py-2 rounded-full transition-colors  focus:outline-none focus:ring-2 focus:ring-white ${
+                    annual ? "text-white bg-gradient-to-r from-gradient-from to-gradient-to hover:opacity-90" : "text-white/70"
                   }`}
                   aria-pressed={annual}
                   aria-label="Annual billing"
@@ -106,7 +106,7 @@ export default function ModernPricing() {
                 <button
                   onClick={() => setAnnual(false)}
                   className={`relative z-10 px-4 sm:px-6 py-1.5 sm:py-2 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-white ${
-                    !annual ? "text-white" : "text-white/70"
+                    !annual ? "text-white bg-gradient-to-r from-gradient-from to-gradient-to " : "text-white/70"
                   }`}
                   aria-pressed={!annual}
                   aria-label="Monthly billing"
@@ -116,7 +116,7 @@ export default function ModernPricing() {
                 <div
                   className={`absolute top-1 left-1 ${
                     annual ? "w-[calc(50%-12px)]" : "w-[calc(50%-3px)]"
-                  } h-[calc(100%-8px)] bg-gradient-to-r from-red-500 to-amber-500 rounded-full transition-transform duration-300 ${
+                  } h-[calc(100%-8px)] bg-gradient-to-r from-gradient-from to-gradient-to rounded-full transition-transform duration-300 ${
                     annual
                       ? "transform translate-x-0"
                       : "transform translate-x-full"
@@ -127,7 +127,7 @@ export default function ModernPricing() {
             </fieldset>
 
             {annual && (
-              <div className="absolute sm:relative -bottom-8 sm:bottom-auto ml-3 bg-gradient-to-r from-red-500 to-amber-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+              <div className="absolute sm:relative -bottom-8 sm:bottom-auto ml-3 bg-gradient-to-r from-gradient-from to-gradient-to text-white text-xs font-bold px-2 py-1 rounded-full">
                 Save 20%
               </div>
             )}
@@ -147,7 +147,7 @@ export default function ModernPricing() {
             >
               {plan.popular && (
                 <div className="absolute -top-3 left-0 right-0 flex justify-center">
-                  <div className="bg-gradient-to-r from-red-500 to-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full z-50">
+                  <div className="bg-gradient-to-r from-gradient-from to-gradient-to text-white text-xs font-bold px-3 py-1 rounded-full z-50">
                     Most Popular
                   </div>
                 </div>
@@ -155,7 +155,7 @@ export default function ModernPricing() {
 
               <div
                 className={`h-full bg-white/5 backdrop-blur-sm border rounded-2xl overflow-hidden transition-transform ${
-                  plan.popular ? "border-amber-500" : "border-white/10"
+                  plan.popular ? "border-blue-500" : "border-white/10"
                 }`}
               >
                 <div className="p-5 sm:p-8">
@@ -183,7 +183,7 @@ export default function ModernPricing() {
                   <Button
                     className={`w-full mb-6 sm:mb-8 py-2 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black focus:outline-none ${
                       plan.popular
-                        ? "bg-gradient-to-r from-red-500 to-amber-500 hover:from-red-600 hover:to-amber-600 text-white border-0"
+                        ? "bg-gradient-to-r from-gradient-from to-gradient-to hover:from-blue-600 hover:to-purple-600 text-white border-0"
                         : "bg-white/10 hover:bg-white/20 text-white"
                     }`}
                     aria-label={`${plan.cta} with the ${plan.name} plan`}
@@ -201,7 +201,7 @@ export default function ModernPricing() {
                         className="flex items-center gap-2 sm:gap-3"
                       >
                         <div
-                          className="flex-shrink-0 h-4 w-4 sm:h-5 sm:w-5 rounded-full bg-gradient-to-r from-red-500 to-amber-500 flex items-center justify-center"
+                          className="flex-shrink-0 h-4 w-4 sm:h-5 sm:w-5 rounded-full bg-gradient-to-r from-gradient-from to-gradient-to flex items-center justify-center"
                           aria-hidden="true"
                         >
                           <Check className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-white" />

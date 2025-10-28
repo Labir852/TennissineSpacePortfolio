@@ -3,12 +3,13 @@ import { Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/hooks/use-theme"
 import ModernHeader from "@/components/header"
+import ParallaxBackground from "@/components/ParallaxBackground"
 import ModernFooter from "@/components/footer"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Nova - Elevate Your Digital Experience",
+  title: "Tennissine's Space - Elevate Your Digital Experience",
   description: "Transform how you work with our AI-powered platform. Automate workflows, gain insights, and boost productivity.",
   icons: {
     icon: "/favicon.svg",
@@ -18,14 +19,14 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
   generator: "Mohamed Djoudir",
   openGraph: {
-    title: "Nova - Elevate Your Digital Experience",
+    title: "Tennissine's Space - Elevate Your Digital Experience",
     description: "Transform how you work with our AI-powered platform. Automate workflows, gain insights, and boost productivity.",
     images: [
       {
         url: "/image.png",
         width: 1200,
         height: 630,
-        alt: "Nova - AI-powered platform",
+        alt: "Tennissine's Space - AI-powered platform",
       },
     ],
     type: "website",
@@ -49,6 +50,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <ParallaxBackground />
           <ModernHeader />
           <main>{children}</main>
           <ModernFooter />

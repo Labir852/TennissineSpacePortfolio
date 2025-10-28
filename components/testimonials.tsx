@@ -71,8 +71,8 @@ export default function ModernTestimonials() {
     >
       {/* Background elements */}
       <div className="absolute inset-0 z-0" aria-hidden="true">
-        <div className="absolute top-0 left-0 w-1/3 h-1/3 bg-red-500/10 rounded-full blur-[100px]"></div>
-        <div className="absolute bottom-0 right-0 w-1/3 h-1/3 bg-amber-500/10 rounded-full blur-[100px]"></div>
+        <div className="absolute top-0 left-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 hover:opacity-90 rounded-full blur-[100px]"></div>
+        <div className="absolute bottom-0 right-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 hover:opacity-90 rounded-full blur-[100px]"></div>
       </div>
 
       <div className="container mx-auto px-5 sm:px-6 md:px-8 relative z-10">
@@ -90,13 +90,13 @@ export default function ModernTestimonials() {
         </motion.div>
 
         <div className="relative max-w-4xl mx-auto">
-          <div className="absolute -top-12 -left-12 text-red-500/20 hidden sm:block" aria-hidden="true">
+          <div className="absolute -top-12 -left-12 text-blue-500/20 hidden sm:block" aria-hidden="true">
             <Quote size={80} />
           </div>
           
           {/* Mobile quote icon - smaller and centered */}
           <div className="sm:hidden flex justify-center mb-4" aria-hidden="true">
-            <Quote className="h-10 w-10 text-red-500/20" />
+            <Quote className="h-10 w-10 text-blue-500/20" />
           </div>
 
           <div 
@@ -121,7 +121,7 @@ export default function ModernTestimonials() {
                 <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center">
                   <div className="md:w-1/3 w-full">
                     <div className="relative max-w-[160px] mx-auto">
-                      <div className="absolute -inset-1 bg-gradient-to-r from-red-500 to-amber-500 rounded-full blur-sm" aria-hidden="true"></div>
+                      <div className="absolute -inset-1 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 hover:opacity-90 rounded-full blur-sm" aria-hidden="true"></div>
                       <div className="relative h-20 w-20 sm:h-24 sm:w-24 mx-auto">
                         <Image
                           src={testimonials[current].avatar || "/placeholder.svg"}
@@ -147,7 +147,7 @@ export default function ModernTestimonials() {
 
                   <div className="md:w-2/3 w-full">
                     <p className="text-base sm:text-lg md:text-xl italic mb-4 sm:mb-6 text-center md:text-left">"{testimonials[current].quote}"</p>
-                    <div className="h-px w-16 bg-gradient-to-r from-red-500 to-amber-500 mx-auto md:mx-0" aria-hidden="true"></div>
+                    <div className="h-px w-16 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 hover:opacity-90 mx-auto md:mx-0" aria-hidden="true"></div>
                   </div>
                 </div>
               </motion.div>
@@ -185,7 +185,7 @@ export default function ModernTestimonials() {
                   setCurrent(idx)
                 }}
                 className={`w-1.5 h-1.5 sm:w-2 sm:h-2 mx-1 rounded-full focus:outline-none focus:ring-2 focus:ring-white ${
-                  current === idx ? "bg-gradient-to-r from-red-500 to-amber-500" : "bg-white/20"
+                  current === idx ? "bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 hover:opacity-90" : "bg-white/20"
                 }`}
                 aria-label={`Go to testimonial ${idx + 1}`}
                 aria-current={current === idx ? "true" : "false"}

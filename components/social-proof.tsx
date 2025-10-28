@@ -45,13 +45,13 @@ export default function SocialProof() {
 
   return (
     <section 
-      className="relative py-12 sm:py-16 md:py-20 overflow-hidden bg-black"
+      className="relative py-12 sm:py-16 md:py-20 overflow-hidden bg-picture-background"
       aria-labelledby="social-proof-heading"
     >
       {/* Background elements */}
       <div className="absolute inset-0 z-0 opacity-50" aria-hidden="true">
-        <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-red-500/10 rounded-full blur-[120px]"></div>
-        <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-amber-500/10 rounded-full blur-[120px]"></div>
+        <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 rounded-full blur-[120px]"></div>
+        <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 rounded-full blur-[120px]"></div>
         <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-repeat opacity-5"></div>
       </div>
 
@@ -109,7 +109,7 @@ export default function SocialProof() {
             <motion.div key={index} className="text-center h-full" variants={itemVariants}>
               <div className="relative group h-full">
                 <div 
-                  className="absolute -inset-0.5 bg-gradient-to-r from-red-500 to-amber-500 rounded-lg blur opacity-30 group-hover:opacity-60 transition duration-300"
+                  className="absolute -inset-0.5 bg-gradient-to-r from-gradient-from to-gradient-to hover:opacity-90 text-foreground border-0 rounded-lg blur opacity-30 group-hover:opacity-60 transition duration-300"
                   aria-hidden="true"
                 ></div>
                 <div 
