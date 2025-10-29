@@ -20,7 +20,7 @@ export default function ModernTestimonials() {
     },
     {
       quote:
-        "We've seen a 40% increase in productivity since implementing Nova. The automation features alone have saved us countless hours.",
+        "We've seen a 40% increase in productivity since implementing Tennissine's Space. The automation features alone have saved us countless hours.",
       author: "Michael Chen",
       role: "CTO, GrowthStartup",
       avatar:
@@ -66,7 +66,7 @@ export default function ModernTestimonials() {
   return (
     <section 
       id="testimonials" 
-      className="py-16 sm:py-20 md:py-24 bg-black relative overflow-hidden"
+      className="py-16 sm:py-20 md:py-24 bg-background relative overflow-hidden"
       aria-labelledby="testimonials-heading"
     >
       {/* Background elements */}
@@ -84,7 +84,7 @@ export default function ModernTestimonials() {
           className="text-center mb-8 sm:mb-12 md:mb-16"
         >
           <h2 id="testimonials-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">What Our Customers Say</h2>
-          <p className="text-base sm:text-lg text-white/70 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-foreground/70 max-w-2xl mx-auto">
             Don't just take our word for it - hear from our satisfied customers.
           </p>
         </motion.div>
@@ -134,7 +134,7 @@ export default function ModernTestimonials() {
 
                     <div className="text-center mt-4">
                       <h4 className="font-bold">{testimonials[current].author}</h4>
-                      <p className="text-white/70 text-sm">{testimonials[current].role}</p>
+                      <p className="text-foreground/70 text-sm">{testimonials[current].role}</p>
                       <div className="flex justify-center mt-2" aria-label={`Rated ${testimonials[current].rating} out of 5 stars`}>
                         {[...Array(testimonials[current].rating)].map((_, i) => (
                           <svg key={i} className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 fill-current" viewBox="0 0 24 24" aria-hidden="true">

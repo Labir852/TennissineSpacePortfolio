@@ -18,7 +18,7 @@ export default function MobileNav({ isOpen }: MobileNavProps) {
   return (
     <div 
       className={cn(
-        "md:hidden fixed inset-x-0 top-[60px] bg-black/95 backdrop-blur-lg border-t border-white/10 transition-all duration-300 overflow-hidden",
+        "md:hidden fixed inset-x-0 top-[60px] bg-background/95 backdrop-blur-lg border-t border-white/10 transition-all duration-300 overflow-hidden",
         isOpen ? "max-h-[calc(100vh-60px)] opacity-100" : "max-h-0 opacity-0"
       )}
     >
@@ -53,11 +53,11 @@ export default function MobileNav({ isOpen }: MobileNavProps) {
         </Link>
 
         <div className="flex flex-col gap-2 pt-3">
-          <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 h-10 active:bg-white/20">
+          <Button variant="outline" className="border-white/20 text-foreground hover:bg-white/10 h-10 active:bg-white/20">
             Log in
           </Button>
           <Button
-            className="bg-gradient-to-r from-red-500 to-amber-500 hover:from-red-600 hover:to-amber-600 text-white border-0 h-10 shadow-lg shadow-amber-500/20 active:opacity-90"
+            className="bg-gradient-to-r from-red-500 to-amber-500 hover:from-red-600 hover:to-amber-600 text-foreground border-0 h-10 shadow-lg shadow-amber-500/20 active:opacity-90"
           >
             Get Started
           </Button>

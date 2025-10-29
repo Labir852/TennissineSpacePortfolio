@@ -22,7 +22,7 @@ export default function Integrations() {
 
   return (
     <section 
-      className="py-12 sm:py-16 md:py-24 bg-black relative overflow-hidden"
+      className="py-12 sm:py-16 md:py-24 bg-background relative overflow-hidden"
       aria-labelledby="integrations-heading"
     >
       {/* Background elements */}
@@ -40,7 +40,7 @@ export default function Integrations() {
           className="text-center mb-8 sm:mb-10 md:mb-16"
         >
           <h2 id="integrations-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Seamless Integrations</h2>
-          <p className="text-base sm:text-lg text-white/70 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-foreground/70 max-w-2xl mx-auto">
             Connect with your favorite tools and services
           </p>
         </motion.div>
@@ -77,7 +77,7 @@ export default function Integrations() {
                 </div>
                 <h3 className="font-medium text-center text-xs sm:text-sm">{integration.name}</h3>
                 {/* Remove category text on mobile */}
-                <p className="hidden sm:block text-xs text-white/50 mt-0.5" aria-label={`${integration.category} integration`}>{integration.category}</p>
+                <p className="hidden sm:block text-xs text-foreground/50 mt-0.5" aria-label={`${integration.category} integration`}>{integration.category}</p>
               </div>
             </motion.div>
           ))}
@@ -90,7 +90,7 @@ export default function Integrations() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="text-center mt-6 sm:mt-8"
         >
-          <p className="text-xs sm:text-sm text-white/70">
+          <p className="text-xs sm:text-sm text-foreground/70">
             Don't see what you need? {" "}
             <a 
               href="#contact" 

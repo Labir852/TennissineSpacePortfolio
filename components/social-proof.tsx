@@ -64,7 +64,7 @@ export default function SocialProof() {
           transition={{ duration: 0.5 }}
         >
           <p className="text-base sm:text-lg text-amber-400 font-medium mb-2">Trusted by industry leaders</p>
-          <h2 id="social-proof-heading" className="text-xl sm:text-2xl md:text-3xl font-bold text-white">Join thousands of satisfied customers</h2>
+          <h2 id="social-proof-heading" className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground">Join thousands of satisfied customers</h2>
         </motion.div>
 
         {/* Company logos */}
@@ -113,7 +113,7 @@ export default function SocialProof() {
                   aria-hidden="true"
                 ></div>
                 <div 
-                  className="relative bg-black/70 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-white/10 h-full flex flex-col justify-center"
+                  className="relative bg-background/70 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-white/10 h-full flex flex-col justify-center"
                   role="presentation"
                 >
                   <div 
@@ -123,7 +123,7 @@ export default function SocialProof() {
                     {stat.value}
                   </div>
                   <p 
-                    className="text-white/70 text-sm sm:text-base truncate"
+                    className="text-foreground/70 text-sm sm:text-base truncate"
                     aria-label={`${stat.value} ${stat.label}`}
                   >
                     {stat.label}

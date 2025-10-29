@@ -43,7 +43,7 @@ export default function FaqSection() {
   ]
 
   return (
-    <section className="py-4 sm:py-20 md:py-24 bg-black relative overflow-hidden">
+    <section className="py-4 sm:py-20 md:py-24 bg-background relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute bottom-0 right-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 rounded-full blur-[100px]"></div>
@@ -59,7 +59,7 @@ export default function FaqSection() {
           className="text-center mb-8 sm:mb-12 md:mb-16"
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Frequently Asked Questions</h2>
-          <p className="text-base sm:text-lg md:text-xl text-white/70 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto">
             Have questions? We're here to help. If you don't see your question here, feel free to contact us.
           </p>
         </motion.div>
@@ -81,7 +81,7 @@ export default function FaqSection() {
                   <AccordionTrigger className="px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-lg font-medium hover:no-underline hover:bg-white/5 text-left">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base text-white/70">
+                  <AccordionContent className="px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base text-foreground/70">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
@@ -97,7 +97,7 @@ export default function FaqSection() {
           transition={{ duration: 0.5, delay: 0.5 }}
           className="text-center mt-8 sm:mt-10 md:mt-12"
         >
-          <p className="text-sm sm:text-base text-white/70">
+          <p className="text-sm sm:text-base text-foreground/70">
             Still have questions? {" "}
             <a href="#contact" className="text-blue-400 hover:text-purple-400 underline underline-offset-2">
               Contact our support team

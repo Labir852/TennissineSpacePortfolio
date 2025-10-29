@@ -3,14 +3,14 @@ import { Twitter, Facebook, Instagram, Linkedin, Github } from "lucide-react"
 
 export default function ModernFooter() {
   return (
-    <footer className="bg-picture-background-opacity py-8 text-white  sm:py-16  px-3 sm:px-6 lg:px-8">
+    <footer className="bg-picture-background-opacity py-8 text-foreground  sm:py-16  px-3 sm:px-6 lg:px-8">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-12">
           <div>
             <Link href="/" className="flex items-center gap-2 mb-6">
               <div className="relative w-10 h-10">
                 <div className="absolute inset-0 bg-gradient-to-tr from-gradient-from to-gradient-to rounded-lg rotate-45 transform origin-center"></div>
-                <div className="absolute inset-[3px] bg-black rounded-lg flex items-center justify-center text-foreground font-bold">
+                <div className="absolute inset-[3px] bg-background rounded-lg flex items-center justify-center text-foreground font-bold">
                   T
                 </div>
               </div>

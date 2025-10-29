@@ -34,7 +34,7 @@ export default function BlogPreview() {
   ]
 
   return (
-    <section className="py-5 sm:py-20 md:py-24 bg-black relative overflow-hidden" aria-labelledby="blog-heading">
+    <section className="py-5 sm:py-20 md:py-24 bg-background relative overflow-hidden" aria-labelledby="blog-heading">
       {/* Background elements */}
       <div className="absolute inset-0 z-0" aria-hidden="true">
         <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 hover:opacity-90 rounded-full blur-[100px]"></div>
@@ -51,14 +51,14 @@ export default function BlogPreview() {
         >
           <div>
             <h2 id="blog-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">Latest Insights</h2>
-            <p className="text-base sm:text-lg text-white/70 max-w-2xl">
+            <p className="text-base sm:text-lg text-foreground/70 max-w-2xl">
               Expert advice on productivity and technology
             </p>
           </div>
           <div className="mt-6 md:mt-0">
             <Button 
               variant="outline" 
-              className="border-white/20 text-white hover:bg-white/10 text-sm sm:text-base focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black focus:outline-none"
+              className="border-white/20 text-foreground hover:bg-white/10 text-sm sm:text-base focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black focus:outline-none"
               aria-label="View all blog articles"
             >
               View All Articles
@@ -87,7 +87,7 @@ export default function BlogPreview() {
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div 
-                    className="absolute top-3 left-3 bg-black/60 backdrop-blur-md text-white text-xs font-medium px-2.5 py-1 rounded-full"
+                    className="absolute top-3 left-3 bg-background/60 backdrop-blur-md text-foreground text-xs font-medium px-2.5 py-1 rounded-full"
                     aria-label={`Category: ${article.category}`}
                   >
                     {article.category}
@@ -95,7 +95,7 @@ export default function BlogPreview() {
                 </div>
                 
                 <div className="p-4 sm:p-5 flex-1 flex flex-col">
-                  <div className="flex items-center gap-3 text-white/60 text-xs sm:text-sm mb-2 sm:mb-3 flex-wrap">
+                  <div className="flex items-center gap-3 text-foreground/60 text-xs sm:text-sm mb-2 sm:mb-3 flex-wrap">
                     <div className="flex items-center gap-1" aria-label={`Published date: ${article.date}`}>
                       <Calendar className="h-3 w-3 sm:h-3.5 sm:w-3.5" aria-hidden="true" />
                       <span>{article.date}</span>
@@ -107,7 +107,7 @@ export default function BlogPreview() {
                   </div>
                   
                   <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 line-clamp-2">{article.title}</h3>
-                  <p className="text-white/70 text-sm sm:text-base mb-4 flex-1 line-clamp-3">{article.excerpt}</p>
+                  <p className="text-foreground/70 text-sm sm:text-base mb-4 flex-1 line-clamp-3">{article.excerpt}</p>
                   
                   <Button 
                     variant="link" 

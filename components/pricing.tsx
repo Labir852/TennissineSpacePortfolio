@@ -61,7 +61,7 @@ export default function ModernPricing() {
   return (
     <section
       id="pricing"
-      className="py-16 sm:py-20 md:py-24 bg-black relative overflow-hidden"
+      className="py-16 sm:py-20 md:py-24 bg-background relative overflow-hidden"
       aria-labelledby="pricing-heading"
     >
       {/* Background elements */}
@@ -84,7 +84,7 @@ export default function ModernPricing() {
           >
             Simple, Transparent Pricing
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-white/70 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto">
             Choose the plan that works best for your business. All plans include
             our core features.
           </p>
@@ -96,7 +96,7 @@ export default function ModernPricing() {
                 <button
                   onClick={() => setAnnual(true)}
                   className={`relative z-10 px-4 sm:px-6 py-1.5 sm:py-2 rounded-full transition-colors  focus:outline-none focus:ring-2 focus:ring-white ${
-                    annual ? "text-white bg-gradient-to-r from-gradient-from to-gradient-to hover:opacity-90" : "text-white/70"
+                    annual ? "text-foreground bg-gradient-to-r from-gradient-from to-gradient-to hover:opacity-90" : "text-foreground/70"
                   }`}
                   aria-pressed={annual}
                   aria-label="Annual billing"
@@ -106,7 +106,7 @@ export default function ModernPricing() {
                 <button
                   onClick={() => setAnnual(false)}
                   className={`relative z-10 px-4 sm:px-6 py-1.5 sm:py-2 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-white ${
-                    !annual ? "text-white bg-gradient-to-r from-gradient-from to-gradient-to " : "text-white/70"
+                    !annual ? "text-foreground bg-gradient-to-r from-gradient-from to-gradient-to " : "text-foreground/70"
                   }`}
                   aria-pressed={!annual}
                   aria-label="Monthly billing"
@@ -127,7 +127,7 @@ export default function ModernPricing() {
             </fieldset>
 
             {annual && (
-              <div className="absolute sm:relative -bottom-8 sm:bottom-auto ml-3 bg-gradient-to-r from-gradient-from to-gradient-to text-white text-xs font-bold px-2 py-1 rounded-full">
+              <div className="absolute sm:relative -bottom-8 sm:bottom-auto ml-3 bg-gradient-to-r from-gradient-from to-gradient-to text-foreground text-xs font-bold px-2 py-1 rounded-full">
                 Save 20%
               </div>
             )}
@@ -147,7 +147,7 @@ export default function ModernPricing() {
             >
               {plan.popular && (
                 <div className="absolute -top-3 left-0 right-0 flex justify-center">
-                  <div className="bg-gradient-to-r from-gradient-from to-gradient-to text-white text-xs font-bold px-3 py-1 rounded-full z-50">
+                  <div className="bg-gradient-to-r from-gradient-from to-gradient-to text-foreground text-xs font-bold px-3 py-1 rounded-full z-50">
                     Most Popular
                   </div>
                 </div>
@@ -162,7 +162,7 @@ export default function ModernPricing() {
                   <h3 className="text-xl sm:text-2xl font-bold mb-2">
                     {plan.name}
                   </h3>
-                  <p className="text-white/70 text-sm mb-5 sm:mb-6">
+                  <p className="text-foreground/70 text-sm mb-5 sm:mb-6">
                     {plan.description}
                   </p>
 
@@ -175,7 +175,7 @@ export default function ModernPricing() {
                     <span className="text-2xl sm:text-4xl font-bold">
                       ${plan.price}
                     </span>
-                    <span className="text-white/70 ml-2 text-sm">
+                    <span className="text-foreground/70 ml-2 text-sm">
                       /{annual ? "year" : "month"}
                     </span>
                   </div>
@@ -183,8 +183,8 @@ export default function ModernPricing() {
                   <Button
                     className={`w-full mb-6 sm:mb-8 py-2 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black focus:outline-none ${
                       plan.popular
-                        ? "bg-gradient-to-r from-gradient-from to-gradient-to hover:from-blue-600 hover:to-purple-600 text-white border-0"
-                        : "bg-white/10 hover:bg-white/20 text-white"
+                        ? "bg-gradient-to-r from-gradient-from to-gradient-to hover:from-blue-600 hover:to-purple-600 text-foreground border-0"
+                        : "bg-white/10 hover:bg-white/20 text-foreground"
                     }`}
                     aria-label={`${plan.cta} with the ${plan.name} plan`}
                   >
@@ -204,9 +204,9 @@ export default function ModernPricing() {
                           className="flex-shrink-0 h-4 w-4 sm:h-5 sm:w-5 rounded-full bg-gradient-to-r from-gradient-from to-gradient-to flex items-center justify-center"
                           aria-hidden="true"
                         >
-                          <Check className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-white" />
+                          <Check className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-foreground" />
                         </div>
-                        <span className="text-white/80 text-sm sm:text-base">
+                        <span className="text-foreground/80 text-sm sm:text-base">
                           {feature}
                         </span>
                       </li>
@@ -219,7 +219,7 @@ export default function ModernPricing() {
         </div>
 
         <div className="mt-10 sm:mt-16 text-center">
-          <p className="text-white/70 text-sm sm:text-base">
+          <p className="text-foreground/70 text-sm sm:text-base">
             All plans include a 14-day free trial. No credit card required.
           </p>
         </div>

@@ -26,7 +26,7 @@ export default function ModernCta() {
             <div className="relative bg-background/80 backdrop-blur-sm border border-border/10 rounded-xl p-5 sm:p-8 md:p-12 text-center">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">Ready to Transform Your Workflow?</h2>
               <p className="text-base sm:text-lg md:text-xl text-foreground/70 mb-6 sm:mb-8 max-w-2xl mx-auto">
-                Join thousands of satisfied customers who are already using Nova to streamline their operations and
+                Join thousands of satisfied customers who are already using Tennissine's Space to streamline their operations and
                 boost productivity.
               </p>
 

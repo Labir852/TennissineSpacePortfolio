@@ -28,7 +28,7 @@ export default function ModernHero() {
   }, [])
 
   return (
-    <section className="relative min-h-[100svh] flex items-center pt-16 sm:pt-20 overflow-hidden bg-background">
+    <section className="relative min-h-[100svh] flex items-center pt-16 sm:pt-20 overflow-hidden ">
       {/* Background elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-background via-background to-background/90"></div>
@@ -81,7 +81,7 @@ export default function ModernHero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-col max-w-[80%] mx-auto sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start"
+              className="flex flex-col max-w-[100%] mx-auto sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start "
             >
               <Button className="bg-gradient-to-r from-gradient-from to-gradient-to hover:opacity-90 text-foreground border-0 h-10 sm:h-12 px-6 sm:px-8 text-sm sm:text-base">
                 Start Free Trial

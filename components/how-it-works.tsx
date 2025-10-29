@@ -63,7 +63,7 @@ export default function HowItWorks() {
   const scrollTo = (index: number) => emblaApi?.scrollTo(index);
 
   return (
-    <section className="py-12 sm:py-16 md:py-24 bg-black relative overflow-hidden">
+    <section className="py-12 sm:py-16 md:py-24 bg-background relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 rounded-full blur-[100px]"></div>
@@ -82,7 +82,7 @@ export default function HowItWorks() {
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">
             How It Works
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-white/70 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg text-foreground/70 max-w-2xl mx-auto">
             Simple four-step process
           </p>
         </motion.div>
@@ -99,7 +99,7 @@ export default function HowItWorks() {
               className="group relative h-full"
             >
               <div className="absolute -inset-1 bg-gradient-to-r from-gradient-from to-gradient-to hover:opacity-90 text-foreground border-0 rounded-xl blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="relative bg-black/80 backdrop-blur-sm border border-white/10 rounded-lg overflow-hidden h-full flex flex-col">
+              <div className="relative bg-background/80 backdrop-blur-sm border border-white/10 rounded-lg overflow-hidden h-full flex flex-col">
                 <div className="relative h-40 sm:h-48 overflow-hidden">
                   <Image
                     src={step.image}
@@ -109,8 +109,8 @@ export default function HowItWorks() {
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                     priority={index < 2}
                   />
-                  <div className="absolute inset-0 bg-black/50"></div>
-                  <div className="absolute top-4 left-4 bg-gradient-to-r from-gradient-from to-gradient-to hover:opacity-90 text-foreground border-0 text-white rounded-lg w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-lg sm:text-xl font-bold">
+                  <div className="absolute inset-0 bg-background/50"></div>
+                  <div className="absolute top-4 left-4 bg-gradient-to-r from-gradient-from to-gradient-to hover:opacity-90 text-foreground border-0 text-foreground rounded-lg w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-lg sm:text-xl font-bold">
                     {step.number}
                   </div>
                 </div>
@@ -119,7 +119,7 @@ export default function HowItWorks() {
                   <h3 className="text-lg sm:text-xl font-bold mb-2">
                     {step.title}
                   </h3>
-                  <p className="text-sm sm:text-base text-white/70 mb-4 flex-grow">
+                  <p className="text-sm sm:text-base text-foreground/70 mb-4 flex-grow">
                     {step.description}
                   </p>
 
@@ -146,7 +146,7 @@ export default function HowItWorks() {
                 >
                   <div className="relative h-[320px]">
                     <div className="absolute -inset-1 bg-gradient-to-r from-red-500 to-amber-500 rounded-xl blur-sm opacity-70"></div>
-                    <div className="relative bg-black/80 backdrop-blur-sm border border-white/10 rounded-lg overflow-hidden h-full flex flex-col">
+                    <div className="relative bg-background/80 backdrop-blur-sm border border-white/10 rounded-lg overflow-hidden h-full flex flex-col">
                       <div className="relative h-32 overflow-hidden">
                         <Image
                           src={step.image}
@@ -156,8 +156,8 @@ export default function HowItWorks() {
                           className="object-cover"
                           priority={index < 2}
                         />
-                        <div className="absolute inset-0 bg-black/50"></div>
-                        <div className="absolute top-3 left-3 bg-gradient-to-r from-red-500 to-amber-500 text-white rounded-lg w-8 h-8 flex items-center justify-center text-sm font-bold">
+                        <div className="absolute inset-0 bg-background/50"></div>
+                        <div className="absolute top-3 left-3 bg-gradient-to-r from-red-500 to-amber-500 text-foreground rounded-lg w-8 h-8 flex items-center justify-center text-sm font-bold">
                           {step.number}
                         </div>
                       </div>
@@ -166,7 +166,7 @@ export default function HowItWorks() {
                         <h3 className="text-base font-bold mb-1">
                           {step.title}
                         </h3>
-                        <p className="text-xs text-white/70">
+                        <p className="text-xs text-foreground/70">
                           {step.description}
                         </p>
                       </div>

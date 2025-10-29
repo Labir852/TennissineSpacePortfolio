@@ -1,11 +1,11 @@
 export const themes = {
   light: {
     // Core theme colors
-    "--border": "220 14% 96%",
-    "--input": "220 14% 96%",
+    "--border": "220 14% 90%",
+    "--input": "220 14% 90%",
     "--ring": "262 83% 58%",
-    // "--background": "0 0% 100%",
-    "--foreground": "0 0% 100%",
+    "--background": "0 0% 100%",
+    "--foreground": "0 0% 5%",
     "--primary": "262 83% 58%",
     "--primary-foreground": "0 0% 98%",
     "--secondary": "240 5% 96%",
@@ -22,9 +22,8 @@ export const themes = {
     "--destructive-foreground": "0 0% 98%",
     
     // Custom brand colors for this site
-    "--gradient-from": "220 91% 56%",  // Change the gradient start color
-    "--gradient-to": "270 91% 65%",    // Change the gradient end color
-    "--background": "0 0% 4%",          // Change the main background
+    "--gradient-from": "220 91% 56%",
+    "--gradient-to": "270 91% 65%",
     "--brand-accent": "45 100% 51%",  // amber-400
     "--surface": "0 0% 100%",
     "--surface-foreground": "0 0% 10%",
@@ -37,7 +36,7 @@ export const themes = {
     "--border": "240 5% 26%",
     "--input": "240 5% 26%",
     "--ring": "262 83% 58%",
-    // "--background": "0 0% 4%",
+    "--background": "0 0% 4%",
     "--foreground": "0 0% 98%",
     "--primary": "262 83% 58%",
     "--primary-foreground": "0 0% 98%",
@@ -55,9 +54,8 @@ export const themes = {
     "--destructive-foreground": "0 0% 98%",
     
     // Custom brand colors for this site
-    "--gradient-from": "220 91% 56%",  // Change the gradient start color
-    "--gradient-to": "270 91% 65%",    // Change the gradient end color
-    "--background": "0 0% 4%",          // Change the main background
+    "--gradient-from": "220 91% 56%",
+    "--gradient-to": "270 91% 65%",
     "--brand-accent": "45 100% 51%",  // amber-400
     "--surface": "0 0% 4%",
     "--surface-foreground": "0 0% 98%",

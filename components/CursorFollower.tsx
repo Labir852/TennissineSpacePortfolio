@@ -25,22 +25,42 @@ export default function CursorFollower() {
     let y = window.innerHeight / 2
     let rx = x
     let ry = y
+    let lastMoveTs = performance.now()
+
+    // Animation loop keeps the ring easing until it aligns with the pointer
+    const tick = () => {
+      const now = performance.now()
+      const idleMs = now - lastMoveTs
+      // Base easing
+      let k = 0.18
+      // If idle for a moment, speed up convergence so ring catches up
+      if (idleMs > 120) k = 0.35
+      if (idleMs > 240) k = 0.55
+
+      rx += (x - rx) * k
+      ry += (y - ry) * k
+
+      // Snap when very close so they overlap perfectly at rest
+      if (Math.abs(rx - x) < 0.1) rx = x
+      if (Math.abs(ry - y) < 0.1) ry = y
+
+      if (ringRef.current) {
+        ringRef.current.style.left = `${rx}px`
+        ringRef.current.style.top = `${ry}px`
+      }
+
+      raf = requestAnimationFrame(tick)
+    }
 
     const onMove = (e: MouseEvent) => {
       x = e.clientX
       y = e.clientY
+      lastMoveTs = performance.now()
       if (dotRef.current) {
-        dotRef.current.style.transform = `translate(${x}px, ${y}px)`
+        // Use left/top so the CSS translate(-50%, -50%) keeps it perfectly centered
+        dotRef.current.style.left = `${x}px`
+        dotRef.current.style.top = `${y}px`
       }
-      if (raf != null) cancelAnimationFrame(raf)
-      raf = requestAnimationFrame(() => {
-        // smooth follow for the ring
-        rx += (x - rx) * 0.18
-        ry += (y - ry) * 0.18
-        if (ringRef.current) {
-          ringRef.current.style.transform = `translate(${rx}px, ${ry}px)`
-        }
-      })
     }
 
     const setHover = (hovering: boolean) => {
@@ -58,6 +78,19 @@ export default function CursorFollower() {
       )
       setHover(Boolean(interactive))
     }
+
+    // Initialize positions
+    if (dotRef.current) {
+      dotRef.current.style.left = `${x}px`
+      dotRef.current.style.top = `${y}px`
+    }
+    if (ringRef.current) {
+      ringRef.current.style.left = `${rx}px`
+      ringRef.current.style.top = `${ry}px`
+    }
+
+    // Start animation loop
+    raf = requestAnimationFrame(tick)
 
     window.addEventListener("mousemove", onMove)
     window.addEventListener("mouseover", onOver)
