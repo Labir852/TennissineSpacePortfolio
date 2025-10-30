@@ -73,7 +73,8 @@ export default function ModernHero() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-base sm:text-lg lg:text-xl text-foreground/70 mb-6 sm:mb-8 max-w-xl mx-auto lg:mx-0"
             >
-              Transform how you work with our AI-powered platform. Automate workflows, gain insights, and boost
+
+              Transform your vision to technology and make your business reach to more people. Automate workflows, gain insights, and boost
               productivity.
             </motion.p>
 
@@ -84,7 +85,7 @@ export default function ModernHero() {
               className="flex flex-col max-w-[100%] mx-auto sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start "
             >
               <Button className="bg-gradient-to-r from-gradient-from to-gradient-to hover:opacity-90 text-foreground border-0 h-10 sm:h-12 px-6 sm:px-8 text-sm sm:text-base">
-                Start Free Trial
+                Get Started
                 <ArrowRight className="ml-2 h-3.5 w-3.5 sm:h-4 sm:w-4" />
               </Button>
               <Button variant="outline" className="border-border text-foreground hover:bg-accent h-10 sm:h-12 px-6 sm:px-8 text-sm sm:text-base">

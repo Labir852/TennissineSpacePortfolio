@@ -36,7 +36,7 @@ export default function ModernHeader() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-[60px] flex items-center",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-[100px] flex items-center",
         scrolled ? "bg-surface/20 backdrop-blur-lg shadow-lg shadow-black/20 " : "bg-transparent"
       )}
     >

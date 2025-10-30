@@ -14,10 +14,10 @@ export default function Logo() {
         Tennissine's Space
       </span> */}
      <Image
-      src="/images/logos/Main Logo-04.png"
+      src="/images/logos/Main Logo-02.png"
       alt="Tennissine's Space Logo"
-      height={100}
-      width={100}/>
+      height={200}
+      width={300}/>
     </Link>
   )
 }

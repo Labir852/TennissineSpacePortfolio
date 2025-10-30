@@ -45,11 +45,11 @@ export default function SocialProof() {
 
   return (
     <section 
-      className="relative py-12 sm:py-16 md:py-20 overflow-hidden bg-picture-background"
+      className="relative py-12 sm:py-16 md:py-20 overflow-hidden bg-background"
       aria-labelledby="social-proof-heading"
     >
       {/* Background elements */}
-      <div className="absolute inset-0 z-0 opacity-50" aria-hidden="true">
+      <div className="absolute inset-0 z-0 opacity-100" aria-hidden="true">
         <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 rounded-full blur-[120px]"></div>
         <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 rounded-full blur-[120px]"></div>
         <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-repeat opacity-5"></div>

@@ -5,7 +5,7 @@ export const themes = {
     "--input": "220 14% 90%",
     "--ring": "262 83% 58%",
     "--background": "0 0% 100%",
-    "--foreground": "0 0% 5%",
+    "--foreground": "0% 0% 5%",
     "--primary": "262 83% 58%",
     "--primary-foreground": "0 0% 98%",
     "--secondary": "240 5% 96%",
