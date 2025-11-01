@@ -32,13 +32,13 @@ export default function ModernHero() {
       {/* Background elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-background via-background to-background/90"></div>
-
+{/* Grid pattern */}
+        <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-repeat opacity-10"></div>
         {/* Animated gradient orbs - adjusted for mobile */}
         <div className="absolute top-1/3 left-1/3 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] rounded-full bg-gradient-from/20 blur-[100px] animate-pulse-slow"></div>
         <div className="absolute bottom-1/3 right-1/3 w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] rounded-full bg-gradient-to/20 blur-[100px] animate-pulse-slow delay-1000"></div>
 
-        {/* Grid pattern */}
-        <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-repeat opacity-10"></div>
+        
       </div>
 
       <div className="container mx-auto px-4 relative z-10">

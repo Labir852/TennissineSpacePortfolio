@@ -77,7 +77,7 @@ export default function DesktopNav() {
           Log in
         </Button>
         <Button 
-          className="bg-gradient-to-r from-gradient-from to-gradient-to hover:opacity-90 text-foreground border-0 shadow-lg shadow-amber-500/20 hover:shadow-amber-500/30 transition-shadow text-sm lg:text-base px-3 lg:px-4"
+          className="bg-gradient-to-r from-gradient-from to-gradient-to hover:opacity-90 text-foreground border-0 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 transition-shadow text-sm lg:text-base px-3 lg:px-4"
           //  h-10 sm:h-12 px-6 sm:px-8 text-sm sm:text-base
         >
           Get Started

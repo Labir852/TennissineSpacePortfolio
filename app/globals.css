@@ -9,8 +9,8 @@
     --border: 240 5% 26%;
     --input: 240 5% 26%;
     --ring: 262 83% 58%;
-    --background: 0 0% 4%;
-    --foreground: 0 0% 98%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 5%;
     --primary: 262 83% 58%;
     --primary-foreground: 0 0% 98%;
     --secondary: 240 4% 16%;
@@ -27,8 +27,8 @@
     --destructive-foreground: 0 0% 98%;
     
     /* Custom brand colors */
-    --gradient-from: 0 84% 60%;
-    --gradient-to: 43 96% 56%;
+    --gradient-from: 220 91% 56%;
+    --gradient-to: 270 91% 65%;
     --brand-accent: 45 100% 51%;
     --surface: 0 0% 4%;
     --surface-foreground: 0 0% 98%;
@@ -58,8 +58,8 @@
     --popover-foreground: 0 0% 98%;
     --destructive: 0 63% 31%;
     --destructive-foreground: 0 0% 98%;
-    --gradient-from: 0 84% 60%;
-    --gradient-to: 43 96% 56%;
+    --gradient-from: 220 91% 56%;
+    --gradient-to: 270 91% 65%;
     --brand-accent: 45 100% 51%;
     --surface: 0 0% 4%;
     --surface-foreground: 0 0% 98%;
