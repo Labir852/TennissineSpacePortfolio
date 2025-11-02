@@ -61,7 +61,7 @@ export default function ModernPricing() {
   return (
     <section
       id="pricing"
-      className="py-16 sm:py-20 md:py-24 bg-background relative overflow-hidden"
+      className="py-16 sm:py-20 md:py-24 bg-background relative overflow-hidden border-t border-border/50"
       aria-labelledby="pricing-heading"
     >
       {/* Background elements */}
@@ -90,12 +90,12 @@ export default function ModernPricing() {
           </p>
 
           <div className="relative flex items-center justify-center mt-6 sm:mt-8">
-            <fieldset className="bg-white/5 backdrop-blur-sm border border-white/10 p-1 rounded-full">
+            <fieldset className="bg-surface/5 backdrop-blur-sm border border-border p-1 rounded-full">
               <legend className="sr-only">Billing Frequency</legend>
               <div className="relative flex">
                 <button
                   onClick={() => setAnnual(true)}
-                  className={`relative z-10 px-4 sm:px-6 py-1.5 sm:py-2 rounded-full transition-colors  focus:outline-none focus:ring-2 focus:ring-white ${
+                  className={`relative z-10 px-4 sm:px-6 py-1.5 sm:py-2 rounded-full transition-colors  focus:outline-none focus:ring-2 focus:ring-primary ${
                     annual ? "text-foreground bg-gradient-to-r from-gradient-from to-gradient-to hover:opacity-90" : "text-foreground/70"
                   }`}
                   aria-pressed={annual}
@@ -105,7 +105,7 @@ export default function ModernPricing() {
                 </button>
                 <button
                   onClick={() => setAnnual(false)}
-                  className={`relative z-10 px-4 sm:px-6 py-1.5 sm:py-2 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-white ${
+                  className={`relative z-10 px-4 sm:px-6 py-1.5 sm:py-2 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary ${
                     !annual ? "text-foreground bg-gradient-to-r from-gradient-from to-gradient-to " : "text-foreground/70"
                   }`}
                   aria-pressed={!annual}
@@ -154,8 +154,8 @@ export default function ModernPricing() {
               )}
 
               <div
-                className={`h-full bg-white/5 backdrop-blur-sm border rounded-2xl overflow-hidden transition-transform ${
-                  plan.popular ? "border-blue-500" : "border-white/10"
+                className={`h-full bg-surface/5 backdrop-blur-sm border rounded-2xl overflow-hidden transition-transform ${
+                  plan.popular ? "border-blue-500" : "border-border"
                 }`}
               >
                 <div className="p-5 sm:p-8">
@@ -181,7 +181,7 @@ export default function ModernPricing() {
                   </div>
 
                   <Button
-                    className={`w-full mb-6 sm:mb-8 py-2 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black focus:outline-none ${
+                    className={`w-full mb-6 sm:mb-8 py-2 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background focus:outline-none ${
                       plan.popular
                         ? "bg-gradient-to-r from-gradient-from to-gradient-to hover:from-blue-600 hover:to-purple-600 text-foreground border-0"
                         : "bg-white/10 hover:bg-white/20 text-foreground"

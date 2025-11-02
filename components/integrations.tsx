@@ -22,7 +22,7 @@ export default function Integrations() {
 
   return (
     <section 
-      className="py-12 sm:py-16 md:py-24 bg-background relative overflow-hidden"
+      className="py-12 sm:py-16 md:py-24 bg-background relative overflow-hidden border-t border-border/50"
       aria-labelledby="integrations-heading"
     >
       {/* Background elements */}
@@ -62,11 +62,11 @@ export default function Integrations() {
               role="listitem"
             >
               <div 
-                className="bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/10 rounded-lg p-2 sm:p-3 md:p-4 flex flex-col items-center justify-center h-full transition-colors focus-within:ring-2 focus-within:ring-white"
+                className="bg-surface/5 hover:bg-accent backdrop-blur-sm border border-border rounded-lg p-2 sm:p-3 md:p-4 flex flex-col items-center justify-center h-full transition-colors focus-within:ring-2 focus-within:ring-primary"
                 tabIndex={0}
               >
                 <div 
-                  className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-r from-red-500/20 to-amber-500/20 flex items-center justify-center mb-1 sm:mb-2"
+                  className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-r from-gradient-from to-gradient-to flex items-center justify-center mb-1 sm:mb-2"
                   aria-hidden="true"
                 >
                   <img 
@@ -94,7 +94,7 @@ export default function Integrations() {
             Don't see what you need? {" "}
             <a 
               href="#contact" 
-              className="text-blue-400 hover:text-blue-300 underline underline-offset-2 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-black"
+              className="text-primary hover:opacity-80 underline underline-offset-2 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2 focus:ring-offset-background"
               aria-label="Request a custom integration"
             >
               Request an integration

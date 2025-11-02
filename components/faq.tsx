@@ -43,7 +43,7 @@ export default function FaqSection() {
   ]
 
   return (
-    <section className="py-4 sm:py-20 md:py-24 bg-background relative overflow-hidden">
+    <section className="py-4 sm:py-20 md:py-24 bg-background relative overflow-hidden border-t border-border/50">
       {/* Background elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute bottom-0 right-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 rounded-full blur-[100px]"></div>
@@ -76,9 +76,9 @@ export default function FaqSection() {
               >
                 <AccordionItem 
                   value={`item-${index}`}
-                  className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg overflow-hidden"
+                  className="bg-surface/5 backdrop-blur-sm border border-border rounded-lg overflow-hidden"
                 >
-                  <AccordionTrigger className="px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-lg font-medium hover:no-underline hover:bg-white/5 text-left">
+                  <AccordionTrigger className="px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-lg font-medium hover:no-underline hover:bg-surface/5 text-left">
                     {faq.question}
                   </AccordionTrigger>
                   <AccordionContent className="px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base text-foreground/70">
@@ -99,7 +99,7 @@ export default function FaqSection() {
         >
           <p className="text-sm sm:text-base text-foreground/70">
             Still have questions? {" "}
-            <a href="#contact" className="text-blue-400 hover:text-purple-400 underline underline-offset-2">
+            <a href="#contact" className="text-primary hover:text-primary/80 underline underline-offset-2">
               Contact our support team
             </a>
           </p>

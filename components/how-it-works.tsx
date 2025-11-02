@@ -63,7 +63,7 @@ export default function HowItWorks() {
   const scrollTo = (index: number) => emblaApi?.scrollTo(index);
 
   return (
-    <section className="py-12 sm:py-16 md:py-24 bg-background relative overflow-hidden">
+    <section className="py-12 sm:py-16 md:py-24 bg-background relative overflow-hidden border-t border-border/50">
       {/* Background elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 rounded-full blur-[100px]"></div>
@@ -99,7 +99,7 @@ export default function HowItWorks() {
               className="group relative h-full"
             >
               <div className="absolute -inset-1 bg-gradient-to-r from-gradient-from to-gradient-to hover:opacity-90 text-foreground border-0 rounded-xl blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="relative bg-background/80 backdrop-blur-sm border border-white/10 rounded-lg overflow-hidden h-full flex flex-col">
+              <div className="relative bg-background/80 backdrop-blur-sm border border-border rounded-lg overflow-hidden h-full flex flex-col">
                 <div className="relative h-40 sm:h-48 overflow-hidden">
                   <Image
                     src={step.image}
@@ -124,7 +124,7 @@ export default function HowItWorks() {
                   </p>
 
                   {index < steps.length - 1 && (
-                    <div className="hidden lg:flex items-center justify-end text-amber-400 mt-auto">
+                    <div className="hidden lg:flex items-center justify-end text-brand-accent mt-auto">
                       <ArrowRight className="w-5 h-5" />
                     </div>
                   )}
@@ -145,8 +145,8 @@ export default function HowItWorks() {
                   className="flex-[0_0_85%] min-w-0 ml-4 first:ml-4"
                 >
                   <div className="relative h-[320px]">
-                    <div className="absolute -inset-1 bg-gradient-to-r from-red-500 to-amber-500 rounded-xl blur-sm opacity-70"></div>
-                    <div className="relative bg-background/80 backdrop-blur-sm border border-white/10 rounded-lg overflow-hidden h-full flex flex-col">
+                    <div className="absolute -inset-1 bg-gradient-to-r from-gradient-from to-gradient-to rounded-xl blur-sm opacity-70"></div>
+                    <div className="relative bg-background/80 backdrop-blur-sm border border-border rounded-lg overflow-hidden h-full flex flex-col">
                       <div className="relative h-32 overflow-hidden">
                         <Image
                           src={step.image}
@@ -157,7 +157,7 @@ export default function HowItWorks() {
                           priority={index < 2}
                         />
                         <div className="absolute inset-0 bg-background/50"></div>
-                        <div className="absolute top-3 left-3 bg-gradient-to-r from-red-500 to-amber-500 text-foreground rounded-lg w-8 h-8 flex items-center justify-center text-sm font-bold">
+                        <div className="absolute top-3 left-3 bg-gradient-to-r from-gradient-from to-gradient-to text-foreground rounded-lg w-8 h-8 flex items-center justify-center text-sm font-bold">
                           {step.number}
                         </div>
                       </div>
@@ -184,7 +184,7 @@ export default function HowItWorks() {
                 key={index}
                 className={`h-1 rounded-full mx-1 ${
                   selectedIndex === index
-                    ? "w-5 bg-gradient-to-r from-red-500 to-amber-500"
+                    ? "w-5 bg-gradient-to-r from-gradient-from to-gradient-to"
                     : "w-2 bg-white/20"
                 }`}
                 onClick={() => scrollTo(index)}

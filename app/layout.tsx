@@ -11,20 +11,20 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Tennissine's Space - Elevate Your Digital Experience",
-  description: "Transform how you work with our AI-powered platform. Automate workflows, gain insights, and boost productivity.",
+  description: "Transform your vision to technology and make your business reach to more people. Automate workflows, gain insights, and boost productivity.",
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
-    apple: "/apple-touch-icon.png",
+    icon: "/images/logos/Main Logo-04.png",
+    shortcut: "/images/logos/Main Logo-04.png",
+    apple: "/images/logos/Main Logo-04.png",
   },
   manifest: "/site.webmanifest",
-  generator: "Mohamed Djoudir",
+  generator: "Tennissine's Space",
   openGraph: {
     title: "Tennissine's Space - Elevate Your Digital Experience",
-    description: "Transform how you work with our AI-powered platform. Automate workflows, gain insights, and boost productivity.",
+    description: "Transform your vision to technology and make your business reach to more people. Automate workflows, gain insights, and boost productivity.",
     images: [
       {
-        url: "/image.png",
+        url: "/images/logos/Main Logo-02.png",
         width: 1200,
         height: 630,
         alt: "Tennissine's Space - AI-powered platform",

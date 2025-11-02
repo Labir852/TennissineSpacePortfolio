@@ -89,7 +89,8 @@
   height: 6px;
   background-color: hsl(var(--foreground));
   border-radius: 9999px;
-  mix-blend-mode: difference;
+  /* Use opacity instead of mix-blend-mode for better visibility in both themes */
+  opacity: 0.8;
 }
 
 .cursor-outline {

@@ -18,7 +18,7 @@ export default function MobileNav({ isOpen }: MobileNavProps) {
   return (
     <div 
       className={cn(
-        "md:hidden fixed inset-x-0 top-[60px] bg-background/95 backdrop-blur-lg border-t border-white/10 transition-all duration-300 overflow-hidden",
+        "md:hidden fixed inset-x-0 top-[60px] bg-background/95 backdrop-blur-lg border-t border-border transition-all duration-300 overflow-hidden",
         isOpen ? "max-h-[calc(100vh-60px)] opacity-100" : "max-h-0 opacity-0"
       )}
     >
@@ -44,16 +44,16 @@ export default function MobileNav({ isOpen }: MobileNavProps) {
           setActiveDropdown={setActiveDropdown}
         />
 
-        <Link href="#pricing" className="py-2 px-2 border-b border-white/10 hover:bg-white/5 rounded-md transition-colors active:bg-white/10">
+        <Link href="#pricing" className="py-2 px-2 border-b border-border hover:bg-accent rounded-md transition-colors active:bg-accent">
           Pricing
         </Link>
 
-        <Link href="#testimonials" className="py-2 px-2 border-b border-white/10 hover:bg-white/5 rounded-md transition-colors active:bg-white/10">
+        <Link href="#testimonials" className="py-2 px-2 border-b border-border hover:bg-accent rounded-md transition-colors active:bg-accent">
           Testimonials
         </Link>
 
         <div className="flex flex-col gap-2 pt-3">
-          <Button variant="outline" className="border-white/20 text-foreground hover:bg-white/10 h-10 active:bg-white/20">
+          <Button variant="outline" className="border-border text-foreground hover:bg-accent h-10 active:bg-accent/80">
             Log in
           </Button>
           <Button

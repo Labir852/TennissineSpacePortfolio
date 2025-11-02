@@ -4,7 +4,7 @@ import Image from "next/image"
 
 export default function ModernFooter() {
   return (
-    <footer className="bg-picture-background relative overflow-hidden py-8 text-white  sm:py-16  px-3 sm:px-6 lg:px-8">
+    <footer className=" bg-no-repeat bg-cover relative overflow-hidden py-8 text-foreground sm:py-16 px-3 sm:px-6 lg:px-8  border-border">
       
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 rounded-full blur-[100px]"></div>

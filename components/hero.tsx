@@ -28,7 +28,7 @@ export default function ModernHero() {
   }, [])
 
   return (
-    <section className="relative min-h-[100svh] flex items-center pt-16 sm:pt-20 overflow-hidden ">
+    <section className="relative min-h-[100svh] flex items-center pt-16 sm:pt-20 overflow-hidden bg-background">
       {/* Background elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-background via-background to-background/90"></div>
@@ -49,10 +49,10 @@ export default function ModernHero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-6 text-xs sm:text-sm"
+              className="mt-4 inline-flex items-center gap-2 bg-surface/10 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-6 text-xs sm:text-sm border border-border/70"
             >
-              <Sparkles className="h-3 w-3 sm:h-4 sm:w-4 text-amber-400" />
-              <span className="font-medium">Introducing Tennissine's Space</span>
+              <Sparkles className="h-3 w-3 sm:h-4 sm:w-4 text-brand-accent" />
+              <span className="font-medium text-foreground">Introducing Tennissine's Space</span>
             </motion.div>
 
             <motion.h1
@@ -97,7 +97,7 @@ export default function ModernHero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="mt-6 sm:mt-8 flex items-center justify-center lg:justify-start gap-2 sm:gap-4 flex-wrap sm:flex-nowrap"
+              className="mt-6 sm:mt-8 flex items-center justify-center lg:justify-start gap-2 sm:gap-4 flex-wrap sm:flex-nowrap inline-flex items-center gap-2 bg-surface/10 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-6 text-xs sm:text-sm border border-border/70"
             >
               <div className="flex -space-x-2">
                 {[1, 2, 3, 4].map((i) => (
@@ -114,11 +114,11 @@ export default function ModernHero() {
                 <span className="text-foreground/70">companies</span>
               </div>
               <div className="flex items-center gap-0.5 sm:gap-1">
-                <Star className="h-3 w-3 sm:h-4 sm:w-4 fill-amber-400 text-amber-400" />
-                <Star className="h-3 w-3 sm:h-4 sm:w-4 fill-amber-400 text-amber-400" />
-                <Star className="h-3 w-3 sm:h-4 sm:w-4 fill-amber-400 text-amber-400" />
-                <Star className="h-3 w-3 sm:h-4 sm:w-4 fill-amber-400 text-amber-400" />
-                <Star className="h-3 w-3 sm:h-4 sm:w-4 fill-amber-400 text-amber-400" />
+                <Star className="h-3 w-3 sm:h-4 sm:w-4 fill-brand-accent text-brand-accent" />
+                <Star className="h-3 w-3 sm:h-4 sm:w-4 fill-brand-accent text-brand-accent" />
+                <Star className="h-3 w-3 sm:h-4 sm:w-4 fill-brand-accent text-brand-accent" />
+                <Star className="h-3 w-3 sm:h-4 sm:w-4 fill-brand-accent text-brand-accent" />
+                <Star className="h-3 w-3 sm:h-4 sm:w-4 fill-brand-accent text-brand-accent" />
               </div>
             </motion.div>
           </div>
@@ -135,16 +135,23 @@ export default function ModernHero() {
                 <div className="absolute -inset-1 bg-gradient-to-r from-gradient-from to-gradient-to rounded-2xl blur-lg opacity-70"></div>
                 <div
                   ref={parallaxRef}
-                  className="relative bg-surface/80 backdrop-blur-sm border border-border rounded-xl overflow-hidden"
+                  className="relative bg-surface/80 backdrop-blur-sm rounded-xl overflow-hidden border"
                 >
-                  <Image
+                  {/* <Image
                     src="/images/hero2.png"
                     alt="Dashboard Preview"
                     width={600}
                     height={400}
                     className="w-full h-auto rounded-lg"
+                  /> */}
+                  {/* <video src="/videos/herovideo.webm" autoPlay muted loop className="w-full h-auto rounded-lg" /> */}
+                  <video
+                    src="/videos/herovideo3.webm"
+                    autoPlay
+                    muted
+                    loop
+                    className="w-full h-full rounded-lg"
                   />
-
                   {/* Floating UI elements - hidden on smallest screens */}
                   <motion.div
                     initial={{ y: 20, opacity: 0 }}

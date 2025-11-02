@@ -63,7 +63,7 @@ export default function SocialProof() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <p className="text-base sm:text-lg text-amber-400 font-medium mb-2">Trusted by industry leaders</p>
+          <p className="text-base sm:text-lg text-foreground font-medium mb-2">Trusted by industry leaders</p>
           <h2 id="social-proof-heading" className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground">Join thousands of satisfied customers</h2>
         </motion.div>
 
@@ -89,7 +89,6 @@ export default function SocialProof() {
                   alt={`${company.name} logo`}
                   width={60} 
                   height={60} 
-                  className="object-contain filter brightness-0 invert"
                 />
               </div>
             </motion.div>
@@ -113,11 +112,11 @@ export default function SocialProof() {
                   aria-hidden="true"
                 ></div>
                 <div 
-                  className="relative bg-background/70 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-white/10 h-full flex flex-col justify-center"
+                  className="relative bg-background/70 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-border h-full flex flex-col justify-center"
                   role="presentation"
                 >
                   <div 
-                    className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-red-400 to-amber-400 bg-clip-text text-transparent mb-1 sm:mb-2 truncate"
+                    className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-gradient-from to-gradient-to  bg-clip-text text-transparent mb-1 sm:mb-2 truncate"
                     aria-hidden="true"
                   >
                     {stat.value}

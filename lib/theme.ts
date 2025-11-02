@@ -1,18 +1,18 @@
 export const themes = {
   light: {
     // Core theme colors
-    "--border": "220 14% 90%",
-    "--input": "220 14% 90%",
+    "--border": "220 13% 75%",  // More visible border in light mode
+    "--input": "220 13% 85%",
     "--ring": "262 83% 58%",
     "--background": "0 0% 100%",
-    "--foreground": "0% 0% 5%",
+    "--foreground": "0 0% 5%",
     "--primary": "262 83% 58%",
     "--primary-foreground": "0 0% 98%",
     "--secondary": "240 5% 96%",
     "--secondary-foreground": "240 6% 10%",
-    "--muted": "240 5% 96%",
+    "--muted": "240 4% 92%",
     "--muted-foreground": "240 4% 46%",
-    "--accent": "240 5% 96%",
+    "--accent": "240 5% 92%",
     "--accent-foreground": "240 6% 10%",
     "--card": "0 0% 100%",
     "--card-foreground": "0 0% 10%",
@@ -25,7 +25,7 @@ export const themes = {
     "--gradient-from": "220 91% 56%",
     "--gradient-to": "270 91% 65%",
     "--brand-accent": "45 100% 51%",  // amber-400
-    "--surface": "0 0% 100%",
+    "--surface": "0 0% 98%",  // Slight tint for surface separation
     "--surface-foreground": "0 0% 10%",
     
     // Border radius

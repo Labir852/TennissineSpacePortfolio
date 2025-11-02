@@ -58,7 +58,7 @@ export default function BlogPreview() {
           <div className="mt-6 md:mt-0">
             <Button 
               variant="outline" 
-              className="border-white/20 text-foreground hover:bg-white/10 text-sm sm:text-base focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black focus:outline-none"
+              className="border-border text-foreground hover:bg-accent text-sm sm:text-base focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background focus:outline-none"
               aria-label="View all blog articles"
             >
               View All Articles
@@ -77,7 +77,7 @@ export default function BlogPreview() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group"
             >
-              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden h-full flex flex-col hover:border-white/20 transition-all">
+              <div className="bg-surface/5 backdrop-blur-sm border border-border rounded-xl overflow-hidden h-full flex flex-col hover:border-border transition-all">
                 <div className="relative h-44 sm:h-48 overflow-hidden">
                   <Image
                     src={article.image}
@@ -111,7 +111,7 @@ export default function BlogPreview() {
                   
                   <Button 
                     variant="link" 
-                    className="p-0 text-amber-400 hover:text-amber-300 justify-start text-sm sm:text-base focus:ring-2 focus:ring-amber-400 focus:outline-none"
+                    className="p-0 text-foreground hover:opacity-80 justify-start text-sm sm:text-base focus:ring-2 focus:ring-brand-accent focus:outline-none"
                     aria-label={`Read more about ${article.title}`}
                   >
                     Read More

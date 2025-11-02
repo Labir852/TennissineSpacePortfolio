@@ -66,7 +66,7 @@ export default function ModernTestimonials() {
   return (
     <section 
       id="testimonials" 
-      className="py-16 sm:py-20 md:py-24 bg-background relative overflow-hidden"
+      className="py-16 sm:py-20 md:py-24 bg-background relative overflow-hidden border-t border-border/50"
       aria-labelledby="testimonials-heading"
     >
       {/* Background elements */}
@@ -112,7 +112,7 @@ export default function ModernTestimonials() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -100 }}
                 transition={{ duration: 0.5 }}
-                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-5 sm:p-8 md:p-12"
+                className="bg-surface/5 backdrop-blur-sm border border-border rounded-2xl p-5 sm:p-8 md:p-12"
                 aria-live="polite"
                 role="group"
                 aria-roledescription="slide"
@@ -137,7 +137,7 @@ export default function ModernTestimonials() {
                       <p className="text-foreground/70 text-sm">{testimonials[current].role}</p>
                       <div className="flex justify-center mt-2" aria-label={`Rated ${testimonials[current].rating} out of 5 stars`}>
                         {[...Array(testimonials[current].rating)].map((_, i) => (
-                          <svg key={i} className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                          <svg key={i} className="w-4 h-4 sm:w-5 sm:h-5 text-brand-accent fill-current" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                           </svg>
                         ))}
@@ -160,7 +160,7 @@ export default function ModernTestimonials() {
               variant="outline"
               size="icon"
               onClick={prev}
-              className="h-8 w-8 sm:h-10 sm:w-10 rounded-full border-white/10 hover:bg-white/10 focus:ring-2 focus:ring-white focus:outline-none"
+              className="h-8 w-8 sm:h-10 sm:w-10 rounded-full border-border hover:bg-accent focus:ring-2 focus:ring-primary focus:outline-none"
               aria-label="Previous testimonial"
             >
               <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
@@ -169,7 +169,7 @@ export default function ModernTestimonials() {
               variant="outline"
               size="icon"
               onClick={next}
-              className="h-8 w-8 sm:h-10 sm:w-10 rounded-full border-white/10 hover:bg-white/10 focus:ring-2 focus:ring-white focus:outline-none"
+              className="h-8 w-8 sm:h-10 sm:w-10 rounded-full border-border hover:bg-accent focus:ring-2 focus:ring-primary focus:outline-none"
               aria-label="Next testimonial"
             >
               <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
@@ -184,8 +184,8 @@ export default function ModernTestimonials() {
                   setAutoplay(false)
                   setCurrent(idx)
                 }}
-                className={`w-1.5 h-1.5 sm:w-2 sm:h-2 mx-1 rounded-full focus:outline-none focus:ring-2 focus:ring-white ${
-                  current === idx ? "bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 hover:opacity-90" : "bg-white/20"
+                className={`w-1.5 h-1.5 sm:w-2 sm:h-2 mx-1 rounded-full focus:outline-none focus:ring-2 focus:ring-primary ${
+                  current === idx ? "bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 hover:opacity-90" : "bg-foreground/20"
                 }`}
                 aria-label={`Go to testimonial ${idx + 1}`}
                 aria-current={current === idx ? "true" : "false"}
