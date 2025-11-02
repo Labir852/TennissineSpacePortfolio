@@ -7,7 +7,15 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight, Star, Sparkles } from "lucide-react"
 
 export default function ModernHero() {
-  const parallaxRef = useRef<HTMLDivElement>(null)
+  const parallaxRef = useRef<HTMLDivElement>(null);
+  const flags = [
+    { name: "Slack", logo: "https://flagcdn.com/48x36/bd.png" },
+    { name: "GitHub", logo: "https://flagcdn.com/48x36/bd.png" },
+    { name: "Notion", logo: "https://flagcdn.com/48x36/bd.png" },
+    { name: "Google", logo: "https://flagcdn.com/48x36/bd.png" },
+    { name: "Figma", logo: "https://flagcdn.com/48x36/bd.png" },
+    { name: "Stripe", logo: "https://flagcdn.com/48x36/bd.png" },
+  ];
 
   useEffect(() => {
     // Only enable parallax effect on desktop devices
@@ -100,12 +108,18 @@ export default function ModernHero() {
               className="mt-6 sm:mt-8 flex items-center justify-center lg:justify-start gap-2 sm:gap-4 flex-wrap sm:flex-nowrap inline-flex items-center gap-2 bg-surface/10 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-6 text-xs sm:text-sm border border-border/70"
             >
               <div className="flex -space-x-2">
-                {[1, 2, 3, 4].map((i) => (
+                {flags.map((i,id) => (
+                  
                   <div
-                    key={i}
-                    className="w-6 h-6 sm:w-8 sm:h-8 rounded-full border-2 border-background bg-card flex items-center justify-center text-xs"
+                    key={id}
+                    className="w-6 h-6  sm:w-8 sm:h-8 border  border-background p-1 flex items-center justify-center text-xs"
                   >
-                    {i}
+                    <Image 
+                      src={i.logo} 
+                      alt={`${i.name} logo`}
+                      width={60} 
+                      height={60} 
+                    />
                   </div>
                 ))}
               </div>
