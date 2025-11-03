@@ -5,8 +5,8 @@ import { motion } from "framer-motion"
 
 export default function SocialProof() {
   const companies = [
-    { name: "Slack", logo: "https://cdn.simpleicons.org/slack" },
-    { name: "GitHub", logo: "https://cdn.simpleicons.org/github" },
+    { name: "Bangladesh Army", logo: "/clients/bangladesharmylogonobg.png" },
+    { name: "Mixora Trading Ltd.", logo: "/clients/mixorabl.png" },
     { name: "Notion", logo: "https://cdn.simpleicons.org/notion" },
     { name: "Google", logo: "https://cdn.simpleicons.org/google" },
     { name: "Figma", logo: "https://cdn.simpleicons.org/figma" },
@@ -79,20 +79,25 @@ export default function SocialProof() {
           {companies.map((company, index) => (
             <motion.div
               key={index}
-              className="opacity-60 hover:opacity-100 transition-all duration-300"
+              className="opacity-60 hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center "
               variants={itemVariants}
             >
-              {/* Use a placeholder or actual logo */}
-              <div className="w-[30px] h-[30px] sm:w-[80px] sm:h-[80px] md:h-[40px] flex items-center justify-center">
+              {/* Logo on top */}
+              <div className="w-[30px] h-[30px] sm:w-[80px] sm:h-[80px] md:w-[60px] md:h-[60px] flex items-center justify-center ">
                 <Image 
                   src={company.logo} 
                   alt={`${company.name} logo`}
                   width={60} 
                   height={60} 
+                  className="object-contain"
                 />
               </div>
+
+              {/* Name below */}
+              <p className="text-center font-medium text-sm sm:text-base text-foreground">{company.name}</p>
             </motion.div>
           ))}
+
         </motion.div>
 
         {/* Stats */}

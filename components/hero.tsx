@@ -10,11 +10,11 @@ export default function ModernHero() {
   const parallaxRef = useRef<HTMLDivElement>(null);
   const flags = [
     { name: "Slack", logo: "https://flagcdn.com/48x36/bd.png" },
-    { name: "GitHub", logo: "https://flagcdn.com/48x36/bd.png" },
-    { name: "Notion", logo: "https://flagcdn.com/48x36/bd.png" },
-    { name: "Google", logo: "https://flagcdn.com/48x36/bd.png" },
-    { name: "Figma", logo: "https://flagcdn.com/48x36/bd.png" },
-    { name: "Stripe", logo: "https://flagcdn.com/48x36/bd.png" },
+    { name: "GitHub", logo: "https://flagcdn.com/48x36/us.png" },
+    { name: "Notion", logo: "https://flagcdn.com/48x36/ca.png" },
+    { name: "Google", logo: "https://flagcdn.com/48x36/es.png" },
+    { name: "Figma", logo: "https://flagcdn.com/48x36/de.png" },
+    { name: "Stripe", logo: "https://flagcdn.com/48x36/ch.png" },
   ];
 
   useEffect(() => {
@@ -36,10 +36,17 @@ export default function ModernHero() {
   }, [])
 
   return (
-    <section className="relative min-h-[100svh] flex items-center pt-16 sm:pt-20 overflow-hidden bg-background">
+    <section  className="relative min-h-[100svh] flex items-center pt-16 sm:pt-20 overflow-hidden bg-background">
+      
       {/* Background elements */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-background via-background to-background/90"></div>
+        {/* <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-background via-background to-background/90"></div> */}
+        {/* Background elements */}
+  <div className="absolute inset-0 z-0">
+    <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 rounded-full blur-[100px]"></div>
+    <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 rounded-full blur-[100px]"></div>
+    <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-repeat opacity-5"></div>
+  </div>
 {/* Grid pattern */}
         <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-repeat opacity-10"></div>
         {/* Animated gradient orbs - adjusted for mobile */}
@@ -50,9 +57,9 @@ export default function ModernHero() {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 py-8 sm:py-0">
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 py-8 sm:py-0 ">
           {/* Hero content */}
-          <div className="flex-1 text-center lg:text-left">
+          <div className="flex-1 text-center lg:text-left ">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -92,29 +99,41 @@ export default function ModernHero() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex flex-col max-w-[100%] mx-auto sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start "
             >
-              <Button className="bg-gradient-to-r from-gradient-from to-gradient-to hover:opacity-90 text-foreground border-0 h-10 sm:h-12 px-6 sm:px-8 text-sm sm:text-base">
-                Get Started
+              <Button className="bg-gradient-to-r from-gradient-from to-gradient-to hover:opacity-90 text-white border-0 h-10 sm:h-12 px-6 sm:px-8 text-sm sm:text-base shadow-lg shadow-black/10 dark:shadow-white/10
+            hover:shadow-xl hover:shadow-black/20 dark:hover:shadow-white/20
+            transition-shadow duration-300">
+                Get a free Consultation
                 <ArrowRight className="ml-2 h-3.5 w-3.5 sm:h-4 sm:w-4" />
               </Button>
-              <Button variant="outline" className="border-border text-foreground hover:bg-accent h-10 sm:h-12 px-6 sm:px-8 text-sm sm:text-base">
+              {/* <Button variant="outline" className="border-border text-foreground hover:bg-accent h-10 sm:h-12 px-6 sm:px-8 text-sm sm:text-base">
                 Watch Demo
-              </Button>
+              </Button> */}
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="mt-6 sm:mt-8 flex items-center justify-center lg:justify-start gap-2 sm:gap-4 flex-wrap sm:flex-nowrap inline-flex items-center gap-2 bg-surface/10 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-6 text-xs sm:text-sm border border-border/70"
+              className="mt-6 sm:mt-8 flex items-center justify-center lg:justify-start gap-2 sm:gap-4 flex-wrap sm:flex-nowrap inline-flex items-center gap-2 
+            bg-surface/10 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-6 
+            text-xs sm:text-sm border border-border/70 bg-foreground/20 
+            shadow-lg shadow-black/10 dark:shadow-white/10
+            hover:shadow-xl hover:shadow-black/20 dark:hover:shadow-white/20
+            transition-shadow duration-300"
             >
-              <div className="flex -space-x-2">
+              <div className="text-xs sm:text-sm">
+                <span className="text-foreground/70">Helping Businesses to expand</span> <span className="font-bold">Worldwide</span>{" "}
+              
+              </div>
+              <div className="flex ">
                 {flags.map((i,id) => (
                   
                   <div
                     key={id}
-                    className="w-6 h-6  sm:w-8 sm:h-8 border  border-background p-1 flex items-center justify-center text-xs"
+                    className="w-10 h-10  sm:w-8 sm:h-8 m-1 flex items-center justify-center text-xs"
                   >
-                    <Image 
+                    <Image
+                      key={id}
                       src={i.logo} 
                       alt={`${i.name} logo`}
                       width={60} 
@@ -123,22 +142,19 @@ export default function ModernHero() {
                   </div>
                 ))}
               </div>
-              <div className="text-xs sm:text-sm">
-                <span className="text-foreground/70">Trusted by</span> <span className="font-bold">10,000+</span>{" "}
-                <span className="text-foreground/70">companies</span>
-              </div>
-              <div className="flex items-center gap-0.5 sm:gap-1">
+              
+              {/* <div className="flex items-center gap-0.5 sm:gap-1">
                 <Star className="h-3 w-3 sm:h-4 sm:w-4 fill-brand-accent text-brand-accent" />
                 <Star className="h-3 w-3 sm:h-4 sm:w-4 fill-brand-accent text-brand-accent" />
                 <Star className="h-3 w-3 sm:h-4 sm:w-4 fill-brand-accent text-brand-accent" />
                 <Star className="h-3 w-3 sm:h-4 sm:w-4 fill-brand-accent text-brand-accent" />
                 <Star className="h-3 w-3 sm:h-4 sm:w-4 fill-brand-accent text-brand-accent" />
-              </div>
+              </div> */}
             </motion.div>
           </div>
 
           {/* Hero image */}
-          <div className="flex-1 relative mt-8 lg:mt-0 max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-full mx-auto">
+          <div className="flex-1 relative mt-8 lg:mt-0  max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-full mx-auto ">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -149,7 +165,7 @@ export default function ModernHero() {
                 <div className="absolute -inset-1 bg-gradient-to-r from-gradient-from to-gradient-to rounded-2xl blur-lg opacity-70"></div>
                 <div
                   ref={parallaxRef}
-                  className="relative bg-surface/80 backdrop-blur-sm rounded-xl overflow-hidden border"
+                  className="relative bg-surface/80 backdrop-blur-sm rounded-xl overflow-hidden"
                 >
                   {/* <Image
                     src="/images/hero2.png"
@@ -158,7 +174,7 @@ export default function ModernHero() {
                     height={400}
                     className="w-full h-auto rounded-lg"
                   /> */}
-                  {/* <video src="/videos/herovideo.webm" autoPlay muted loop className="w-full h-auto rounded-lg" /> */}
+                  {/* <video src="/videos/herovideo3.webm" autoPlay muted loop className="w-full h-auto rounded-lg" /> */}
                   <video
                     src="/videos/herovideo3.webm"
                     autoPlay
