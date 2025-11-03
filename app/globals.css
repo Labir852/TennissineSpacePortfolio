@@ -32,10 +32,15 @@
     --brand-accent: 45 100% 51%;
     --surface: 0 0% 4%;
     --surface-foreground: 0 0% 98%;
+    --stroke-color: #1c1c1c;
+    
     
     /* Border radius */
     --radius: 0.5rem;
   }
+  [data-theme="dark"] {
+  --stroke-color: #f5f5f5;
+}
 
   .dark {
     /* Same as root for this dark-first design */

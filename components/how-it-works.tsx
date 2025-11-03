@@ -295,10 +295,10 @@ export default function HowItWorks() {
 
           <h1
             className="text-4xl font-extrabold relative group mb-4"
-            style={{
-              color: "rgba(0,0,0,0)",
-              WebkitTextStroke: "0.8px #1c1c1c",
-            }}
+             style={{
+    color: "transparent",
+    WebkitTextStroke: "0.8px var(--stroke-color)",
+  }}
           >
             {step.number}
           </h1>
