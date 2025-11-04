@@ -7,10 +7,10 @@ export default function SocialProof() {
   const companies = [
     { name: "Bangladesh Army", logo: "/clients/bangladesharmylogonobg.png" },
     { name: "Mixora Trading Ltd.", logo: "/clients/mixorabl.png" },
-    { name: "Notion", logo: "https://cdn.simpleicons.org/notion" },
-    { name: "Google", logo: "https://cdn.simpleicons.org/google" },
-    { name: "Figma", logo: "https://cdn.simpleicons.org/figma" },
-    { name: "Stripe", logo: "https://cdn.simpleicons.org/stripe" },
+    { name: "DevHome Digital", logo: "/clients/devhome.png" },
+    { name: "CMSF", logo: "/clients/cmsf.png" },
+    { name: "Primeasia University", logo: "/clients/Primeasia.png" },
+    // { name: "Stripe", logo: "https://cdn.simpleicons.org/stripe" },
   ];
 
   const stats = [
@@ -52,7 +52,7 @@ export default function SocialProof() {
       <div className="absolute inset-0 z-0 opacity-100" aria-hidden="true">
         <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 rounded-full blur-[120px]"></div>
         <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 rounded-full blur-[120px]"></div>
-        <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-repeat opacity-5"></div>
+        <div className="absolute inset-0  bg-repeat opacity-5"></div>
       </div>
 
       <div className="container relative z-10 px-4 md:px-8">
@@ -64,7 +64,7 @@ export default function SocialProof() {
           transition={{ duration: 0.5 }}
         >
           <p className="text-base sm:text-lg text-foreground font-medium mb-2">Trusted by industry leaders</p>
-          <h2 id="social-proof-heading" className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground">Join thousands of satisfied customers</h2>
+          <h2 id="social-proof-heading" className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground">Join the trusted network of our customers</h2>
         </motion.div>
 
         {/* Company logos */}

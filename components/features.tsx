@@ -29,7 +29,7 @@ export default function ModernFeatures() {
         "Predictive analytics with AI",
         "Automated insights generation",
       ],
-      image: "/images/hero1.webp",
+      image: "/images/team.png",
     },
     {
       id: "automation",
@@ -131,7 +131,7 @@ export default function ModernFeatures() {
           transition={{ duration: 0.5 }}
           className="text-center mb-8 sm:mb-12"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">Powerful Features</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">Case Study / Projects</h2>
           <p className="text-sm sm:text-base md:text-lg text-foreground/70 max-w-2xl mx-auto">
             Everything you need to streamline your workflow
           </p>

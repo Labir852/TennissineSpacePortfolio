@@ -2,27 +2,43 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
+import * as Tooltip from "@radix-ui/react-tooltip";
 
 export default function Integrations() {
   // These would typically be actual logos in a real implementation
   const integrations = [
-    { name: "Slack", category: "Communication", logo: "https://cdn.simpleicons.org/slack" },
-    { name: "GitHub", category: "Development", logo: "https://cdn.simpleicons.org/github" },
-    { name: "Notion", category: "Productivity", logo: "https://cdn.simpleicons.org/notion" },
-    { name: "Google", category: "Workspace", logo: "https://cdn.simpleicons.org/google" },
-    { name: "Figma", category: "Design", logo: "https://cdn.simpleicons.org/figma" },
-    { name: "Salesforce", category: "CRM", logo: "https://cdn.simpleicons.org/salesforce" },
-    { name: "Zapier", category: "Automation", logo: "https://cdn.simpleicons.org/zapier" },
-    { name: "Stripe", category: "Payments", logo: "https://cdn.simpleicons.org/stripe" },
-    { name: "Hubspot", category: "Marketing", logo: "https://cdn.simpleicons.org/hubspot" },
-    { name: "Zoom", category: "Meetings", logo: "https://cdn.simpleicons.org/zoom" },
-    { name: "Jira", category: "Project Management", logo: "https://cdn.simpleicons.org/jira" },
-    { name: "Zendesk", category: "Support", logo: "https://cdn.simpleicons.org/zendesk" },
+    { name: "HTML", category: "Language", logo: "/images/TechStacks/html.png" },
+    { name: "CSS", category: "Language", logo: "/images/TechStacks/css.svg" },
+    { name: "Javascript", category: "Language", logo: "/images/TechStacks/javascript.svg" },
+    { name: "C#", category: "Language", logo: "/images/TechStacks/Csharp.png" },
+    { name: "Python", category: "Language", logo: "/images/TechStacks/Python.svg" },
+    { name: "PHP", category: "Language", logo: "/images/TechStacks/php.svg" },
+    { name: "ReactJs", category: "Frontend", logo: "/images/TechStacks/react.svg" },
+    { name: "NextJs", category: "Frontend", logo: "/images/TechStacks/next.png" },
+    { name: "Material UI", category: "Frontend", logo: "/images/TechStacks/mui.png" },
+    { name: "Tailwind CSS", category: "Frontend", logo: "/images/TechStacks/tailwind.png" },
+    { name: "React Native", category: "Mobile Application", logo: "/images/TechStacks/react.svg" },
+    { name: "ASP.NET", category: "Backend", logo: "/images/TechStacks/dotnet.png" },
+    { name: "Node.Js", category: "Backend", logo: "/images/TechStacks/NodeJs.svg" },
+    { name: "Express.Js", category: "Backend", logo: "/images/TechStacks/express.png" },
+    { name: "Laravel", category: "Backend", logo: "/images/TechStacks/Laravel.svg" },
+    { name: "Microsoft SQL Server", category: "Database", logo: "/images/TechStacks/mssql.png" },
+    { name: "PostgreSQL", category: "Database", logo: "/images/TechStacks/postgresql.svg" },
+    { name: "MySQL", category: "Database", logo: "/images/TechStacks/mysql.svg" },
+    { name: "MongoDB", category: "Database", logo: "/images/TechStacks/mongodb.svg" },
+    { name: "Redis", category: "Database", logo: "/images/TechStacks/redis.svg" },
+    { name: "Docker", category: "DevOps", logo: "/images/TechStacks/docker.png" },
+    { name: "Kubernetes", category: "DevOps", logo: "/images/TechStacks/kubernetes.png" },
+    { name: "CI / CD", category: "DevOps", logo: "/images/TechStacks/cicd.png" },
+    { name: "AWS", category: "DevOps", logo: "/images/TechStacks/aws.svg" },
+    { name: "GCP", category: "DevOps", logo: "/images/TechStacks/gcp.png" },
+    { name: "Azure", category: "DevOps", logo: "/images/TechStacks/azure.png" },
+    { name: "Wordpress", category: "CMS", logo: "/images/TechStacks/wordpress.svg" },
   ];
 
   return (
     <section 
-      className="py-12 sm:py-16 md:py-24 bg-background relative overflow-hidden border-t border-border/50"
+      className="py-12 sm:py-16 md:py-24 bg-background relative overflow-visible border-t border-border/50"
       aria-labelledby="integrations-heading"
     >
       {/* Background elements */}
@@ -39,7 +55,7 @@ export default function Integrations() {
           transition={{ duration: 0.5 }}
           className="text-center mb-8 sm:mb-10 md:mb-16"
         >
-          <h2 id="integrations-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Seamless Integrations</h2>
+          <h2 id="integrations-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Our Technology Stacks</h2>
           <p className="text-base sm:text-lg text-foreground/70 max-w-2xl mx-auto">
             Connect with your favorite tools and services
           </p>
@@ -52,6 +68,9 @@ export default function Integrations() {
           aria-label="Available integrations"
         >
           {integrations.map((integration, index) => (
+            <Tooltip.Provider key={index} delayDuration={150}>
+            <Tooltip.Root>
+              <Tooltip.Trigger asChild>
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
@@ -61,25 +80,37 @@ export default function Integrations() {
               className="group"
               role="listitem"
             >
+              
               <div 
-                className="bg-surface/5 hover:bg-accent backdrop-blur-sm border border-border rounded-lg p-2 sm:p-3 md:p-4 flex flex-col items-center justify-center h-full transition-colors focus-within:ring-2 focus-within:ring-primary"
-                tabIndex={0}
-              >
-                <div 
-                  className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-r from-gradient-from to-gradient-to flex items-center justify-center mb-1 sm:mb-2"
-                  aria-hidden="true"
-                >
-                  <img 
-                    src={integration.logo} 
-                    alt=""
-                    className="w-4 h-4 sm:w-5 sm:h-5 object-contain filter brightness-0 invert"
-                  />
-                </div>
-                <h3 className="font-medium text-center text-xs sm:text-sm">{integration.name}</h3>
-                {/* Remove category text on mobile */}
-                <p className="hidden sm:block text-xs text-foreground/50 mt-0.5" aria-label={`${integration.category} integration`}>{integration.category}</p>
-              </div>
+  className="bg-surface/5 hover:bg-accent backdrop-blur-md border border-border rounded-xl p-4 sm:p-5 md:p-6 flex flex-col items-center justify-center h-full transition-transform transform hover:scale-105 focus-within:ring-2 focus-within:ring-primary"
+  tabIndex={0}
+>
+  <img 
+    src={integration.logo} 
+    alt={integration.name}
+    className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain"
+  />
+  <p className="hidden sm:block text-sm text-foreground/60 mt-1" aria-label={`${integration.category} integration`}>
+    {integration.category}
+  </p>
+</div>
+
+              
             </motion.div>
+            </Tooltip.Trigger>
+
+                <Tooltip.Portal>
+                  <Tooltip.Content
+                    side="top"
+                    sideOffset={5}
+                    className=" z-[9999] rounded bg-foreground text-background px-2 py-1 text-xs shadow-sm"
+                  >
+                    {integration.name}
+                    <Tooltip.Arrow className="fill-foreground" />
+                  </Tooltip.Content>
+                </Tooltip.Portal>
+              </Tooltip.Root>
+            </Tooltip.Provider>
           ))}
         </div>
 

@@ -32,7 +32,7 @@ export default function ParallaxBackground() {
 
       {/* subtle grid overlay using theme foreground at low opacity */}
       <div className="absolute inset-0 opacity-[0.06]" style={{ maskImage: "linear-gradient(#000, transparent)" }}>
-        <div className="w-full h-full bg-[url('/images/grid.svg')] bg-repeat" />
+        <div className="w-full h-full  bg-repeat" />
       </div>
     </div>
   )

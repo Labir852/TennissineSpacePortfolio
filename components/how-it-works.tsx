@@ -75,7 +75,7 @@ export default function HowItWorks() {
 //       <div className="absolute inset-0 z-0">
 //         <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 rounded-full blur-[100px]"></div>
 //         <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 rounded-full blur-[100px]"></div>
-//         <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-repeat opacity-5"></div>
+//         <div className="absolute inset-0 bg-repeat opacity-5"></div>
 //       </div>
 
 //       <div className="container mx-auto px-4 relative z-10">
@@ -161,7 +161,7 @@ export default function HowItWorks() {
 //         ease: [0.25, 1, 0.5, 1],
 //         delay: index * 0.1,
 //       }}
-//       className="relative group bg-background/80 backdrop-blur-sm border border-border rounded-xl p-6 flex flex-col justify-between hover:-translate-y-2 transition-transform duration-500 ease-[0.22,1,0.36,1]"
+//       className="relative group bg-background/80 backdrop-blur-sm border border-border rounded-xl p-6 flex flex-col justify-between hover:-translate-y-2 transition-transform duration-500 "
 //     >
 //       {/* Large number */}
 //       <h1 className="text-4xl font-extrabold text-gradient bg-clip-text text-transparent bg-gradient-to-r from-gradient-from to-gradient-to mb-4 opacity-90 group-hover:opacity-100 transition-opacity">
@@ -255,7 +255,7 @@ export default function HowItWorks() {
   <div className="absolute inset-0 z-0">
     <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 rounded-full blur-[100px]"></div>
     <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 rounded-full blur-[100px]"></div>
-    <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-repeat opacity-5"></div>
+    <div className="absolute inset-0 bg-repeat opacity-5"></div>
   </div>
 
   <div className="container mx-auto px-4 relative z-10">
@@ -288,8 +288,8 @@ export default function HowItWorks() {
             delay: index * 0.1,
           }}
           className="relative group bg-background/80 backdrop-blur-sm border border-border rounded-xl p-6 flex flex-col justify-between
-             hover:-translate-y-2 hover:-translate-x-1 transition-transform duration-500 ease-[0.22,1,0.36,1]
-             hover:shadow-xl hover:shadow-gray-400/20 "
+             hover:-translate-y-2 hover:-translate-x-1 transition-transform duration-500 ease-out-3s
+             hover:shadow-xl hover:shadow-gray-400/20"
         >
           <div className="absolute inset-0 rounded-xl pointer-events-none bg-gradient-to-tr from-gradient-from/25 to-gradient-to/25 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 

@@ -45,10 +45,10 @@ export default function ModernHero() {
   <div className="absolute inset-0 z-0">
     <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 rounded-full blur-[100px]"></div>
     <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 rounded-full blur-[100px]"></div>
-    <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-repeat opacity-5"></div>
+    <div className="absolute inset-0  bg-repeat opacity-5"></div>
   </div>
 {/* Grid pattern */}
-        <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-repeat opacity-10"></div>
+        <div className="absolute inset-0 bg-repeat opacity-10"></div>
         {/* Animated gradient orbs - adjusted for mobile */}
         <div className="absolute top-1/3 left-1/3 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] rounded-full bg-gradient-from/20 blur-[100px] animate-pulse-slow"></div>
         <div className="absolute bottom-1/3 right-1/3 w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] rounded-full bg-gradient-to/20 blur-[100px] animate-pulse-slow delay-1000"></div>

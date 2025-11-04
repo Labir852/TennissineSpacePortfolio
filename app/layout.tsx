@@ -10,6 +10,7 @@ import ModernFooter from "@/components/footer"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("http://localhost:3000/"),
   title: "Tennissine's Space - Elevate Your Digital Experience",
   description: "Transform your vision to technology and make your business reach to more people. Automate workflows, gain insights, and boost productivity.",
   icons: {
