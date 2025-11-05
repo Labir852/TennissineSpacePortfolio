@@ -1,8 +1,10 @@
 "use client"
 
+import { useState } from "react"
 import { motion } from "framer-motion"
 import Image from "next/image"
-import * as Tooltip from "@radix-ui/react-tooltip";
+import * as Tooltip from "@radix-ui/react-tooltip"
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 
 export default function Integrations() {
   // These would typically be actual logos in a real implementation
@@ -36,6 +38,21 @@ export default function Integrations() {
     { name: "Wordpress", category: "CMS", logo: "/images/TechStacks/wordpress.svg" },
   ];
 
+  // Extract unique categories
+  const categories = ["Language", "Frontend", "Backend", "Database", "DevOps", "CMS"] as const
+  type CategoryType = typeof categories[number]
+
+  // Filter integrations by category
+  const getFilteredIntegrations = (category: CategoryType) => {
+    
+    if (category === "Frontend") {
+      return integrations.filter(integration => 
+        integration.category === "Frontend" || integration.category === "Mobile Application"
+      )
+    }
+    return integrations.filter(integration => integration.category === category)
+  }
+
   return (
     <section 
       className="py-12 sm:py-16 md:py-24 bg-background relative overflow-visible border-t border-border/50"
@@ -61,13 +78,34 @@ export default function Integrations() {
           </p>
         </motion.div>
 
-        {/* Simplified grid for mobile */}
-        <div 
-          className="grid grid-cols-3 gap-2 sm:grid-cols-4 md:grid-cols-6 sm:gap-4"
-          role="list"
-          aria-label="Available integrations"
-        >
-          {integrations.map((integration, index) => (
+        {/* Tabs for category filtering */}
+        <Tabs defaultValue="Language" className="w-full ">
+          <div className="flex justify-center mb-6 sm:mb-8 overflow-x-auto pb-3 sm:pb-0 scrollbar-hide">
+            <TabsList className="bg-surface/5 backdrop-blur-sm border border-border p-1 rounded-xl flex-nowrap">
+              {categories.map((category) => (
+                <TabsTrigger
+                  key={category}
+                  value={category}
+                  className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-gradient-from data-[state=active]:to-gradient-to data-[state=active]:text-foreground rounded-lg px-3 sm:px-4 py-1.5 sm:py-2 whitespace-nowrap text-xs sm:text-sm "
+                >
+                  {category}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+          </div>
+
+          {categories.map((category) => (
+            <TabsContent key={category} value={category} className="mt-0">
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+                className="grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-4 justify-center"
+                role="list"
+                aria-label={`${category} integrations`}
+              >
+                {getFilteredIntegrations(category).map((integration, index) => (
             <Tooltip.Provider key={index} delayDuration={150}>
             <Tooltip.Root>
               <Tooltip.Trigger asChild>
@@ -77,12 +115,12 @@ export default function Integrations() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: index * 0.05 }}
-              className="group"
+              className="group "
               role="listitem"
             >
               
               <div 
-  className="bg-surface/5 hover:bg-accent backdrop-blur-md border border-border rounded-xl p-4 sm:p-5 md:p-6 flex flex-col items-center justify-center h-full transition-transform transform hover:scale-105 focus-within:ring-2 focus-within:ring-primary"
+  className="bg-surface/5 hover:bg-accent backdrop-blur-md border border-border rounded-xl p-4 sm:p-5 md:p-6 flex flex-col items-center justify-center h-full transition-transform transform hover:scale-105 focus-within:ring-2 focus-within:ring-primary "
   tabIndex={0}
 >
   <img 
@@ -90,9 +128,9 @@ export default function Integrations() {
     alt={integration.name}
     className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain"
   />
-  <p className="hidden sm:block text-sm text-foreground/60 mt-1" aria-label={`${integration.category} integration`}>
+  {/* <p className="hidden sm:block text-sm text-foreground/60 mt-1" aria-label={`${integration.category} integration`}>
     {integration.category}
-  </p>
+  </p> */}
 </div>
 
               
@@ -111,8 +149,11 @@ export default function Integrations() {
                 </Tooltip.Portal>
               </Tooltip.Root>
             </Tooltip.Provider>
+                ))}
+              </motion.div>
+            </TabsContent>
           ))}
-        </div>
+        </Tabs>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}

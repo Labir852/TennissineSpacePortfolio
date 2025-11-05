@@ -140,13 +140,13 @@ export default function ModernFeatures() {
         <Tabs defaultValue="analytics" value={activeTab} onValueChange={handleTabChange} className="w-full">
           <div className="flex justify-center mb-6 sm:mb-8 overflow-x-auto pb-3 sm:pb-0 scrollbar-hide">
             <TabsList className="bg-transparent 
-  backdrop-blur-md 
-  border border-border/20 
-  p-1 
-  rounded-xl 
-  flex-nowrap 
-  shadow-inner 
-  shadow-black/20 dark:shadow-white/20">
+                  backdrop-blur-md 
+                  border border-border/20 
+                  p-1 
+                  rounded-xl 
+                  flex-nowrap 
+                  shadow-inner 
+                  shadow-black/20 dark:shadow-white/20">
             
               {features.map((feature) => (
                 <TabsTrigger
