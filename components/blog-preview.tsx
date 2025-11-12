@@ -8,30 +8,31 @@ import Image from "next/image"
 export default function BlogPreview() {
   const articles = [
     {
-      title: "10 Ways AI Is Transforming Workflow Automation",
-      excerpt: "Discover how artificial intelligence is revolutionizing the way businesses handle repetitive tasks and workflows.",
-      image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=2020&auto=format&fit=crop",
-      date: "May 15, 2023",
+      title: "Integrating AI into Legacy ERP Systems",
+      excerpt: "A breakdown of how we help enterprises modernize outdated ERP architectures using AI-driven automation layers.",
+      image: "https://images.unsplash.com/photo-1760931969401-9bd6ee902798?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=764",
+      date: "September 15, 2025",
+      readTime: "6 min read",
+      category: "AI & Automation",
+    },
+    {
+      title: "Designing Secure and Scalable POS Systems",
+      excerpt: "Behind the scenes of how we build cloud-native POS systems with enterprise-grade security and real-time performance.",
+      image: "https://images.unsplash.com/photo-1728044849280-10a1a75cff83?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
+      date: "August 22, 2025",
       readTime: "5 min read",
-      category: "Technology",
+      category: "Engineering",
     },
     {
-      title: "The Future of Remote Collaboration Tools",
-      excerpt: "See how the latest innovations in team collaboration software are making remote work more efficient than ever.",
-      image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2070&auto=format&fit=crop",
-      date: "April 28, 2023",
+      title: "How Minimalist Design Improves SaaS Usability",
+      excerpt: "Exploring the intersection of design minimalism, speed, and functional clarity for next-gen business software.",
+      image: "https://images.unsplash.com/photo-1559028012-481c04fa702d?w=2000",
+      date: "July 10, 2025",
       readTime: "4 min read",
-      category: "Productivity",
-    },
-    {
-      title: "How to Build an Effective Data Strategy",
-      excerpt: "Learn the essential steps to creating a data strategy that drives business growth and informed decision making.",
-      image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=2076&auto=format&fit=crop",
-      date: "April 12, 2023",
-      readTime: "7 min read",
-      category: "Strategy",
+      category: "UX & Product Design",
     },
   ]
+  
 
   return (
     <section className="py-5 sm:py-20 md:py-24 bg-background relative overflow-hidden" aria-labelledby="blog-heading">

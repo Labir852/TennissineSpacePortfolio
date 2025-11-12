@@ -18,61 +18,78 @@ export default function ModernFeatures() {
 
   const features = [
     {
-      id: "analytics",
+      id: "erp",
       icon: <BarChart3 className="h-5 w-5" />,
-      title: "Advanced Analytics",
+      title: "Custom ERP Solutions",
       description:
-        "Gain deep insights with our powerful analytics tools. Track performance, identify trends, and make data-driven decisions.",
+        "We help businesses streamline complex operations with tailor-made ERP systems. From manufacturing to retail, our ERP platforms centralize data, automate workflows, and improve real-time decision-making.",
       benefits: [
-        "Real-time data visualization",
-        "Custom reporting dashboards",
-        "Predictive analytics with AI",
-        "Automated insights generation",
-      ],
-      image: "/images/team.png",
-    },
-    {
-      id: "automation",
-      icon: <Zap className="h-5 w-5" />,
-      title: "Intelligent Automation",
-      description:
-        "Streamline your workflows with smart automation. Reduce manual tasks and focus on what matters most.",
-      benefits: [
-        "Workflow automation builder",
-        "Trigger-based actions",
-        "Integration with 100+ tools",
-        "AI-powered suggestions",
-      ],
-      image: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop",
-    },
-    {
-      id: "collaboration",
-      icon: <Users className="h-5 w-5" />,
-      title: "Team Collaboration",
-      description:
-        "Work seamlessly with your team in real-time. Share, edit, and collaborate on projects from anywhere.",
-      benefits: [
-        "Real-time document editing",
-        "Project management tools",
-        "Team chat and video calls",
-        "Permission controls",
-      ],
-      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop",
-    },
-    {
-      id: "security",
-      icon: <Shield className="h-5 w-5" />,
-      title: "Enterprise Security",
-      description: "Protect your data with enterprise-grade security. Ensure compliance and maintain privacy.",
-      benefits: [
-        "End-to-end encryption",
+        "Integrated inventory & accounting modules",
         "Role-based access control",
-        "Compliance monitoring",
-        "Audit logs and reporting",
+        "Custom dashboards & analytics",
+        "Improved operational efficiency",
       ],
-      image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2070&auto=format&fit=crop",
+      image: "https://images.unsplash.com/photo-1560264280-88b68371db39?q=80&w=2070&auto=format&fit=crop",
+    },
+    {
+      id: "saas",
+      icon: <Zap className="h-5 w-5" />,
+      title: "SaaS Product Development",
+      description:
+        "From concept to cloud deployment, Tennissine’s Space builds scalable SaaS products designed for growth. We focus on performance, security, and user experience so you can launch fast and scale confidently.",
+      benefits: [
+        "Modular multi-tenant architecture",
+        "Subscription management & analytics",
+        "Automated deployments with CI/CD",
+        "Enterprise-grade security practices",
+      ],
+      image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop",
+    },
+    {
+      id: "pos",
+      icon: <Users className="h-5 w-5" />,
+      title: "Smart POS Systems",
+      description:
+        "We deliver modern POS systems that connect sales, inventory, and finance seamlessly. Our POS platforms help retailers and restaurants improve checkout speed and inventory visibility in real time.",
+      benefits: [
+        "Offline-first transaction support",
+        "Real-time sales and stock tracking",
+        "Customizable receipt and invoice flows",
+        "Hardware integration (barcode, printer, etc.)",
+      ],
+      image: "https://images.unsplash.com/photo-1591696205602-2f950c417cb9?q=80&w=2070&auto=format&fit=crop",
+    },
+    {
+      id: "ecommerce",
+      icon: <Shield className="h-5 w-5" />,
+      title: "E-Commerce Platforms",
+      description:
+        "Our eCommerce solutions combine elegant design with solid architecture. We build fast, secure, and customizable platforms for both B2B and B2C brands that scale effortlessly with demand.",
+      benefits: [
+        "Headless storefront & API integration",
+        "Optimized checkout experience",
+        "Payment gateway integrations",
+        "SEO and analytics optimization",
+      ],
+      image: "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=2070&auto=format&fit=crop",
+    },
+    {
+      id: "ai",
+      icon: <Zap className="h-5 w-5 text-accent" />,
+      title: "Emerging Tech & AI Integrations",
+      description:
+        "We integrate next-gen technologies like Artificial Intelligence, Machine Learning, and Cloud DevOps into business systems. From predictive analytics to intelligent automation, we help you stay ahead of the curve.",
+      benefits: [
+        "AI-driven process automation",
+        "Machine learning model deployment",
+        "Cloud infrastructure optimization",
+        "Smart chatbots & recommendation engines",
+      ],
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop",
     },
   ]
+  
+  
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -131,10 +148,15 @@ export default function ModernFeatures() {
           transition={{ duration: 0.5 }}
           className="text-center mb-8 sm:mb-12"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">Case Study / Projects</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">
+            Featured Projects & Case Studies
+          </h2>
           <p className="text-sm sm:text-base md:text-lg text-foreground/70 max-w-2xl mx-auto">
-            Everything you need to streamline your workflow
+            Explore how Tennissine’s Space builds modern, scalable software — from ERP systems and SaaS platforms to AI-integrated business solutions.
           </p>
+
+
+
         </motion.div>
 
         <Tabs defaultValue="analytics" value={activeTab} onValueChange={handleTabChange} className="w-full">

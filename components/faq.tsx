@@ -11,36 +11,52 @@ import {
 export default function FaqSection() {
   const faqs = [
     {
-      question: "How does the free trial work?",
+      question: "What industries do you provide software solutions for?",
       answer:
-        "Our free trial gives you full access to all features for 14 days with no credit card required. You can upgrade to a paid plan at any time during or after your trial.",
+        "We work with a wide range of industries — including government organizations, educational institutions, retail, manufacturing, and fintech. Our ERP, POS, and custom SaaS platforms are fully adaptable to your business model.",
     },
     {
-      question: "Do you offer discounts for startups or non-profits?",
+      question: "Can Tennissine Space develop a custom solution tailored to our workflow?",
       answer:
-        "Yes, we offer special pricing for startups, non-profit organizations, and educational institutions. Please contact our sales team for more information.",
+        "Yes. Every project we deliver is customized based on your specific requirements. Whether you need a full-scale ERP, a custom POS, or an eCommerce backend, our team architects each module to fit your exact business processes.",
     },
     {
-      question: "Can I change my plan later?",
+      question: "What technologies and stacks do you use?",
       answer:
-        "Absolutely! You can upgrade, downgrade, or change your plan at any time. Changes to your subscription will be prorated for the remainder of your billing cycle.",
+        "We primarily work with modern stacks — including Next.js, React, ASP.NET Core, Node.js, MSSQL, PostgreSQL, and cloud platforms like AWS and Google Cloud. Our architecture emphasizes scalability, speed, and long-term maintainability.",
     },
     {
-      question: "What kind of support do you offer?",
+      question: "Do you provide post-deployment support and maintenance?",
       answer:
-        "We offer email support for all customers, with priority support and dedicated account managers for Enterprise plans. Our support team is available 24/7 to assist with any questions or issues.",
+        "Absolutely. We provide ongoing maintenance, updates, and technical support after project delivery. Depending on your SLA, this can include feature upgrades, bug fixes, performance tuning, and continuous monitoring.",
     },
     {
-      question: "Is my data secure?",
+      question: "Can your systems integrate with our existing software or APIs?",
       answer:
-        "Security is our top priority. We use industry-standard encryption, regular security audits, and strict access controls to ensure your data is always protected. All data is stored in SOC 2 compliant data centers.",
+        "Yes, integration is one of our core strengths. We can connect your ERP, POS, or website with third-party systems — such as payment gateways, accounting software, or internal APIs — ensuring seamless data flow across platforms.",
     },
     {
-      question: "Can I export my data?",
+      question: "How do you ensure data security and compliance?",
       answer:
-        "Yes, you can export your data at any time in various formats including CSV, JSON, and PDF. We believe your data belongs to you and make it easy to take it with you if needed.",
+        "We implement industry-standard encryption, secure authentication, and strict access controls. All data is hosted on compliant, secure cloud infrastructure with regular audits, ensuring reliability and regulatory adherence.",
+    },
+    {
+      question: "What’s your typical project timeline?",
+      answer:
+        "Timelines vary by project size. A standard POS or website might take 3–5 weeks, while a full ERP or SaaS platform may take 8–16 weeks. We follow an agile development model with weekly progress updates.",
+    },
+    {
+      question: "Do you offer on-site installation or staff training?",
+      answer:
+        "Yes. For enterprise and institutional clients, we offer on-site system setup and user training. Our goal is to make your team fully operational and confident using the new system from day one.",
+    },
+    {
+      question: "Can I request updates or feature changes later?",
+      answer:
+        "Definitely. We maintain long-term relationships with our clients. Any new module, feature, or workflow update can be scoped, developed, and integrated into your existing system with minimal disruption.",
     },
   ]
+  
 
   return (
     <section className="py-4 sm:py-20 md:py-24 bg-background relative overflow-hidden border-t border-border/50">

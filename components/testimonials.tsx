@@ -7,38 +7,99 @@ import { ChevronLeft, ChevronRight, Quote } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function ModernTestimonials() {
+  // const testimonials = [
+  //   {
+  //     quote:
+  //       "Tennissine's Space has completely transformed how we manage our projects. The AI features are genuinely helpful and the interface is beautiful.",
+  //     author: "Sarah Johnson",
+  //     role: "Product Manager, TechCorp",
+  //     avatar:
+  //       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3",
+  //     company: "TechCorp",
+  //     rating: 5,
+  //   },
+  //   {
+  //     quote:
+  //       "We've seen a 40% increase in productivity since implementing Tennissine's Space. The automation features alone have saved us countless hours.",
+  //     author: "Michael Chen",
+  //     role: "CTO, GrowthStartup",
+  //     avatar:
+  //       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3",
+  //     company: "GrowthStartup",
+  //     rating: 5,
+  //   },
+  //   {
+  //     quote:
+  //       "The customer support is exceptional. Whenever we've had questions, the team has been quick to respond and incredibly helpful.",
+  //     author: "Emily Rodriguez",
+  //     role: "Operations Director, ScaleUp Inc",
+  //     avatar:
+  //       "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.0.3",
+  //     company: "ScaleUp Inc",
+  //     rating: 5,
+  //   },
+  // ]
   const testimonials = [
     {
       quote:
-        "Tennissine's Space has completely transformed how we manage our projects. The AI features are genuinely helpful and the interface is beautiful.",
-      author: "Sarah Johnson",
-      role: "Product Manager, TechCorp",
+        "Tennissine’s Space built our complete ERP system — integrating HR, accounts & inventory into one platform. As well they have delivered us with their excellent POS software to run our battalion store. Their execution speed and attention to detail were outstanding.",
+      author: "Major Mamun",
+      role: "Project Director, Bangladesh Army",
       avatar:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3",
-      company: "TechCorp",
+        "/clients/clients photo/mamun.jpg",
+      company: "Bangladesh Army",
       rating: 5,
     },
     {
       quote:
-        "We've seen a 40% increase in productivity since implementing Tennissine's Space. The automation features alone have saved us countless hours.",
-      author: "Michael Chen",
-      role: "CTO, GrowthStartup",
+        "Our eCommerce platform, developed by Tennissine’s Space, has been running flawlessly. Their technical capability and post-deployment support exceeded expectations.",
+      author: "Shahina Akter Shoshi",
+      role: "Founder, Mixora Trading Ltd.",
       avatar:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3",
-      company: "GrowthStartup",
+        "/clients/clients photo/shahina.jpg",
+      company: "Mixora Trading Ltd.",
       rating: 5,
     },
     {
       quote:
-        "The customer support is exceptional. Whenever we've had questions, the team has been quick to respond and incredibly helpful.",
-      author: "Emily Rodriguez",
-      role: "Operations Director, ScaleUp Inc",
+        "They designed and implemented our institutional website & ERP integrating University Management System, Online admission and online payments automated with a clean, modern interface and a powerful admin dashboard. The process was smooth from start to finish.",
+      author: "Tariful Islam Akash",
+      role: "Head of IT, Primeasia University",
       avatar:
-        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.0.3",
-      company: "ScaleUp Inc",
+        "/clients/clients photo/akash.jpg",
+      company: "Primeasia University",
+      rating: 5,
+    },
+    {
+      quote:
+        "Our digital marketing website and Our POS system went live in multiple retail locations with zero downtime. Tennissine’s Space’s technical team handled everything — from deployment to training — flawlessly.",
+      author: "Mr. Pranta Paul",
+      role: "Founder, DevHome Digital",
+      avatar:
+        "/clients/clients photo/pranta.jpg",
+      company: "DevHome Digital",
+      rating: 5,
+    },
+    {
+      quote:
+        "Tennissine’s Space developed our Claim Settlement portal and helped automate several manual workflows. The system has improved our reporting efficiency dramatically.",
+      author: "Mr. Md. Abdul Halim",
+      role: "Assistant Director, Capital Market Stabilization Fund",
+      avatar:
+        "/clients/clients photo/halim.jpg",
+      company: "CMSF",
       rating: 5,
     },
   ]
+
+  const companies = [
+    { name: "Bangladesh Army", logo: "/clients/bangladesharmylogonobg.png" },
+    { name: "Capital Market Stabilizaiton Fund", logo: "/clients/cmsf.png" },
+    { name: "Primeasia University", logo: "/clients/Primeasia.png" },
+    { name: "Mixora Trading Ltd.", logo: "/clients/mixorabl.png" },
+    { name: "DevHome Digital", logo: "/clients/devhome.png" },
+  ];
+  
 
   const [current, setCurrent] = useState(0)
   const [autoplay, setAutoplay] = useState(true)
@@ -144,6 +205,7 @@ export default function ModernTestimonials() {
                       </div>
                     </div>
                   </div>
+                  
 
                   <div className="md:w-2/3 w-full">
                     <p className="text-base sm:text-lg md:text-xl italic mb-4 sm:mb-6 text-center md:text-left">"{testimonials[current].quote}"</p>
@@ -152,7 +214,9 @@ export default function ModernTestimonials() {
                 </div>
               </motion.div>
             </AnimatePresence>
+            
           </div>
+
 
           {/* Navigation controls - made more compact on mobile */}
           <div className="flex justify-center mt-6 sm:mt-8 gap-3 sm:gap-4" aria-label="Testimonial navigation">
@@ -192,6 +256,7 @@ export default function ModernTestimonials() {
               />
             ))}
           </div>
+
         </div>
       </div>
     </section>

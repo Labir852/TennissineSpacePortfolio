@@ -24,10 +24,10 @@ export default function ModernFooter() {
                 Tennissine's Space
               </span> */}
               <Image
-      src="/images/logos/Main Logo-02.png"
-      alt="Tennissine's Space Logo"
-      height={200}
-      width={300}/>
+                src="/images/logos/Main Logo-02.png"
+                alt="Tennissine's Space Logo"
+                height={200}
+                width={300}/>
             </Link>
             <p className="text-foreground mb-6">
               Empowering businesses with customized solutions that drive growth and efficiency.
@@ -45,6 +45,7 @@ export default function ModernFooter() {
                 <Instagram className="h-5 w-5" />
                 <span className="sr-only">Instagram</span>
               </Link>
+              
               <Link href="#" className="text-foreground hover:text-foreground transition-colors">
                 <Linkedin className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
@@ -54,6 +55,16 @@ export default function ModernFooter() {
                 <span className="sr-only">GitHub</span>
               </Link>
             </div>
+            <form className="mt-6 flex gap-2">
+            <input 
+              type="email" 
+              placeholder="Your work email" 
+              className="bg-surface/10 border border-border rounded-lg px-4 py-2 text-sm w-full focus:outline-none focus:ring-2 focus:ring-gradient-from"
+            />
+            <button className="bg-gradient-to-r from-gradient-from to-gradient-to px-4 py-2 rounded-lg text-sm font-medium">
+              Subscribe
+            </button>
+          </form>
           </div>
 
           <div>
@@ -150,20 +161,15 @@ export default function ModernFooter() {
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-border/10 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-foreground text-sm mb-4 md:mb-0">© {new Date().getFullYear()} Tennissine's Space. All rights reserved.</p>
+        <div className="mt-16 pt-8 border-t border-border/20 flex flex-col md:flex-row justify-between items-center text-sm text-foreground/60">
+          <p>© {new Date().getFullYear()} Tennissine Space. All Rights Reserved.</p>
           <div className="flex gap-6">
-            <Link href="#" className="text-foreground hover:text-foreground text-sm transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="#" className="text-foreground hover:text-foreground text-sm transition-colors">
-              Terms of Service
-            </Link>
-            <Link href="#" className="text-foreground hover:text-foreground text-sm transition-colors">
-              Cookie Policy
-            </Link>
+            <Link href="/privacy" className="hover:text-foreground transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-foreground transition-colors">Terms</Link>
+            <Link href="/security" className="hover:text-foreground transition-colors">Security</Link>
           </div>
         </div>
+
       </div>
     </footer>
   )

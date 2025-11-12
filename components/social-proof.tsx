@@ -6,19 +6,19 @@ import { motion } from "framer-motion"
 export default function SocialProof() {
   const companies = [
     { name: "Bangladesh Army", logo: "/clients/bangladesharmylogonobg.png" },
+    { name: "Capital Market Stabilizaiton Fund", logo: "/clients/cmsf.png" },
+    { name: "Primeasia University", logo: "/clients/Primeasia.png" },
     { name: "Mixora Trading Ltd.", logo: "/clients/mixorabl.png" },
     { name: "DevHome Digital", logo: "/clients/devhome.png" },
-    { name: "CMSF", logo: "/clients/cmsf.png" },
-    { name: "Primeasia University", logo: "/clients/Primeasia.png" },
-    // { name: "Stripe", logo: "https://cdn.simpleicons.org/stripe" },
   ];
 
   const stats = [
-    { value: "10k+", label: "Active Users" },
-    { value: "500+", label: "Enterprise Clients" },
-    { value: "99.9%", label: "Uptime SLA" },
-    { value: "24/7", label: "Dedicated Support" },
-  ]
+    { value: "25+", label: "Successful Deployments" },
+    { value: "15+", label: "Global Clients" },
+    { value: "10+", label: "Core Technologies" },
+    { value: "100%", label: "Client Satisfaction" },
+  ];
+  
 
   const containerVariants = {
     hidden: { opacity: 0 },
