@@ -56,6 +56,9 @@ const Integrations = dynamic(() => import("@/components/integrations"), {
 const BlogPreview = dynamic(() => import("@/components/blog-preview"), {
   ssr: false,
 });
+const ProcessSection = dynamic(() => import("@/components/ProcessSection"), {
+  ssr: false,
+});
 
 const FaqSection = dynamic(() => import("@/components/faq"), {
   ssr: false,
@@ -107,8 +110,11 @@ export default function Home() {
       <LazyLoad>
         <Testimonials />
       </LazyLoad>
-      <LazyLoad>
+      {/* <LazyLoad>
         <BlogPreview />
+      </LazyLoad> */}
+      <LazyLoad>
+        <ProcessSection />
       </LazyLoad>
       <LazyLoad>
         <Pricing />

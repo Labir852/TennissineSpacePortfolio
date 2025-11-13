@@ -3,8 +3,9 @@
 import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import NavDropdown from "./NavDropdown"
 import { cn } from "@/lib/utils"
+import NavDropdown from "./NavDropdown"
+import ThemeToggle from "@/components/ThemeToggle"
 
 type MobileNavProps = {
   isOpen: boolean
@@ -12,55 +13,91 @@ type MobileNavProps = {
 
 export default function MobileNav({ isOpen }: MobileNavProps) {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
-  const productItems = ["Analytics", "Automation", "Collaboration", "Security"]
-  const solutionItems = ["For Startups", "For Enterprise", "For Teams", "For Developers"]
-  
+
+  const serviceItems = [
+    "Software Development",
+    "Mobile Application Development",
+    "Website Development",
+    "E-Commerce Solutions",
+    "Custom Integrations",
+    "Staff Augmentations",
+  ]
+
+  const companyItems = [
+    "About Tennissine Space",
+    "Case Studies",
+    "Careers",
+    "Blog & Insights",
+    "Contact",
+  ]
+
   return (
-    <div 
+    <div
       className={cn(
-        "md:hidden fixed inset-x-0 top-[60px] bg-background/95 backdrop-blur-lg border-t border-border transition-all duration-300 overflow-hidden",
-        isOpen ? "max-h-[calc(100vh-60px)] opacity-100" : "max-h-0 opacity-0"
+        "md:hidden fixed inset-x-0 top-[90px] bg-background/95 backdrop-blur-xl border-t border-border/50 transition-all duration-500 ease-in-out overflow-hidden shadow-lg shadow-black/5 z-50",
+        isOpen ? "max-h-[calc(100vh-70px)] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
       )}
     >
-      <div className={cn(
-        "container mx-auto px-3 py-4 flex flex-col gap-2 transition-all duration-300 overflow-y-auto",
-        isOpen ? "translate-y-0" : "-translate-y-4"
-      )}>
-        <NavDropdown 
-          id="mobileProducts"
-          label="Products" 
-          items={productItems}
-          isMobile={true}
+      <div
+        className={cn(
+          "container mx-auto px-4 py-5 flex flex-col gap-2 transition-all duration-500 ease-in-out",
+          isOpen ? "translate-y-0 opacity-100" : "-translate-y-3 opacity-0"
+        )}
+      >
+        {/* Services */}
+        <NavDropdown
+          id="services"
+          label="Services"
+          items={serviceItems}
+          isMobile
           activeDropdown={activeDropdown}
           setActiveDropdown={setActiveDropdown}
+          className="text-foreground/90 hover:text-foreground transition-all text-base font-medium"
         />
 
-        <NavDropdown 
-          id="mobileSolutions"
-          label="Solutions" 
-          items={solutionItems}
-          isMobile={true}
-          activeDropdown={activeDropdown}
-          setActiveDropdown={setActiveDropdown}
-        />
-
-        <Link href="#pricing" className="py-2 px-2 border-b border-border hover:bg-accent rounded-md transition-colors active:bg-accent">
-          Pricing
+        {/* Work */}
+        <Link
+          href="#workmodels"
+          onClick={() => setActiveDropdown(null)}
+          className="py-2 px-2 border-b border-border/40 hover:bg-accent/30 rounded-md transition-colors text-foreground/80 hover:text-foreground relative after:absolute after:left-0 after:-bottom-[1px] after:h-[1px] after:w-0 after:bg-gradient-to-r from-gradient-from to-gradient-to hover:after:w-full after:transition-all after:duration-300"
+        >
+          Work
         </Link>
 
-        <Link href="#testimonials" className="py-2 px-2 border-b border-border hover:bg-accent rounded-md transition-colors active:bg-accent">
+        {/* Company */}
+        <NavDropdown
+          id="company"
+          label="Company"
+          items={companyItems}
+          isMobile
+          activeDropdown={activeDropdown}
+          setActiveDropdown={setActiveDropdown}
+          className="text-foreground/90 hover:text-foreground transition-all text-base font-medium"
+        />
+
+        {/* Testimonials */}
+        <Link
+          href="#testimonials"
+          onClick={() => setActiveDropdown(null)}
+          className="py-2 px-2 border-b border-border/40 hover:bg-accent/30 rounded-md transition-colors text-foreground/80 hover:text-foreground relative after:absolute after:left-0 after:-bottom-[1px] after:h-[1px] after:w-0 after:bg-gradient-to-r from-gradient-from to-gradient-to hover:after:w-full after:transition-all after:duration-300"
+        >
           Testimonials
         </Link>
 
-        <div className="flex flex-col gap-2 pt-3">
-          <Button variant="outline" className="border-border text-foreground hover:bg-accent h-10 active:bg-accent/80">
-            Log in
-          </Button>
-          <Button
-            className="bg-gradient-to-r from-red-500 to-amber-500 hover:from-red-600 hover:to-amber-600 text-foreground border-0 h-10 shadow-lg shadow-amber-500/20 active:opacity-90"
-          >
-            Get Started
-          </Button>
+        {/* Divider */}
+        <div className="h-px bg-border/30 my-3" />
+
+        {/* Footer Buttons */}
+        <div className="flex items-center justify-between pt-2">
+          <ThemeToggle />
+
+          <Link href="/contact" className="flex-1 ml-3">
+            <Button
+              className="w-full bg-gradient-to-r from-gradient-from to-gradient-to text-white border-0 hover:opacity-90 shadow-md shadow-blue-500/20 hover:shadow-blue-500/30 text-sm font-medium"
+            >
+              Book a Consultation
+            </Button>
+          </Link>
         </div>
       </div>
     </div>

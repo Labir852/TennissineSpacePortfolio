@@ -5,6 +5,7 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Star, Sparkles } from "lucide-react"
+import Link from "next/link"
 
 export default function ModernHero() {
   const parallaxRef = useRef<HTMLDivElement>(null);
@@ -99,12 +100,14 @@ export default function ModernHero() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex flex-col max-w-[100%] mx-auto sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start "
             >
+              <Link href='/contact'>
               <Button className="bg-gradient-to-r from-gradient-from to-gradient-to hover:opacity-90 text-white border-0 h-10 sm:h-12 px-6 sm:px-8 text-sm sm:text-base shadow-lg shadow-black/10 dark:shadow-white/10
             hover:shadow-xl hover:shadow-black/20 dark:hover:shadow-white/20
             transition-shadow duration-300">
                 Get a free Consultation
                 <ArrowRight className="ml-2 h-3.5 w-3.5 sm:h-4 sm:w-4" />
               </Button>
+              </Link>
               {/* <Button variant="outline" className="border-border text-foreground hover:bg-accent h-10 sm:h-12 px-6 sm:px-8 text-sm sm:text-base">
                 Watch Demo
               </Button> */}

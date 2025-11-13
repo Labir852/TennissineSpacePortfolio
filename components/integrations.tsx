@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 import * as Tooltip from "@radix-ui/react-tooltip"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
+import Link from "next/link"
 
 export default function Integrations() {
   // These would typically be actual logos in a real implementation
@@ -164,13 +165,13 @@ export default function Integrations() {
         >
           <p className="text-xs sm:text-sm text-foreground/70">
             Don't see what you need? {" "}
-            <a 
-              href="#contact" 
+            <Link 
+              href="/contact" 
               className="text-primary hover:opacity-80 underline underline-offset-2 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2 focus:ring-offset-background"
               aria-label="Request a custom integration"
             >
               Request an integration
-            </a>
+            </Link>
           </p>
         </motion.div>
       </div>

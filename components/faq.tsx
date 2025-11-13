@@ -7,6 +7,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import Link from "next/link"
 
 export default function FaqSection() {
   const faqs = [
@@ -115,9 +116,9 @@ export default function FaqSection() {
         >
           <p className="text-sm sm:text-base text-foreground/70">
             Still have questions? {" "}
-            <a href="#contact" className="text-primary hover:text-primary/80 underline underline-offset-2">
+            <Link href="/contact" className="text-primary hover:text-primary/80 underline underline-offset-2">
               Contact our support team
-            </a>
+            </Link>
           </p>
         </motion.div>
       </div>

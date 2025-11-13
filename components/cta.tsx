@@ -46,7 +46,7 @@ export default function ModernCta() {
   <a href="/contact">Book a Free Consultation</a>
 </Button>
 <Button asChild variant="outline">
-  <a href="/work">View Our Work</a>
+  <a href="#workmodels">View Our Work</a>
 </Button>
 
               </div>

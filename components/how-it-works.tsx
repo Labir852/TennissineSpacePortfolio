@@ -16,7 +16,7 @@ export default function HowItWorks() {
   const steps = [
     {
       number: "001",
-      title: "10+ Years of Experience",
+      title: "5+ Years of Experience",
       description:
         "Our team brings over 10 years of experience, with senior experts leading every project. Hence, you get unmatched expertise, strategic insight, and results aligned with your goals.",
       image: "/images/HowItWorks/step1.webp",

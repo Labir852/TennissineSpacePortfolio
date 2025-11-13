@@ -8,8 +8,24 @@ import ThemeToggle from "@/components/ThemeToggle"
 
 export default function DesktopNav() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
-  const productItems = ["Analytics", "Automation", "Collaboration", "Security"]
-  const solutionItems = ["For Startups", "For Enterprise", "For Teams", "For Developers"]
+  const serviceItems = [
+    "Software Development",
+    "Mobile Application Development",
+    "Website Development",
+    "E-Commerce Solutions",
+    "Custom Integrations",
+    "Staff Augmentations"
+  ]
+  
+  const companyItems = [
+    "About Tennissine Space",
+    "Case Studies",
+    "Careers",
+    "Blog & Insights",
+    "Contact",
+  ]
+  
+
 
   // Handle escape key to close dropdowns
   useEffect(() => {
@@ -34,31 +50,33 @@ export default function DesktopNav() {
     <>
       <nav className="hidden md:flex items-center gap-4 lg:gap-8">
         <NavDropdown 
-          id="products"
+          id="services"
           label="Services" 
-          items={productItems}
+          items={serviceItems}
           activeDropdown={activeDropdown}
           setActiveDropdown={handleActiveDropdown}
+          className="relative text-foreground/80 hover:text-foreground py-2 px-1 after:absolute after:left-0 after:-bottom-0.5 after:h-[1px] after:w-0 after:bg-gradient-to-r from-gradient-from to-gradient-to hover:after:w-full after:transition-all after:duration-300"
         />
         
-        <Link 
-          href="#pricing" 
-          className="text-foreground/80 hover:text-foreground transition-colors py-2 px-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/70 text-sm lg:text-base"
-          onMouseEnter={() => setActiveDropdown(null)}
+        <Link
+          href="#workmodels"
+          className="relative text-foreground/80 hover:text-foreground py-2 px-1 after:absolute after:left-0 after:-bottom-0.5 after:h-[1px] after:w-0 after:bg-gradient-to-r from-gradient-from to-gradient-to hover:after:w-full after:transition-all after:duration-300"
         >
           Work
         </Link>
+
         <NavDropdown 
-          id="solutions"
+          id="company"
           label="Company" 
-          items={solutionItems}
+          items={companyItems}
           activeDropdown={activeDropdown}
           setActiveDropdown={handleActiveDropdown}
+          className="relative text-foreground/80 hover:text-foreground py-2 px-1 after:absolute after:left-0 after:-bottom-0.5 after:h-[1px] after:w-0 after:bg-gradient-to-r from-gradient-from to-gradient-to hover:after:w-full after:transition-all after:duration-300"
         />
 
         <Link 
           href="#testimonials" 
-          className="text-foreground/80 hover:text-foreground transition-colors py-2 px-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/70 text-sm lg:text-base"
+          className="relative text-foreground/80 hover:text-foreground py-2 px-1 after:absolute after:left-0 after:-bottom-0.5 after:h-[1px] after:w-0 after:bg-gradient-to-r from-gradient-from to-gradient-to hover:after:w-full after:transition-all after:duration-300"
           onMouseEnter={() => setActiveDropdown(null)}
         >
           Testimonials
@@ -70,18 +88,13 @@ export default function DesktopNav() {
         onMouseEnter={() => setActiveDropdown(null)}
       >
         <ThemeToggle />
-        <Button 
-          variant="ghost" 
-          className="text-foreground hover:bg-accent focus-visible:ring-2 focus-visible:ring-brand-accent/70 text-sm lg:text-base"
-        >
-          Log in
-        </Button>
+        <Link href='/contact'>
         <Button 
           className="bg-gradient-to-r from-gradient-from to-gradient-to hover:opacity-90 text-white border-0 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 transition-shadow text-sm lg:text-base px-3 lg:px-4"
-          //  h-10 sm:h-12 px-6 sm:px-8 text-sm sm:text-base
         >
-          Get Started
+          Book a Consultation
         </Button>
+        </Link>
       </div>
     </>
   )

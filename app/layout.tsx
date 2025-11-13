@@ -45,7 +45,7 @@ export default function RootLayout({
       <head>
         {/* Add any other head tags if needed, metadata object handles common ones */}
       </head>
-      <body className={`${inter.className} bg-background text-foreground`}>
+      <body className={`${inter.className} bg-background text-foreground `}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"

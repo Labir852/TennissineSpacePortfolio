@@ -7,7 +7,7 @@ import { Zap, Users, Shield, BarChart3 } from "lucide-react"
 import { useIsMobile } from "@/hooks/use-mobile"
 
 export default function ModernFeatures() {
-  const [activeTab, setActiveTab] = useState("analytics")
+  const [activeTab, setActiveTab] = useState("erp")
   const isMobile = useIsMobile()
   const [mounted, setMounted] = useState(false)
 
@@ -75,7 +75,7 @@ export default function ModernFeatures() {
     },
     {
       id: "ai",
-      icon: <Zap className="h-5 w-5 text-accent" />,
+      icon: <Zap className="h-5 w-5" />,
       title: "Emerging Tech & AI Integrations",
       description:
         "We integrate next-gen technologies like Artificial Intelligence, Machine Learning, and Cloud DevOps into business systems. From predictive analytics to intelligent automation, we help you stay ahead of the curve.",
@@ -159,7 +159,7 @@ export default function ModernFeatures() {
 
         </motion.div>
 
-        <Tabs defaultValue="analytics" value={activeTab} onValueChange={handleTabChange} className="w-full">
+        <Tabs defaultValue="erp" value={activeTab} onValueChange={handleTabChange} className="w-full">
           <div className="flex justify-center mb-6 sm:mb-8 overflow-x-auto pb-3 sm:pb-0 scrollbar-hide">
             <TabsList className="bg-transparent 
                   backdrop-blur-md 

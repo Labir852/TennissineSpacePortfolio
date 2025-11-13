@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Check } from "lucide-react"
+import Link from "next/link"
 
 export default function EngagementModels() {
   const plans = [
@@ -57,7 +58,7 @@ export default function EngagementModels() {
 
   return (
     <section
-      id="pricing"
+      id="workmodels"
       className="py-16 sm:py-20 md:py-24 bg-background relative overflow-hidden border-t border-border/50"
     >
       {/* Background visuals */}
@@ -120,17 +121,17 @@ export default function EngagementModels() {
                   <p className="text-foreground/60 text-sm mb-5 italic">
                     {plan.details}
                   </p>
-
+                <Link href='/contact'>
                   <Button
                     className={`w-full mb-6 py-2 ${
                       plan.highlight
                         ? "bg-gradient-to-r from-gradient-from to-gradient-to text-foreground border-0"
-                        : "bg-white/10 hover:bg-white/20 text-foreground"
+                        : "bg-foreground/10 hover:bg-white/20 text-foreground"
                     }`}
                   >
                     {plan.cta}
                   </Button>
-
+                </Link>
                   <ul className="space-y-3">
                     {plan.features.map((feature, idx) => (
                       <li key={idx} className="flex items-center gap-2">
@@ -152,12 +153,12 @@ export default function EngagementModels() {
         <div className="mt-10 sm:mt-16 text-center">
           <p className="text-foreground/70 text-sm sm:text-base">
             Need a custom engagement plan?{" "}
-            <a
-              href="#contact"
+            <Link
+              href="/contact"
               className="text-primary hover:text-primary/80 underline underline-offset-2"
             >
               Talk to our team
-            </a>
+            </Link>
           </p>
         </div>
       </div>
