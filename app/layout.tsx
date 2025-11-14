@@ -41,17 +41,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <head>
         {/* Add any other head tags if needed, metadata object handles common ones */}
       </head>
-      <body className={`${inter.className} bg-background text-foreground `}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
+      <body className={`${inter.className} bg-background text-foreground `} >
+        <ThemeProvider>
           <ParallaxBackground />
           <CursorFollower />
           <ModernHeader />
