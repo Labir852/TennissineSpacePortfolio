@@ -71,27 +71,27 @@ export default function ModernFooter() {
             <h3 className="text-lg font-bold mb-4">Product</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="#" className="text-foreground hover:text-foreground transition-colors">
+                <Link href="/#features" className="text-foreground hover:text-foreground transition-colors">
                   Features
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-foreground hover:text-foreground transition-colors">
+                <Link href="/#workmodels" className="text-foreground hover:text-foreground transition-colors">
                   Pricing
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-foregroundhover:text-foreground transition-colors">
+                <Link href="/#integrations-heading" className="text-foreground hover:text-foreground transition-colors">
                   Integrations
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-foreground hover:text-foreground transition-colors">
+                <Link href="/#process" className="text-foreground hover:text-foreground transition-colors">
                   Roadmap
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-foreground hover:text-foreground transition-colors">
+                <Link href="/#blog-heading" className="text-foreground hover:text-foreground transition-colors">
                   Changelog
                 </Link>
               </li>
@@ -102,27 +102,27 @@ export default function ModernFooter() {
             <h3 className="text-lg font-bold mb-4">Company</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="#" className="text-foreground hover:text-foreground transition-colors">
+                <Link href="/#process" className="text-foreground hover:text-foreground transition-colors">
                   About
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-foreground hover:text-foreground transition-colors">
+                <Link href="/#blog-heading" className="text-foreground hover:text-foreground transition-colors">
                   Blog
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-foreground hover:text-foreground transition-colors">
+                <Link href="/contact" className="text-foreground hover:text-foreground transition-colors">
                   Careers
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-foreground hover:text-foreground transition-colors">
+                <Link href="/#testimonials" className="text-foreground hover:text-foreground transition-colors">
                   Customers
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-foreground hover:text-foreground transition-colors">
+                <Link href="/contact" className="text-foreground hover:text-foreground transition-colors">
                   Contact
                 </Link>
               </li>
@@ -133,27 +133,27 @@ export default function ModernFooter() {
             <h3 className="text-lg font-bold mb-4">Resources</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="#" className="text-foreground hover:text-foreground transition-colors">
+                <Link href="/#faq" className="text-foreground hover:text-foreground transition-colors">
                   Documentation
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-foreground hover:text-foreground transition-colors">
+                <Link href="/contact" className="text-foreground hover:text-foreground transition-colors">
                   Help Center
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-foreground hover:text-foreground transition-colors">
+                <Link href="/#integrations-heading" className="text-foreground hover:text-foreground transition-colors">
                   API Reference
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-foreground hover:text-foreground transition-colors">
+                <Link href="/#testimonials" className="text-foreground hover:text-foreground transition-colors">
                   Community
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-foreground hover:text-foreground transition-colors">
+                <Link href="/contact" className="text-foreground hover:text-foreground transition-colors">
                   Status
                 </Link>
               </li>

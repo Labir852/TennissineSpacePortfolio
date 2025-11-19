@@ -1,15 +1,40 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { z } from 'zod';
+
+const contactSchema = z.object({
+  name: z.string().trim().min(2, 'Name must be at least 2 characters.').max(120),
+  email: z.string().trim().email('Please enter a valid email address.'),
+  subject: z.string().trim().min(3, 'Subject must be at least 3 characters.').max(150),
+  message: z.string().trim().min(20, 'Message must be at least 20 characters.').max(2000),
+  companyName: z.string().optional(),
+});
 
 export async function POST(request: NextRequest) {
   try {
-    const { name, email, subject, message } = await request.json();
+    const body = await request.json();
+    const parsed = contactSchema.safeParse(body);
 
-    // Validate required fields
-    if (!name || !email || !subject || !message) {
+    if (!parsed.success) {
       return NextResponse.json(
-        { error: 'All fields are required' },
+        {
+          error: 'Validation failed',
+          details: parsed.error.flatten().fieldErrors,
+        },
         { status: 400 }
+      );
+    }
+    const { name, email, subject, message, companyName } = parsed.data;
+
+    if (companyName && companyName.trim().length > 0) {
+      return NextResponse.json({ error: 'Spam detected.' }, { status: 400 });
+    }
+
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_APP_PASSWORD) {
+      console.error('Missing email credentials');
+      return NextResponse.json(
+        { error: 'Email service is temporarily unavailable.' },
+        { status: 500 }
       );
     }
 

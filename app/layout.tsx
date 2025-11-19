@@ -1,17 +1,21 @@
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
-import { ThemeProvider } from "@/hooks/use-theme"
+import { ThemeProvider } from "@/components/theme-provider"
 import ModernHeader from "@/components/header"
-import ParallaxBackground from "@/components/ParallaxBackground"
-import CursorFollower from "@/components/CursorFollower"
 import ModernFooter from "@/components/footer"
+import MotionEffects from "@/components/MotionEffects"
+import FloatingActions from "@/components/FloatingActions"
 
 const inter = Inter({ subsets: ["latin"] })
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://tennissine.space"
 
 export const metadata: Metadata = {
-  metadataBase: new URL("http://localhost:3000/"),
-  title: "Tennissine's Space - Elevate Your Digital Experience",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Tennissine's Space - Elevate Your Digital Experience",
+    template: "%s | Tennissine's Space",
+  },
   description: "Transform your vision to technology and make your business reach to more people. Automate workflows, gain insights, and boost productivity.",
   icons: {
     icon: "/images/logos/Main Logo-04.png",
@@ -23,6 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Tennissine's Space - Elevate Your Digital Experience",
     description: "Transform your vision to technology and make your business reach to more people. Automate workflows, gain insights, and boost productivity.",
+    url: siteUrl,
     images: [
       {
         url: "/images/logos/Main Logo-02.png",
@@ -41,17 +46,14 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <head>
-        {/* Add any other head tags if needed, metadata object handles common ones */}
-      </head>
-      <body className={`${inter.className} bg-background text-foreground `} >
-        <ThemeProvider>
-          <ParallaxBackground />
-          <CursorFollower />
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.className} bg-background text-foreground`}>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+          <MotionEffects />
           <ModernHeader />
           <main>{children}</main>
           <ModernFooter />
+          <FloatingActions />
         </ThemeProvider>
       </body>
     </html>

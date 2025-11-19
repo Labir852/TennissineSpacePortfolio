@@ -5,9 +5,15 @@ import Link from "next/link"
 import { ChevronDown } from "lucide-react"
 import { cn } from "@/lib/utils"
 
+type DropdownItem = {
+  label: string
+  href: string
+  description?: string
+}
+
 type NavDropdownProps = {
   label: string
-  items: string[]
+  items: DropdownItem[]
   id: string
   isMobile?: boolean
   className?: string
@@ -145,11 +151,19 @@ export default function NavDropdown({
         >
           {items.map((item) => (
             <Link
-              key={item}
-              href="#"
+              key={item.label}
+              href={item.href}
               className={mobileStyles.item}
+              onClick={() => {
+                if (isMobile) {
+                  setActiveDropdown(null)
+                }
+              }}
             >
-              <span className={cn("font-medium", "text-sm")}>{item}</span>
+              <span className={cn("font-medium", "text-sm")}>{item.label}</span>
+              {item.description && !isMobile && (
+                <span className="ml-auto text-xs text-foreground/60">{item.description}</span>
+              )}
             </Link>
           ))}
         </div>

@@ -60,7 +60,7 @@ export default function FaqSection() {
   
 
   return (
-    <section className="py-4 sm:py-20 md:py-24 bg-background relative overflow-hidden border-t border-border/50">
+    <section id="faq" className="py-4 sm:py-20 md:py-24 bg-background relative overflow-hidden border-t border-border/50">
       {/* Background elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute bottom-0 right-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 rounded-full blur-[100px]"></div>

@@ -9,20 +9,20 @@ import ThemeToggle from "@/components/ThemeToggle"
 export default function DesktopNav() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const serviceItems = [
-    "Software Development",
-    "Mobile Application Development",
-    "Website Development",
-    "E-Commerce Solutions",
-    "Custom Integrations",
-    "Staff Augmentations"
+    { label: "Product Engineering", href: "/#features" },
+    { label: "Automation & Integrations", href: "/#integrations-heading" },
+    { label: "Process Playbook", href: "/#process" },
+    { label: "Engagement Models", href: "/#workmodels" },
+    { label: "Support & SLAs", href: "/#faq" },
+    { label: "Contact", href: "/contact" },
   ]
   
   const companyItems = [
-    "About Tennissine Space",
-    "Case Studies",
-    "Careers",
-    "Blog & Insights",
-    "Contact",
+    { label: "About Tennissine Space", href: "/#process" },
+    { label: "Testimonials", href: "/#testimonials" },
+    { label: "Insights", href: "/#blog-heading" },
+    { label: "Careers", href: "/contact" },
+    { label: "Get in touch", href: "/contact" },
   ]
   
 
@@ -59,7 +59,7 @@ export default function DesktopNav() {
         />
         
         <Link
-          href="#workmodels"
+          href="/#workmodels"
           className="relative text-foreground/80 hover:text-foreground py-2 px-1 after:absolute after:left-0 after:-bottom-0.5 after:h-[1px] after:w-0 after:bg-gradient-to-r from-gradient-from to-gradient-to hover:after:w-full after:transition-all after:duration-300"
         >
           Work
@@ -75,7 +75,7 @@ export default function DesktopNav() {
         />
 
         <Link 
-          href="#testimonials" 
+          href="/#testimonials" 
           className="relative text-foreground/80 hover:text-foreground py-2 px-1 after:absolute after:left-0 after:-bottom-0.5 after:h-[1px] after:w-0 after:bg-gradient-to-r from-gradient-from to-gradient-to hover:after:w-full after:transition-all after:duration-300"
           onMouseEnter={() => setActiveDropdown(null)}
         >

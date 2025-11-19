@@ -15,20 +15,20 @@ export default function MobileNav({ isOpen }: MobileNavProps) {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
 
   const serviceItems = [
-    "Software Development",
-    "Mobile Application Development",
-    "Website Development",
-    "E-Commerce Solutions",
-    "Custom Integrations",
-    "Staff Augmentations",
+    { label: "Product Engineering", href: "/#features" },
+    { label: "Automation & Integrations", href: "/#integrations-heading" },
+    { label: "Process Playbook", href: "/#process" },
+    { label: "Engagement Models", href: "/#workmodels" },
+    { label: "Support & SLAs", href: "/#faq" },
+    { label: "Contact", href: "/contact" },
   ]
 
   const companyItems = [
-    "About Tennissine Space",
-    "Case Studies",
-    "Careers",
-    "Blog & Insights",
-    "Contact",
+    { label: "About Tennissine Space", href: "/#process" },
+    { label: "Testimonials", href: "/#testimonials" },
+    { label: "Insights", href: "/#blog-heading" },
+    { label: "Careers", href: "/contact" },
+    { label: "Get in touch", href: "/contact" },
   ]
 
   return (
@@ -57,7 +57,7 @@ export default function MobileNav({ isOpen }: MobileNavProps) {
 
         {/* Work */}
         <Link
-          href="#workmodels"
+          href="/#workmodels"
           onClick={() => setActiveDropdown(null)}
           className="py-2 px-2 border-b border-border/40 hover:bg-accent/30 rounded-md transition-colors text-foreground/80 hover:text-foreground relative after:absolute after:left-0 after:-bottom-[1px] after:h-[1px] after:w-0 after:bg-gradient-to-r from-gradient-from to-gradient-to hover:after:w-full after:transition-all after:duration-300"
         >
@@ -77,7 +77,7 @@ export default function MobileNav({ isOpen }: MobileNavProps) {
 
         {/* Testimonials */}
         <Link
-          href="#testimonials"
+          href="/#testimonials"
           onClick={() => setActiveDropdown(null)}
           className="py-2 px-2 border-b border-border/40 hover:bg-accent/30 rounded-md transition-colors text-foreground/80 hover:text-foreground relative after:absolute after:left-0 after:-bottom-[1px] after:h-[1px] after:w-0 after:bg-gradient-to-r from-gradient-from to-gradient-to hover:after:w-full after:transition-all after:duration-300"
         >
