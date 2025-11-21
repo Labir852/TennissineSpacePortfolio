@@ -20,6 +20,7 @@ const hashOnlyIdent = (context, _, exportName) =>
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  outputFileTracingRoot: __dirname,
   // Add image optimization configuration
   images: {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
