@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://tennissine.space";
+
 
 export default function robots(): MetadataRoute.Robots {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://tennissinespace.vercel.app";
   return {
     rules: [
       {

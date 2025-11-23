@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { motion } from "framer-motion"
+import { motion,easeOut  } from "framer-motion"
 
 export default function SocialProof() {
   const companies = [
@@ -38,7 +38,7 @@ export default function SocialProof() {
       y: 0,
       transition: {
         duration: 0.5,
-        ease: "easeOut",
+        ease: easeOut,
       },
     },
   }

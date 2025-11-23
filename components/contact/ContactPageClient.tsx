@@ -10,7 +10,6 @@ export default function ContactPageClient() {
     email: "",
     subject: "",
     message: "",
-    companyName: "",
   });
   const [submitStatus, setSubmitStatus] = useState<{
     type: "success" | "error" | null;
@@ -73,7 +72,7 @@ export default function ContactPageClient() {
           type: "success",
           message: "Thank you! Your message has been sent successfully. We'll get back to you soon.",
         });
-        setFormData({ name: "", email: "", subject: "", message: "", companyName: "" });
+        setFormData({ name: "", email: "", subject: "", message: "" });
         setErrors({});
       } else {
         setSubmitStatus({
@@ -195,18 +194,7 @@ export default function ContactPageClient() {
               <h2 className="text-2xl font-bold mb-6 text-foreground">Send us a message</h2>
 
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="sr-only" aria-hidden="true">
-                  <label htmlFor="companyName">Company Name</label>
-                  <input
-                    id="companyName"
-                    name="companyName"
-                    type="text"
-                    tabIndex={-1}
-                    autoComplete="off"
-                    value={formData.companyName}
-                    onChange={handleChange}
-                  />
-                </div>
+                
                 <div>
                   <label
                     htmlFor="name"
