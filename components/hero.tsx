@@ -165,10 +165,10 @@ export default function ModernHero() {
               className="relative z-10"
             >
               <div className="relative">
-                <div className="absolute -inset-1 bg-gradient-to-r from-gradient-from to-gradient-to rounded-2xl blur-lg opacity-70"></div>
+                <div className="absolute bg-gradient-to-r from-gradient-from to-gradient-to rounded-2xl blur-lg opacity-100"></div>
                 <div
                   ref={parallaxRef}
-                  className="relative bg-surface/80 backdrop-blur-sm rounded-xl overflow-hidden"
+                  className="relative bg-surface/20 backdrop-blur-sm rounded-xl overflow-hidden"
                 >
                   {/* <Image
                     src="/images/hero2.png"
@@ -179,7 +179,7 @@ export default function ModernHero() {
                   /> */}
                   {/* <video src="/videos/herovideo3.webm" autoPlay muted loop className="w-full h-auto rounded-lg" /> */}
                   <video
-                    src="/videos/herovideo3.webm"
+                    src="/videos/motionTennissine2.mp4"
                     autoPlay
                     muted
                     loop
