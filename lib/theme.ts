@@ -29,7 +29,9 @@ export const themes = {
     "--surface-foreground": "0 0% 10%",
     
     // Border radius
-    "--radius": "0.5rem"
+    "--radius": "0.5rem",
+    "--stroke-color": "#1c1c1c"
+
   },
   dark: {
     // Core theme colors
@@ -61,6 +63,8 @@ export const themes = {
     "--surface-foreground": "0 0% 98%",
     
     // Border radius
-    "--radius": "0.5rem"
+    "--radius": "0.5rem",
+
+    "--stroke-color": "#f5f5f5"
   }
 } as const;
