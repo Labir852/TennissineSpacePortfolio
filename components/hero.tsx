@@ -179,12 +179,18 @@ export default function ModernHero() {
                   /> */}
                   {/* <video src="/videos/herovideo3.webm" autoPlay muted loop className="w-full h-auto rounded-lg" /> */}
                   <video
-                    src="/videos/motionTennissine2.mp4"
                     autoPlay
                     muted
                     loop
+                    playsInline
+                    webkit-playsinline="true"
+                    preload="auto"
                     className="w-full h-full rounded-lg"
-                  />
+                  >
+                    {/* <source src="/videos/motionTennissine2.mp4" type="video/mp4" /> */}
+                    <source src="/videos/motionTennissine2.webm" type="video/webm" />
+                  </video>
+
                   {/* Floating UI elements - hidden on smallest screens */}
                   <motion.div
                     initial={{ y: 20, opacity: 0 }}
