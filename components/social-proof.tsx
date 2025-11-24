@@ -6,7 +6,7 @@ import { motion,easeOut  } from "framer-motion"
 export default function SocialProof() {
   const companies = [
     { name: "Bangladesh Army", logo: "/clients/bangladesharmylogonobg.png" },
-    { name: "Capital Market Stabilizaiton Fund", logo: "/clients/cmsf.png" },
+    { name: "Capital Market Stabilization Fund", logo: "/clients/cmsf.png" },
     { name: "Primeasia University", logo: "/clients/Primeasia.png" },
     { name: "Mixora Trading Ltd.", logo: "/clients/mixorabl.png" },
     { name: "DevHome Digital", logo: "/clients/devhome.png" },
