@@ -409,7 +409,7 @@ export default function ModernHero() {
               </p>
               <div className="flex flex-wrap gap-3 mb-4 justify-center lg:justify-start">
                 {[
-                  // "No Complicated Jargon",
+                  "No Complicated Jargon",
                   "Fixed Project Timelines",
                   "Ongoing Support",
                   "Scalable Solutions"
@@ -680,11 +680,11 @@ export default function ModernHero() {
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.8, duration: 0.5 }}
-                    className="absolute bottom-4 left-4 bg-background/20 backdrop-blur-md rounded-xl p-3 shadow-lg max-w-[60%]"
+                    className="absolute bottom-4 left-4 bg-background backdrop-blur-md rounded-xl p-3 shadow-lg max-w-[60%]"
                   >
                     <div className="flex items-start gap-2">
                       <div className="flex-1">
-                        <p className="text-xs text-foreground/20">Recent Project</p>
+                        <p className="text-xs text-foreground">Recent Project</p>
                         <p className="text-sm font-medium">POS Software</p>
                         <div className="flex items-center gap-2 mt-1">
                           <div className="flex-1 h-1 bg-border rounded-full overflow-hidden">
@@ -744,7 +744,7 @@ export default function ModernHero() {
               className="grid grid-cols-3 gap-2 mt-6"
             >
               {[
-                { label: "Fast Delivery", value: "2-8 Weeks" },
+                { label: "Fast Delivery", value: "4-12 Weeks" },
                 { label: "Support", value: "24/7" },
                 { label: "Cost Effective", value: "✓" }
               ].map((stat, index) => (
