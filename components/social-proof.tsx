@@ -2,8 +2,13 @@
 
 import Image from "next/image"
 import { motion,easeOut  } from "framer-motion"
-
+import { useState,useEffect } from "react";
+import { Code, ShoppingCart, Globe, BarChart, Cpu, Database } from "lucide-react"
 export default function SocialProof() {
+
+  const [activeService, setActiveService] = useState(0);
+
+
   const companies = [
     { name: "Bangladesh Army", logo: "/clients/bangladesharmylogonobg.png" },
     { name: "Capital Market Stabilization Fund", logo: "/clients/cmsf.png" },
@@ -17,6 +22,45 @@ export default function SocialProof() {
     { value: "15+", label: "Global Clients" },
     { value: "10+", label: "Core Technologies" },
     { value: "100%", label: "Client Satisfaction" },
+  ];
+  
+  const services = [
+    { 
+      title: "Custom Software", 
+      icon: <Code className="h-4 w-4 sm:h-5 sm:w-5" />, 
+      color: "from-blue-500 to-cyan-500",
+      description: "Tailored software solutions built specifically for your business needs"
+    },
+    { 
+      title: "ERP Systems", 
+      icon: <Database className="h-4 w-4 sm:h-5 sm:w-5" />, 
+      color: "from-purple-500 to-pink-500",
+      description: "Complete business management systems to streamline your operations"
+    },
+    { 
+      title: "E-commerce", 
+      icon: <ShoppingCart className="h-4 w-4 sm:h-5 sm:w-5" />, 
+      color: "from-green-500 to-emerald-500",
+      description: "Online stores that convert visitors into customers and grow your sales"
+    },
+    { 
+      title: "Website Development", 
+      icon: <Globe className="h-4 w-4 sm:h-5 sm:w-5" />, 
+      color: "from-orange-500 to-red-500",
+      description: "Professional websites that work perfectly on all devices"
+    },
+    { 
+      title: "POS Systems", 
+      icon: <BarChart className="h-4 w-4 sm:h-5 sm:w-5" />, 
+      color: "from-indigo-500 to-blue-500",
+      description: "Point of Sale systems for smooth retail and restaurant operations"
+    },
+    { 
+      title: "SaaS Platforms", 
+      icon: <Cpu className="h-4 w-4 sm:h-5 sm:w-5" />, 
+      color: "from-rose-500 to-pink-500",
+      description: "Cloud-based software accessible from anywhere, anytime"
+    },
   ];
   
 
@@ -42,6 +86,21 @@ export default function SocialProof() {
       },
     },
   }
+
+
+  // Interactive mouse trail
+    useEffect(() => {
+      
+      // Auto-rotate services
+      const serviceInterval = setInterval(() => {
+        setActiveService((prev) => (prev + 1) % services.length);
+      }, 4000);
+  
+  
+      return () => {
+        clearInterval(serviceInterval);
+      };
+    }, []);
 
   return (
     <section 
@@ -101,7 +160,7 @@ export default function SocialProof() {
         </motion.div>
 
         {/* Stats */}
-        <motion.div
+        {/* <motion.div
           className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 auto-rows-fr"
           variants={containerVariants}
           initial="hidden"
@@ -136,7 +195,46 @@ export default function SocialProof() {
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </motion.div> */}
+        
+            {/* Interactive Services Showcase */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+              className="mb-6 sm:mb-8"
+            >
+              <div className="text-lg text-center text-bold text-foreground/70 mb-3">What We Build:</div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 mb-4">
+                {services.map((service, index) => (
+                  <motion.button
+                    key={index}
+                    onClick={() => setActiveService(index)}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className={`flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-medium transition-all ${
+                      activeService === index
+                        ? `bg-gradient-to-r ${service.color} text-white shadow-lg`
+                        : "bg-surface/10 backdrop-blur-sm text-foreground/70 border border-border/50"
+                    }`}
+                  >
+                    <span>{service.icon}</span>
+                    <span>{service.title}</span>
+                  </motion.button>
+                ))}
+              </div>
+              
+              <motion.div
+                key={activeService}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="p-4 bg-surface/20 backdrop-blur-sm rounded-xl border border-border/30"
+              >
+                <p className="text-sm sm:text-base text-foreground/80">
+                  {services[activeService].description}
+                </p>
+              </motion.div>
+            </motion.div> 
       </div>
     </section>
   )
