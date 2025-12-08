@@ -9,6 +9,7 @@ import Link from "next/link"
 import { useTheme } from "next-themes"
 
 export default function ModernHero() {
+  
   const parallaxRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
    const { theme } = useTheme();
@@ -22,6 +23,30 @@ export default function ModernHero() {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [typingSpeed, setTypingSpeed] = useState(100);
+
+  const [particlePositions, setParticlePositions] = useState<Array<{x: string, y: string, yMove: string, xMove: string}>>([]);
+const [smallParticlePositions, setSmallParticlePositions] = useState<Array<{x: string, y: string, yMove: string, xMove: string}>>([]);
+
+// Add this useEffect to generate particles only on client
+useEffect(() => {
+  // Generate large particles (15)
+  const largeParticles = Array.from({ length: 15 }, () => ({
+    x: Math.random() * 100 + 'vw',
+    y: Math.random() * 100 + 'vh',
+    yMove: `-${Math.random() * 100}px`,
+    xMove: `${Math.random() * 30 - 15}px`
+  }));
+  setParticlePositions(largeParticles);
+
+  // Generate small particles (20)
+  const smallParticles = Array.from({ length: 20 }, () => ({
+    x: Math.random() * 100 + 'vw',
+    y: Math.random() * 100 + 'vh',
+    yMove: `-${Math.random() * 200}px`,
+    xMove: `${Math.random() * 50 - 25}px`
+  }));
+  setSmallParticlePositions(smallParticles);
+}, []);
 
   const words = [
     "ERP systems",
@@ -221,28 +246,49 @@ export default function ModernHero() {
         />
 
         {/* Responsive particles */}
-        {[...Array(15)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-[1px] h-[1px] sm:w-[2px] sm:h-[2px] rounded-full bg-gradient-from/40"
-            initial={{
-              x: Math.random() * 100 + 'vw',
-              y: Math.random() * 100 + 'vh',
-            }}
-            animate={{
-              y: [null, `-${Math.random() * 50}px`, `-${Math.random() * 100}px`],
-              x: [null, `${Math.random() * 30 - 15}px`, `${Math.random() * 30 - 15}px`],
-            }}
-            transition={{
-              duration: Math.random() * 3 + 2,
-              repeat: Infinity,
-              delay: i * 0.1,
-            }}
-          />
-        ))}
+{particlePositions.map((particle, i) => (
+  <motion.div
+    key={i}
+    className="absolute w-[1px] h-[1px] sm:w-[2px] sm:h-[2px] rounded-full bg-gradient-from/40"
+    initial={{
+      x: particle.x,
+      y: particle.y,
+    }}
+    animate={{
+      y: [null, particle.yMove, particle.yMove],
+      x: [null, particle.xMove, particle.xMove],
+    }}
+    transition={{
+      duration: Math.random() * 3 + 2,
+      repeat: Infinity,
+      delay: i * 0.1,
+    }}
+  />
+))}
       </div>
 
       {/* Animated background particles */}
+{smallParticlePositions.map((particle, i) => (
+  <motion.div
+    key={i}
+    className="absolute w-1 h-1 rounded-full bg-gradient-from/30"
+    initial={{
+      x: particle.x,
+      y: particle.y,
+    }}
+    animate={{
+      y: [null, particle.yMove, `-${Math.random() * 200}px`],
+      x: [null, particle.xMove, particle.xMove],
+    }}
+    transition={{
+      duration: Math.random() * 5 + 5,
+      repeat: Infinity,
+      delay: i * 0.2,
+    }}
+  />
+))}
+
+      {/* Animated background particles 
       <div className="absolute inset-0 z-0 overflow-hidden">
         {[...Array(20)].map((_, i) => (
           <motion.div
@@ -263,7 +309,7 @@ export default function ModernHero() {
             }}
           />
         ))}
-      </div>
+      </div>*/}
 
       {/* Interactive gradient orbs */}
       <div className="absolute inset-0 z-0">

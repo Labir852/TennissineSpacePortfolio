@@ -60,6 +60,7 @@ const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
+  turbopack: {},
   webpack(config, { dev }) {
     const rules = config.module.rules
       .find((rule) => typeof rule.oneOf === "object")
