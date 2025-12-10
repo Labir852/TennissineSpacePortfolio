@@ -54,7 +54,7 @@ export default function ProcessSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const [hoveredStep, setHoveredStep] = useState<number | null>(null);
-  const intervalRef = useRef<NodeJS.Timeout>();
+  const intervalRef = useRef<NodeJS.Timeout| null>(null);
   const activeStep = processSteps[activeIndex];
   const progress = ((activeIndex + 1) / processSteps.length) * 100;
 
@@ -102,6 +102,10 @@ export default function ProcessSection() {
       id="process"
       className="relative overflow-hidden bg-background py-16 sm:py-24"
     >
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 rounded-full blur-[100px]"></div>
+        <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 hover:opacity-90 rounded-full blur-[100px]"></div>
+      </div>
       {/* Minimal Background */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/10 to-gradient-to/10 blur-[80px]"></div>

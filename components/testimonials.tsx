@@ -138,6 +138,10 @@ export default function ModernTestimonials() {
       className="py-16 sm:py-20 md:py-24 bg-background relative overflow-hidden border-t border-border/50"
       ref={containerRef}
     >
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 rounded-full blur-[100px]"></div>
+        <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 hover:opacity-90 rounded-full blur-[100px]"></div>
+      </div>
       {/* Animated Gradient Background */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         {/* Main gradient */}
@@ -562,34 +566,38 @@ export default function ModernTestimonials() {
         </motion.div>*/}
 
         {/* CTA */}
+       <motion.div
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  viewport={{ once: true }}
+  transition={{ delay: 0.4 }}
+  className="text-center mt-12"
+>
+  <p className="text-sm text-foreground/70 mb-4">Ready to join our satisfied clients?</p>
+  
+  <motion.div
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+  >
+    <Button
+      className="group relative overflow-hidden bg-gradient-to-r from-gradient-from to-gradient-to hover:opacity-90 text-white px-8 py-6 text-lg font-medium"
+    >
+      <span className="relative z-10 flex items-center gap-2">
+        Start Your Project
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-          className="text-center mt-12"
+          animate={{ x: [0, 5, 0] }}
+          transition={{ repeat: Infinity, duration: 1.5 }}
         >
-          <p className="text-sm text-foreground/70 mb-4">Ready to join our satisfied clients?</p>
-          <Button
-            className="group relative overflow-hidden bg-gradient-to-r from-gradient-from to-gradient-to hover:opacity-90 text-white px-8 py-6 text-lg font-medium"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span className="relative z-10 flex items-center gap-2">
-              Start Your Project
-              <motion.div
-                animate={{ x: [0, 5, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5 }}
-              >
-                <ChevronRight className="h-5 w-5" />
-              </motion.div>
-            </span>
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-gradient-to to-gradient-from opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              initial={false}
-            />
-          </Button>
+          <ChevronRight className="h-5 w-5" />
         </motion.div>
+      </span>
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-r from-gradient-to to-gradient-from opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        initial={false}
+      />
+    </Button>
+  </motion.div>
+</motion.div>
       </div>
     </section>
   )

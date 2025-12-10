@@ -1,123 +1,308 @@
 "use client"
 
-import { motion } from "framer-motion"
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion"
+import { useState, useEffect } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { Search, ChevronDown, MessageSquare, Zap, Sparkles, HelpCircle, ArrowRight } from "lucide-react"
+import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
-export default function FaqSection() {
-  const faqs = [
+const faqs = [
     {
-      question: "What industries do you provide software solutions for?",
-      answer:
-        "We work with a wide range of industries — including government organizations, educational institutions, retail, manufacturing, and fintech. Our ERP, POS, and custom SaaS platforms are fully adaptable to your business model.",
+      id: 1,
+      question: "What type of software do you build?",
+      answer: "We build custom software including ERP systems, POS solutions, e-commerce platforms, websites, and SaaS applications tailored to your business needs.",
+      category: "Services",
+      icon: <Zap className="h-4 w-4" />
     },
     {
-      question: "Can Tennissine Space develop a custom solution tailored to our workflow?",
-      answer:
-        "Yes. Every project we deliver is customized based on your specific requirements. Whether you need a full-scale ERP, a custom POS, or an eCommerce backend, our team architects each module to fit your exact business processes.",
+      id: 2,
+      question: "How long does a project take?",
+      answer: "Simple websites: 2-4 weeks, E-commerce stores: 4-8 weeks, Custom software/ERP: 8-16 weeks. We provide exact timelines after understanding your requirements.",
+      category: "Timeline",
+      icon: <Sparkles className="h-4 w-4" />
     },
     {
-      question: "What technologies and stacks do you use?",
-      answer:
-        "We primarily work with modern stacks — including Next.js, React, ASP.NET Core, Node.js, MSSQL, PostgreSQL, and cloud platforms like AWS and Google Cloud. Our architecture emphasizes scalability, speed, and long-term maintainability.",
+      id: 3,
+      question: "What's your development process?",
+      answer: "We follow 5 simple steps: 1) Plan & Discover 2) Design & Prototype 3) Build & Test 4) Launch & Deploy 5) Support & Improve.",
+      category: "Process",
+      icon: <HelpCircle className="h-4 w-4" />
     },
     {
-      question: "Do you provide post-deployment support and maintenance?",
-      answer:
-        "Absolutely. We provide ongoing maintenance, updates, and technical support after project delivery. Depending on your SLA, this can include feature upgrades, bug fixes, performance tuning, and continuous monitoring.",
+      id: 4,
+      question: "Do you provide ongoing support?",
+      answer: "Yes! We offer 24/7 support packages, regular updates, bug fixes, and performance monitoring. Most clients choose our ongoing support plan.",
+      category: "Support",
+      icon: <MessageSquare className="h-4 w-4" />
     },
     {
-      question: "Can your systems integrate with our existing software or APIs?",
-      answer:
-        "Yes, integration is one of our core strengths. We can connect your ERP, POS, or website with third-party systems — such as payment gateways, accounting software, or internal APIs — ensuring seamless data flow across platforms.",
+      id: 5,
+      question: "Can you work with our existing systems?",
+      answer: "Absolutely. We specialize in integrating with existing systems, APIs, and third-party services. We ensure seamless data flow between all your platforms.",
+      category: "Integration",
+      icon: <Zap className="h-4 w-4" />
     },
     {
-      question: "How do you ensure data security and compliance?",
-      answer:
-        "We implement industry-standard encryption, secure authentication, and strict access controls. All data is hosted on compliant, secure cloud infrastructure with regular audits, ensuring reliability and regulatory adherence.",
+      id: 6,
+      question: "How much does custom software cost?",
+      answer: "Costs vary based on complexity. We offer transparent pricing: Small projects start at $5K, Medium projects $15K-$50K, Enterprise solutions $50K+. Get a free quote.",
+      category: "Pricing",
+      icon: <Sparkles className="h-4 w-4" />
     },
     {
-      question: "What’s your typical project timeline?",
-      answer:
-        "Timelines vary by project size. A standard POS or website might take 3–5 weeks, while a full ERP or SaaS platform may take 8–16 weeks. We follow an agile development model with weekly progress updates.",
+      id: 7,
+      question: "What technologies do you use?",
+      answer: "Modern technologies including React, Next.js, Node.js, .NET, Python, PostgreSQL, MongoDB, and cloud platforms like AWS and Azure.",
+      category: "Technology",
+      icon: <HelpCircle className="h-4 w-4" />
     },
     {
-      question: "Do you offer on-site installation or staff training?",
-      answer:
-        "Yes. For enterprise and institutional clients, we offer on-site system setup and user training. Our goal is to make your team fully operational and confident using the new system from day one.",
-    },
-    {
-      question: "Can I request updates or feature changes later?",
-      answer:
-        "Definitely. We maintain long-term relationships with our clients. Any new module, feature, or workflow update can be scoped, developed, and integrated into your existing system with minimal disruption.",
-    },
+      id: 8,
+      question: "Do you provide training?",
+      answer: "Yes! We provide complete training for your team, detailed documentation, and ongoing support to ensure your team feels confident using the software.",
+      category: "Support",
+      icon: <MessageSquare className="h-4 w-4" />
+    }
   ]
+
+export default function FaqSection() {
+  const [activeFaq, setActiveFaq] = useState<number | null>(0)
+  const [searchQuery, setSearchQuery] = useState("")
+  const [filteredFaqs, setFilteredFaqs] = useState(faqs)
+
   
 
+  const categories = ["All", "Services", "Timeline", "Process", "Support", "Integration", "Pricing", "Technology"]
+
+  // Filter FAQs based on search and category
+  useEffect(() => {
+    let filtered = faqs
+    
+    if (searchQuery) {
+      filtered = filtered.filter(faq => 
+        faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        faq.answer.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    }
+    
+    setFilteredFaqs(filtered)
+  }, [searchQuery])
+
+  const toggleFaq = (id: number) => {
+    setActiveFaq(activeFaq === id ? null : id)
+  }
+
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value)
+  }
+
   return (
-    <section id="faq" className="py-4 sm:py-20 md:py-24 bg-background relative overflow-hidden border-t border-border/50">
-      {/* Background elements */}
+    <section id="faq" className="py-16 sm:py-20 bg-background relative overflow-hidden border-t border-border/50">
       <div className="absolute inset-0 z-0">
-        <div className="absolute bottom-0 right-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 rounded-full blur-[100px]"></div>
-        <div className="absolute top-0 left-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 rounded-full blur-[100px]"></div>
+        <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 rounded-full blur-[100px]"></div>
+        <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 hover:opacity-90 rounded-full blur-[100px]"></div>
+      </div>
+      {/* Minimal Background */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-0 left-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/10 to-gradient-to/10 blur-[80px]"></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-10 max-w-4xl">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-8 sm:mb-12 md:mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Frequently Asked Questions</h2>
-          <p className="text-base sm:text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto">
-            Have questions? We're here to help. If you don't see your question here, feel free to contact us.
+          <div className="inline-flex items-center gap-2 bg-surface/10 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
+            <HelpCircle className="h-4 w-4 text-gradient-from" />
+            <span className="text-sm font-medium">Common Questions</span>
+          </div>
+          
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+            Frequently Asked Questions
+          </h2>
+          
+          <p className="text-base text-foreground/70 max-w-2xl mx-auto">
+            Quick answers to common questions about our software services
           </p>
         </motion.div>
 
-        <div className="max-w-3xl mx-auto">
-          <Accordion type="single" collapsible className="w-full space-y-3 sm:space-y-4">
-            {faqs.map((faq, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-              >
-                <AccordionItem 
-                  value={`item-${index}`}
-                  className="bg-surface/5 backdrop-blur-sm border border-border rounded-lg overflow-hidden"
-                >
-                  <AccordionTrigger className="px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-lg font-medium hover:no-underline hover:bg-surface/5 text-left">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base text-foreground/70">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              </motion.div>
-            ))}
-          </Accordion>
-        </div>
-        
+        {/* Interactive Search */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="text-center mt-8 sm:mt-10 md:mt-12"
+          transition={{ delay: 0.1 }}
+          className="mb-8"
         >
-          <p className="text-sm sm:text-base text-foreground/70">
-            Still have questions? {" "}
-            <Link href="/contact" className="text-primary hover:text-primary/80 underline underline-offset-2">
-              Contact our support team
+          <div className="relative">
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-4 w-4 text-foreground/50" />
+            <input
+              type="text"
+              placeholder="Search for answers..."
+              value={searchQuery}
+              onChange={handleSearch}
+              className="w-full pl-12 pr-4 py-3 bg-surface/5 backdrop-blur-sm border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-gradient-from/30"
+            />
+          </div>
+          
+          {/* Search results indicator */}
+          {searchQuery && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="mt-2 text-sm text-foreground/60"
+            >
+              Found {filteredFaqs.length} {filteredFaqs.length === 1 ? 'answer' : 'answers'} for "{searchQuery}"
+            </motion.div>
+          )}
+        </motion.div>
+
+        {/* FAQ List */}
+        <div className="space-y-3">
+          {filteredFaqs.map((faq, index) => (
+            <motion.div
+              key={faq.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.05 }}
+            >
+              <div
+                onClick={() => toggleFaq(faq.id)}
+                className="group cursor-pointer bg-surface/5 backdrop-blur-sm border border-border rounded-xl overflow-hidden transition-all duration-300 hover:border-gradient-from/50"
+              >
+                {/* Question */}
+                <div className="p-4 flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-surface/10">
+                      {faq.icon}
+                    </div>
+                    <h3 className="font-medium text-sm sm:text-base">
+                      {faq.question}
+                    </h3>
+                  </div>
+                  
+                  <motion.div
+                    animate={{ rotate: activeFaq === faq.id ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="text-foreground/50 group-hover:text-foreground"
+                  >
+                    <ChevronDown className="h-4 w-4" />
+                  </motion.div>
+                </div>
+
+                {/* Answer */}
+                <AnimatePresence>
+                  {activeFaq === faq.id && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-4 pb-4 pt-0">
+                        <div className="pt-4 border-t border-border/30">
+                          <p className="text-foreground/70 text-sm sm:text-base leading-relaxed">
+                            {faq.answer}
+                          </p>
+                          
+                          {/* Category tag */}
+                          <div className="mt-3">
+                            <span className="inline-flex items-center gap-1 px-2 py-1 text-xs rounded bg-surface/20 text-foreground/60">
+                              {faq.category}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* No results message */}
+        {searchQuery && filteredFaqs.length === 0 && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-center py-12"
+          >
+            <HelpCircle className="h-12 w-12 text-foreground/30 mx-auto mb-4" />
+            <h3 className="text-lg font-medium mb-2">No matching answers found</h3>
+            <p className="text-foreground/70 mb-4">
+              Try different keywords or ask us directly
+            </p>
+            <Link href="/contact">
+              <Button className="bg-gradient-to-r from-gradient-from to-gradient-to hover:opacity-90 text-white">
+                Ask Your Question
+              </Button>
+            </Link>
+          </motion.div>
+        )}
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="text-center mt-12"
+        >
+          <div className="bg-surface/5 backdrop-blur-sm border border-border rounded-2xl p-6">
+            <h3 className="text-lg font-bold mb-2">Still have questions?</h3>
+            <p className="text-foreground/70 mb-4 text-sm">
+              We're here to help. Get in touch with our team for personalized answers.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Link href="/contact" className="w-full sm:w-auto">
+                <Button className="w-full group relative overflow-hidden bg-gradient-to-r from-gradient-from to-gradient-to hover:opacity-90 text-white">
+                  <span className="relative z-10 flex items-center justify-center gap-2">
+                    Contact Support
+                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-gradient-to to-gradient-from opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    initial={false}
+                  />
+                </Button>
+              </Link>
+              
+              <Link href="/process" className="w-full sm:w-auto">
+                <Button variant="outline" className="w-full border-border hover:bg-accent">
+                  View Our Process
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Quick Links */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
+          className="mt-8 text-center"
+        >
+          <p className="text-sm text-foreground/70">
+            Quick links:{" "}
+            <Link href="/services" className="text-gradient-from hover:underline">
+              Services
+            </Link>
+            {" • "}
+            <Link href="/process" className="text-gradient-from hover:underline">
+              Process
+            </Link>
+            {" • "}
+            <Link href="/contact" className="text-gradient-from hover:underline">
+              Contact
             </Link>
           </p>
         </motion.div>

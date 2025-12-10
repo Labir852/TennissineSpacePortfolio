@@ -1,175 +1,233 @@
-import Link from "next/link"
-import { Twitter, Facebook, Instagram, Linkedin, Github } from "lucide-react";
+"use client"
+import { Twitter, Instagram, Linkedin, Github, Mail, MapPin, Phone, ArrowUp, Sparkles } from "lucide-react";
 import Image from "next/image"
+import Link from "next/link"
+import { useState, useEffect } from "react"
 
 export default function ModernFooter() {
+  const [isVisible, setIsVisible] = useState(false)
+  const [email, setEmail] = useState("")
+
+  // Show back-to-top button when scrolling
+  useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.pageYOffset > 300) {
+        setIsVisible(true)
+      } else {
+        setIsVisible(false)
+      }
+    }
+
+    window.addEventListener("scroll", toggleVisibility)
+    return () => window.removeEventListener("scroll", toggleVisibility)
+  }, [])
+
+  // Scroll to top function
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    })
+  }
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault()
+    // Handle subscription logic here
+    console.log("Subscribed:", email)
+    setEmail("")
+    // You can add a success message here
+  }
+
+  const quickLinks = [
+    { label: "Services", href: "/#features" },
+    { label: "Process", href: "/#process" },
+    { label: "Work", href: "/#workmodels" },
+    { label: "Testimonials", href: "/#testimonials" },
+  ]
+
+  const companyLinks = [
+    { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" },
+    { label: "FAQ", href: "/#faq" },
+    { label: "Blog", href: "/blog" },
+  ]
+
+  const socialLinks = [
+    { icon: <Twitter className="h-4 w-4" />, href: "#", label: "Twitter" },
+    { icon: <Linkedin className="h-4 w-4" />, href: "#", label: "LinkedIn" },
+    { icon: <Instagram className="h-4 w-4" />, href: "#", label: "Instagram" },
+    { icon: <Github className="h-4 w-4" />, href: "#", label: "GitHub" },
+  ]
+
+  const contactInfo = [
+    { icon: <Mail className="h-4 w-4" />, text: "tennissine.space@gmail.com" },
+    { icon: <Phone className="h-4 w-4" />, text: "+8801842724386" },
+    { icon: <MapPin className="h-4 w-4" />, text: "Dhaka, Bangladesh" },
+  ]
+
   return (
-    <footer className=" bg-no-repeat bg-cover relative overflow-hidden py-8 text-foreground sm:py-16 px-3 sm:px-6 lg:px-8  border-border">
-      
+    <footer className="relative bg-background border-t border-border/30 pt-12 pb-8 overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 rounded-full blur-[100px]"></div>
-        <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 hover:opacity-90 rounded-full blur-[100px]"></div>
+        <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from to-gradient-to rounded-full blur-[100px]"></div>
+        <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from to-gradient-to hover:opacity-90 rounded-full blur-[100px]"></div>
+        <div className="absolute top-0 left-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from to-gradient-to rounded-full blur-[100px]"></div>
+        <div className="absolute bottom-0 right-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from to-gradient-to hover:opacity-90 rounded-full blur-[100px]"></div>
+        
       </div>
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-12">
-          <div>
-            <Link href="/" className="flex">
-              {/* <div className="relative w-10 h-10">
-                <div className="absolute inset-0 bg-gradient-to-tr from-gradient-from to-gradient-to rounded-lg rotate-45 transform origin-center"></div>
-                <div className="absolute inset-[3px] bg-background rounded-lg flex items-center justify-center text-foreground font-bold">
-                  T
-                </div>
+      {/* Minimal background */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute bottom-0 left-1/4 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/5 to-gradient-to/5 blur-[80px]"></div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Main footer content */}
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-12 mb-8">
+          {/* Brand & Description */}
+          <div className="lg:col-span-2">
+            <Link href="/" className="inline-block mb-4">
+              <div className="relative">
+                <Image
+                  src="/images/logos/Main Logo-02.png"
+                  alt="Tennissine's Space Logo"
+                  width={160}
+                  height={40}
+                  className="object-contain"
+                />
               </div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-gradient-from to-gradient-to bg-clip-text text-transparent">
-                Tennissine's Space
-              </span> */}
-              <Image
-                src="/images/logos/Main Logo-02.png"
-                alt="Tennissine's Space Logo"
-                height={200}
-                width={300}/>
             </Link>
-            <p className="text-foreground mb-6">
-              Empowering businesses with customized solutions that drive growth and efficiency.
+            
+            <p className="text-foreground/70 text-sm mb-6 max-w-md">
+              Building custom software solutions for businesses that want to grow smarter.
             </p>
-            <div className="flex space-x-4">
-              <Link href="#" className="text-foreground hover:text-foreground transition-colors">
-                <Twitter className="h-5 w-5" />
-                <span className="sr-only">Twitter</span>
-              </Link>
-              <Link href="#" className="text-foreground hover:text-foreground transition-colors">
-                <Facebook className="h-5 w-5" />
-                <span className="sr-only">Facebook</span>
-              </Link>
-              <Link href="#" className="text-foreground hover:text-foreground transition-colors">
-                <Instagram className="h-5 w-5" />
-                <span className="sr-only">Instagram</span>
-              </Link>
-              
-              <Link href="#" className="text-foreground hover:text-foreground transition-colors">
-                <Linkedin className="h-5 w-5" />
-                <span className="sr-only">LinkedIn</span>
-              </Link>
-              <Link href="#" className="text-foreground hover:text-foreground transition-colors">
-                <Github className="h-5 w-5" />
-                <span className="sr-only">GitHub</span>
-              </Link>
+
+            {/* Contact info */}
+            <div className="space-y-2 mb-6">
+              {contactInfo.map((item, index) => (
+                <div key={index} className="flex items-center gap-2 text-sm text-foreground/60">
+                  {item.icon}
+                  <span>{item.text}</span>
+                </div>
+              ))}
             </div>
-            <form className="mt-6 flex gap-2">
-            <input 
-              type="email" 
-              placeholder="Your work email" 
-              className="bg-surface/10 border border-border rounded-lg px-4 py-2 text-sm w-full focus:outline-none focus:ring-2 focus:ring-gradient-from"
-            />
-            <button className="bg-gradient-to-r from-gradient-from to-gradient-to px-4 py-2 rounded-lg text-sm font-medium">
-              Subscribe
-            </button>
-          </form>
+
+            {/* Social links */}
+            <div className="flex gap-3">
+              {socialLinks.map((social, index) => (
+                <Link
+                  key={index}
+                  href={social.href}
+                  className="p-2 rounded-lg bg-surface/10 border border-border/30 hover:bg-surface/20 transition-colors group"
+                  aria-label={social.label}
+                >
+                  <span className="text-foreground/60 group-hover:text-foreground">
+                    {social.icon}
+                  </span>
+                </Link>
+              ))}
+            </div>
           </div>
 
+          {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-bold mb-4">Product</h3>
+            <h3 className="text-sm font-semibold mb-4 text-foreground/90">Quick Links</h3>
             <ul className="space-y-3">
-              <li>
-                <Link href="/#features" className="text-foreground hover:text-foreground transition-colors">
-                  Features
-                </Link>
-              </li>
-              <li>
-                <Link href="/#workmodels" className="text-foreground hover:text-foreground transition-colors">
-                  Pricing
-                </Link>
-              </li>
-              <li>
-                <Link href="/#integrations-heading" className="text-foreground hover:text-foreground transition-colors">
-                  Integrations
-                </Link>
-              </li>
-              <li>
-                <Link href="/#process" className="text-foreground hover:text-foreground transition-colors">
-                  Roadmap
-                </Link>
-              </li>
-              <li>
-                <Link href="/#blog-heading" className="text-foreground hover:text-foreground transition-colors">
-                  Changelog
-                </Link>
-              </li>
+              {quickLinks.map((link, index) => (
+                <li key={index}>
+                  <Link 
+                    href={link.href}
+                    className="text-sm text-foreground/60 hover:text-foreground transition-colors inline-flex items-center gap-1 group"
+                  >
+                    <span>{link.label}</span>
+                    <Sparkles className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
+          {/* Company Links */}
           <div>
-            <h3 className="text-lg font-bold mb-4">Company</h3>
+            <h3 className="text-sm font-semibold mb-4 text-foreground/90">Company</h3>
             <ul className="space-y-3">
-              <li>
-                <Link href="/#process" className="text-foreground hover:text-foreground transition-colors">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="/#blog-heading" className="text-foreground hover:text-foreground transition-colors">
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-foreground hover:text-foreground transition-colors">
-                  Careers
-                </Link>
-              </li>
-              <li>
-                <Link href="/#testimonials" className="text-foreground hover:text-foreground transition-colors">
-                  Customers
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-foreground hover:text-foreground transition-colors">
-                  Contact
-                </Link>
-              </li>
+              {companyLinks.map((link, index) => (
+                <li key={index}>
+                  <Link 
+                    href={link.href}
+                    className="text-sm text-foreground/60 hover:text-foreground transition-colors inline-flex items-center gap-1 group"
+                  >
+                    <span>{link.label}</span>
+                    <Sparkles className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </Link>
+                </li>
+              ))}
             </ul>
-          </div>
 
-          <div>
-            <h3 className="text-lg font-bold mb-4">Resources</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/#faq" className="text-foreground hover:text-foreground transition-colors">
-                  Documentation
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-foreground hover:text-foreground transition-colors">
-                  Help Center
-                </Link>
-              </li>
-              <li>
-                <Link href="/#integrations-heading" className="text-foreground hover:text-foreground transition-colors">
-                  API Reference
-                </Link>
-              </li>
-              <li>
-                <Link href="/#testimonials" className="text-foreground hover:text-foreground transition-colors">
-                  Community
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-foreground hover:text-foreground transition-colors">
-                  Status
-                </Link>
-              </li>
-            </ul>
+            {/* Newsletter */}
+            <div className="mt-8">
+              <h4 className="text-sm font-semibold mb-3 text-foreground/90">Stay Updated</h4>
+              <form onSubmit={handleSubscribe} className="space-y-2">
+                <div className="relative">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Your work email"
+                    className="w-full px-3 py-2 text-sm bg-surface/5 border border-border/30 rounded-lg focus:outline-none focus:ring-1 focus:ring-gradient-from/30"
+                    required
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="w-full text-sm bg-gradient-to-r from-gradient-from/10 to-gradient-to/10 hover:from-gradient-from/20 hover:to-gradient-to/20 text-foreground/80 border border-border/30 py-2 rounded-lg transition-all"
+                >
+                  Subscribe
+                </button>
+              </form>
+            </div>
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-border/20 flex flex-col md:flex-row justify-between items-center text-sm text-foreground/60">
-          <p>© {new Date().getFullYear()} Tennissine Space. All Rights Reserved.</p>
-          <div className="flex gap-6">
-            <Link href="/privacy" className="hover:text-foreground transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-foreground transition-colors">Terms</Link>
-            <Link href="/security" className="hover:text-foreground transition-colors">Security</Link>
+        {/* Divider */}
+        <div className="h-px w-full bg-border/30 my-8"></div>
+
+        {/* Bottom bar */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="text-sm text-foreground/50">
+            © {new Date().getFullYear()} Tennissine's Space. All rights reserved.
+          </div>
+          
+          <div className="flex gap-6 text-sm">
+            <Link 
+              href="/privacy" 
+              className="text-foreground/60 hover:text-foreground transition-colors"
+            >
+              Privacy
+            </Link>
+            <Link 
+              href="/terms" 
+              className="text-foreground/60 hover:text-foreground transition-colors"
+            >
+              Terms
+            </Link>
+            <Link 
+              href="/cookies" 
+              className="text-foreground/60 hover:text-foreground transition-colors"
+            >
+              Cookies
+            </Link>
           </div>
         </div>
 
+        {/* Back to top button */}
+        {isVisible && (
+          <button
+            onClick={scrollToTop}
+            className="fixed bottom-6 right-6 p-3 rounded-full bg-gradient-to-r from-gradient-from to-gradient-to text-white shadow-lg hover:shadow-xl transition-all z-50"
+            aria-label="Back to top"
+          >
+            <ArrowUp className="h-5 w-5" />
+          </button>
+        )}
       </div>
     </footer>
   )

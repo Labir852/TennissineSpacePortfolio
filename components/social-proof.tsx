@@ -96,16 +96,16 @@ export default function SocialProof() {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease:  [0.25, 0.1, 0.25, 1] ,
-      },
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.25, 0.1, 0.25, 1] as const, // Add 'as const'
     },
-  };
+  },
+};
 
   // Auto-rotate services
   useEffect(() => {
@@ -147,6 +147,10 @@ export default function SocialProof() {
       aria-labelledby="social-proof-heading"
       ref={containerRef}
     >
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 rounded-full blur-[100px]"></div>
+        <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 hover:opacity-90 rounded-full blur-[100px]"></div>
+      </div>
       {/* Animated Gradient Background */}
 <div className="absolute inset-0 z-0 overflow-hidden">
   {/* Main animated gradients */}

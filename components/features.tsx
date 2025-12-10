@@ -188,6 +188,10 @@ export default function ModernFeatures() {
       className="py-12 px-4 sm:py-16 md:py-24 bg-background relative border-t border-border/50 overflow-hidden"
       ref={containerRef}
     >
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 rounded-full blur-[100px]"></div>
+        <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 hover:opacity-90 rounded-full blur-[100px]"></div>
+      </div>
       {/* Animated Gradient Background */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         {/* Main animated gradients */}
