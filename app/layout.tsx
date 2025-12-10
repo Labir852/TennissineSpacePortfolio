@@ -13,10 +13,10 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://tennissine.space"
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Tennissine's Space - Elevate Your Digital Experience",
+    default: "Tennissine's Space - Custom Software Solutions for Your Business",
     template: "%s | Tennissine's Space",
   },
-  description: "Transform your vision to technology and make your business reach to more people. Automate workflows, gain insights, and boost productivity.",
+  description: "We build ERP systems,E-commerce platforms, POS software,Custom Softwares,SaaS Solutions,Websites,Management Systems,Mobile Applications, that actually work.",
   icons: {
     icon: "/images/logos/Main Logo-04.png",
     shortcut: "/images/logos/Main Logo-04.png",
@@ -25,15 +25,15 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
   generator: "Tennissine's Space",
   openGraph: {
-    title: "Tennissine's Space - Elevate Your Digital Experience",
-    description: "Transform your vision to technology and make your business reach to more people. Automate workflows, gain insights, and boost productivity.",
+    title: "Tennissine's Space - Custom Software Solutions for Your Business",
+    description: "We build ERP systems,E-commerce platforms, POS software,Custom Softwares,SaaS Solutions,Websites,Management Systems,Mobile Applications, that actually work.",
     url: siteUrl,
     images: [
       {
         url: "/images/logos/Main Logo-02.png",
         width: 1200,
         height: 630,
-        alt: "Tennissine's Space - AI-powered platform",
+        alt: "Tennissine's Space - Custom Software Solutions for Your Business",
       },
     ],
     type: "website",
