@@ -98,10 +98,7 @@ export default function FaqSection() {
 
   return (
     <section id="faq" className="py-16 sm:py-20 bg-background relative overflow-hidden border-t border-border/50">
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 rounded-full blur-[100px]"></div>
-        <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 hover:opacity-90 rounded-full blur-[100px]"></div>
-      </div>
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-gradient-from/5 via-background to-gradient-to/5"></div>
       {/* Minimal Background */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 left-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/10 to-gradient-to/10 blur-[80px]"></div>

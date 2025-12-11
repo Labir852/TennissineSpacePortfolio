@@ -218,16 +218,7 @@ export default function ModernFooter() {
           </div>
         </div>
 
-        {/* Back to top button */}
-        {isVisible && (
-          <button
-            onClick={scrollToTop}
-            className="fixed bottom-6 right-6 p-3 rounded-full bg-gradient-to-r from-gradient-from to-gradient-to text-white shadow-lg hover:shadow-xl transition-all z-50"
-            aria-label="Back to top"
-          >
-            <ArrowUp className="h-5 w-5" />
-          </button>
-        )}
+        
       </div>
     </footer>
   )

@@ -11,6 +11,7 @@ export default function ModernCta() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const containerRef = useRef<HTMLDivElement>(null)
   
+  
   const x = useMotionValue(0)
   const y = useMotionValue(0)
   const springX = useSpring(x, { stiffness: 150, damping: 20 })
@@ -55,10 +56,7 @@ export default function ModernCta() {
 
   return (
     <section className="py-16 sm:py-20 bg-background relative overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 rounded-full blur-[100px]"></div>
-        <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from/50 to-gradient-to/50 hover:opacity-90 rounded-full blur-[100px]"></div>
-      </div>
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-gradient-from/5 via-background to-gradient-to/5"></div>
       {/* Animated background */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         {/* Moving gradient particles */}

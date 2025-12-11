@@ -162,7 +162,7 @@ export default function ModernTestimonials() {
         />
 
         {/* Floating stars */}
-        {[...Array(20)].map((_, i) => (
+        {[...Array(3)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute w-1 h-1 rounded-full bg-gradient-from/50"
