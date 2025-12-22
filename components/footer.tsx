@@ -46,17 +46,17 @@ export default function ModernFooter() {
   ]
 
   const companyLinks = [
-    { label: "About", href: "/about" },
+    { label: "About", href: "/#process" },
     { label: "Contact", href: "/contact" },
     { label: "FAQ", href: "/#faq" },
-    { label: "Blog", href: "/blog" },
+    { label: "Blog", href: "/#blog" },
   ]
 
   const socialLinks = [
-    { icon: <Twitter className="h-4 w-4" />, href: "#", label: "Twitter" },
-    { icon: <Linkedin className="h-4 w-4" />, href: "#", label: "LinkedIn" },
-    { icon: <Instagram className="h-4 w-4" />, href: "#", label: "Instagram" },
-    { icon: <Github className="h-4 w-4" />, href: "#", label: "GitHub" },
+    { icon: <Twitter className="h-4 w-4" />, href: "https://twitter.com", label: "Twitter" },
+    { icon: <Linkedin className="h-4 w-4" />, href: "https://www.linkedin.com/company/tennissinespace", label: "LinkedIn" },
+    { icon: <Instagram className="h-4 w-4" />, href: "https://www.instagram.com", label: "Instagram" },
+    { icon: <Github className="h-4 w-4" />, href: "https://github.com", label: "GitHub" },
   ]
 
   const contactInfo = [

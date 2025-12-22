@@ -20,6 +20,7 @@ export default function EngagementModels() {
       icon: <Briefcase className="h-5 w-5" />,
       color: "from-blue-500 to-cyan-500",
       gradient: "bg-gradient-to-br from-blue-500/10 to-cyan-500/10",
+      priceTag: "From $7,500 for scoped builds",
       bestFor: "One-time projects with clear requirements",
       features: [
         "Fixed price & timeline",
@@ -38,6 +39,7 @@ export default function EngagementModels() {
       icon: <Users className="h-5 w-5" />,
       color: "from-purple-500 to-pink-500",
       gradient: "bg-gradient-to-br from-purple-500/10 to-pink-500/10",
+      priceTag: "From $15,000 for longer engagements",
       bestFor: "Long-term projects or ongoing development",
       features: [
         "Flexible team size",
@@ -56,6 +58,7 @@ export default function EngagementModels() {
       icon: <MessageSquare className="h-5 w-5" />,
       color: "from-green-500 to-emerald-500",
       gradient: "bg-gradient-to-br from-green-500/10 to-emerald-500/10",
+      priceTag: "From $3,000 for audit & strategy",
       bestFor: "Technical guidance & strategy",
       features: [
         "Technical audits",
@@ -199,6 +202,11 @@ export default function EngagementModels() {
                   {model.description}
                 </p>
 
+                <div className="inline-flex items-center gap-1 px-2 py-1 mb-3 rounded-full bg-background/60 border border-border/50 text-[11px] font-medium text-foreground">
+                  <span className="text-gradient-from">Starting from</span>
+                  <span>{model.priceTag}</span>
+                </div>
+
                 <div className="text-xs text-foreground/60 text-left">
                   Best for: {model.bestFor}
                 </div>
@@ -236,6 +244,9 @@ export default function EngagementModels() {
                   <div>
                     <h3 className="text-xl font-bold">{models[selectedModel].name}</h3>
                     <p className="text-foreground/70">{models[selectedModel].description}</p>
+                    <p className="text-sm font-semibold text-gradient-from mt-1">
+                      {models[selectedModel].priceTag}
+                    </p>
                   </div>
                 </div>
 

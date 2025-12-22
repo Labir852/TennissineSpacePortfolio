@@ -271,7 +271,7 @@ export default function FaqSection() {
                 </Button>
               </Link>
               
-              <Link href="/process" className="w-full sm:w-auto">
+              <Link href="/#process" className="w-full sm:w-auto">
                 <Button variant="outline" className="w-full border-border hover:bg-accent">
                   View Our Process
                 </Button>
@@ -290,11 +290,11 @@ export default function FaqSection() {
         >
           <p className="text-sm text-foreground/70">
             Quick links:{" "}
-            <Link href="/services" className="text-gradient-from hover:underline">
+            <Link href="/#features" className="text-gradient-from hover:underline">
               Services
             </Link>
             {" • "}
-            <Link href="/process" className="text-gradient-from hover:underline">
+            <Link href="/#process" className="text-gradient-from hover:underline">
               Process
             </Link>
             {" • "}
