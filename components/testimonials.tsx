@@ -5,6 +5,7 @@ import Image from "next/image"
 import { motion, AnimatePresence, useMotionValue, useTransform } from "framer-motion"
 import { ChevronLeft, ChevronRight, Quote, Star, Play, Pause, Volume2, Sparkles, Heart, ThumbsUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export default function ModernTestimonials() {
   const testimonials = [
@@ -62,7 +63,7 @@ export default function ModernTestimonials() {
 
   const companies = [
     { name: "Bangladesh Army", logo: "/clients/bangladesharmylogonobg.png" },
-    { name: "Capital Market Stabilizaiton Fund", logo: "/clients/cmsf.png" },
+    { name: "Capital Market Stabilization Fund", logo: "/clients/cmsf.png" },
     { name: "Primeasia University", logo: "/clients/Primeasia.png" },
     { name: "Mixora Trading Ltd.", logo: "/clients/mixorabl.png" },
     { name: "DevHome Digital", logo: "/clients/devhome.png" },
@@ -579,6 +580,7 @@ export default function ModernTestimonials() {
     whileHover={{ scale: 1.05 }}
     whileTap={{ scale: 0.95 }}
   >
+    <Link href='/contact'>
     <Button
       className="group relative overflow-hidden bg-gradient-to-r from-gradient-from to-gradient-to hover:opacity-90 text-white px-8 py-6 text-lg font-medium"
     >
@@ -596,6 +598,7 @@ export default function ModernTestimonials() {
         initial={false}
       />
     </Button>
+    </Link>
   </motion.div>
 </motion.div>
       </div>

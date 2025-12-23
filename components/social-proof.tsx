@@ -1,9 +1,10 @@
 "use client"
 
-import Image from "next/image"
-import { motion, AnimatePresence } from "framer-motion"
+import Image from "next/image";
+import Link from "next/link"
+import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
-import { Code, ShoppingCart, Globe, BarChart, Cpu, Database, Zap, ChevronRight, Sparkles, CheckCircle, Play, Pause } from "lucide-react"
+import { Code, ShoppingCart, Globe, BarChart, Cpu, Database, Zap, ChevronRight, Sparkles, CheckCircle, Play, Pause } from "lucide-react";
 
 export default function SocialProof() {
   const [activeService, setActiveService] = useState(0);
@@ -528,10 +529,12 @@ export default function SocialProof() {
                       transition={{ delay: 0.5 }}
                       className="mt-6"
                     >
-                      <button className="group w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-gradient-from to-gradient-to text-white rounded-lg hover:opacity-90 transition-opacity">
-                        <span className="font-medium">Learn more about {services[activeService].title}</span>
-                        <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </button>
+                      <Link href='/contact'>
+                        <button className="group w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-gradient-from to-gradient-to text-white rounded-lg hover:opacity-90 transition-opacity">
+                          <span className="font-medium">Learn more about {services[activeService].title}</span>
+                          <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        </button>
+                      </Link>
                     </motion.div>
                   </div>
                 </motion.div>
@@ -540,7 +543,7 @@ export default function SocialProof() {
           </div>
 
           {/* Stats Bar */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -563,12 +566,11 @@ export default function SocialProof() {
                     {stat.label}
                   </p>
                   
-                  {/* Hover effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-gradient-from/5 to-gradient-to/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
               </motion.div>
             ))}
-          </motion.div>
+          </motion.div> */}
 
           {/* Navigation Hint */}
           <motion.div

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     default: "Tennissine's Space - Custom Software Solutions for Your Business",
     template: "%s | Tennissine's Space",
   },
-  description: "We build ERP systems,E-commerce platforms, POS software,Custom Softwares,SaaS Solutions,Websites,Management Systems,Mobile Applications, that actually work.",
+  description: "Tennissine's Space - Custom Software Solutions for Your Business. We build ERP systems, E-commerce platforms, POS software, Custom Software's, SaaS Solutions, Websites, Management Systems, Mobile Applications, that actually work.",
   icons: {
     icon: "/images/logos/Main Logo-04.png",
     shortcut: "/images/logos/Main Logo-04.png",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   generator: "Tennissine's Space",
   openGraph: {
     title: "Tennissine's Space - Custom Software Solutions for Your Business",
-    description: "We build ERP systems,E-commerce platforms, POS software,Custom Softwares,SaaS Solutions,Websites,Management Systems,Mobile Applications, that actually work.",
+    description: "Tennissine's Space - Custom Software Solutions for Your Business. We build ERP systems, E-commerce platforms, POS software, Custom Software's, SaaS Solutions, Websites, Management Systems, Mobile Applications, that actually work.",
     url: siteUrl,
     images: [
       {

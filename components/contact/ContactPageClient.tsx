@@ -289,20 +289,17 @@ export default function ContactPageClient() {
                 <option value="" disabled>
                   Select a range
                 </option>
-                <option value="$3k - $7.5k (feature / landing)">
-                  $3k – $7.5k — single feature or landing
+                <option value="Below $3000">
+                  Below $3000
                 </option>
-                <option value="$7.5k - $15k (MVP / website)">
-                  $7.5k – $15k — MVP or marketing site
+                <option value="$3000 – $10000">
+                  $3000 – $10000
                 </option>
-                <option value="$15k - $30k (full product)">
-                  $15k – $30k — full product build
+                <option value="$10000 – $40000">
+                  $10000 – $40000
                 </option>
-                <option value="$30k - $50k (multi-module)">
-                  $30k – $50k — multi-module / integrations
-                </option>
-                <option value="$50k+ (enterprise / phased)">
-                  $50k+ — enterprise or phased program
+                <option value="$50000+">
+                  $50000+
                 </option>
               </select>
               {errors.budget && <p className="mt-2 text-sm text-destructive">{errors.budget}</p>}

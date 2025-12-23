@@ -146,12 +146,12 @@ export default function DesktopNav() {
           icon: <MessageSquare className="h-4 w-4" />,
           description: "What our clients say about us"
         },
-        {
-          label: "Blog & Insights",
-          href: "/#blog",
-          icon: <Sparkles className="h-4 w-4" />,
-          description: "Latest trends and insights"
-        },
+        // {
+        //   label: "Blog & Insights",
+        //   href: "/#blog",
+        //   icon: <Sparkles className="h-4 w-4" />,
+        //   description: "Latest trends and insights"
+        // },
         {
           label: "Careers",
           href: "/contact",
@@ -424,14 +424,14 @@ export default function DesktopNav() {
         </Link>
 
         {/* Blog */}
-        <Link
+        {/* <Link
           href="/#blog"
           className="text-foreground/90 hover:text-foreground py-2 transition-colors text-sm relative group"
           onMouseEnter={() => setActiveDropdown(null)}
         >
           Blog
           <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-gradient-from to-gradient-to group-hover:w-full transition-all duration-300"></span>
-        </Link>
+        </Link> */}
       </nav>
 
       {/* Right Actions - Minimal */}

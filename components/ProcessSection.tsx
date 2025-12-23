@@ -4,6 +4,7 @@ import { motion, useAnimation, AnimatePresence } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import { ChevronRight, ChevronLeft, Play, Pause, Sparkles, CheckCircle, ArrowRight, Zap } from "lucide-react";
+import Link from "next/link";
 
 const processSteps = [
   {
@@ -299,6 +300,7 @@ export default function ProcessSection() {
               <p className="text-sm text-foreground/70 mb-4">
                 Ready to start your project?
               </p>
+              <Link href='/contact'>
               <button className="group relative overflow-hidden bg-gradient-to-r from-gradient-from to-gradient-to text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition-all">
                 <span className="relative z-10 flex items-center gap-2">
                   Start Your Project
@@ -309,6 +311,7 @@ export default function ProcessSection() {
                   initial={false}
                 />
               </button>
+              </Link>
             </motion.div>
           </div>
         </div>

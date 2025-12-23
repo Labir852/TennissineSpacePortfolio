@@ -152,12 +152,12 @@ export default function MobileNav({ isOpen }: MobileNavProps) {
           icon: <MessageSquare className="h-4 w-4" />,
           description: "What our clients say about us"
         },
-        {
-          label: "Blog & Insights",
-          href: "/#blog",
-          icon: <Sparkles className="h-4 w-4" />,
-          description: "Latest trends and insights"
-        },
+        // {
+        //   label: "Blog & Insights",
+        //   href: "/#blog",
+        //   icon: <Sparkles className="h-4 w-4" />,
+        //   description: "Latest trends and insights"
+        // },
         {
           label: "Careers",
           href: "/contact",
@@ -195,7 +195,7 @@ export default function MobileNav({ isOpen }: MobileNavProps) {
   return (
     <div
       className={cn(
-        "md:hidden fixed inset-x-0 top-[70px] bg-background/95 backdrop-blur-xl border-t border-border/50 transition-all duration-300 ease-in-out overflow-auto z-50",
+        "md:hidden fixed inset-x-0 top-[90px] bg-background/95 backdrop-blur-xl border-t border-border/50 transition-all duration-300 ease-in-out overflow-auto z-50",
         isOpen ? "max-h-[calc(100vh-70px)] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
       )}
       style={{
@@ -428,14 +428,14 @@ export default function MobileNav({ isOpen }: MobileNavProps) {
         </Link>
 
         {/* Blog Link */}
-        <Link
+        {/* <Link
           href="/#blog"
           className="flex items-center justify-between py-3 px-2 border-b border-border/30 text-foreground/90 hover:text-foreground transition-colors"
           onClick={() => setActiveDropdown(null)}
         >
           <span className="font-medium text-base">Blog</span>
           <Sparkles className="h-4 w-4 text-gradient-to" />
-        </Link>
+        </Link> */}
 
         {/* Divider */}
         <div className="h-px bg-border/30 my-3" />
