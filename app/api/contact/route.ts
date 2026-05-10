@@ -7,6 +7,7 @@ const contactSchema = z.object({
   email: z.string().trim().email('Please enter a valid email address.'),
   subject: z.string().trim().min(3, 'Subject must be at least 3 characters.').max(150),
   message: z.string().trim().min(20, 'Message must be at least 20 characters.').max(2000),
+  budget: z.string().optional(),
   // companyName: z.string().optional(),
 });
 
@@ -25,7 +26,7 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
-    const { name, email, subject, message } = parsed.data;
+    const { name, email, subject, message, budget } = parsed.data;
 
     // if (companyName && companyName.trim().length > 0) {
     //   return NextResponse.json({ error: 'Spam detected.' }, { status: 400 });
@@ -77,6 +78,10 @@ export async function POST(request: NextRequest) {
               <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;padding:18px;margin:10px 0px">
                   <p style="margin:0;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#6366f1;">Subject</p>
                   <p style="margin:8px 0 0;font-size:18px;font-weight:600;color:#1e293b;">${subject}</p>
+                </div>
+                <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;padding:18px;margin:10px 0px">
+                  <p style="margin:0;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#6366f1;">Estimated Budget</p>
+                  <p style="margin:8px 0 0;font-size:18px;font-weight:600;color:#1e293b;">${budget}</p>
                 </div>
               <div style="padding:24px;border-radius:16px;background:#f1f5f9;border:1px solid #cbd5f5;">
                 <p style="margin:0 0 12px;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#6366f1;">Message</p>

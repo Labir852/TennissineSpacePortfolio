@@ -110,6 +110,12 @@ export default function Home() {
       <LazyLoad>
         <Testimonials />
       </LazyLoad>
+      {/* <LazyLoad>
+        <BlogPreview />
+      </LazyLoad> */}
+      <LazyLoad>
+        <ProcessSection />
+      </LazyLoad>
       <LazyLoad>
         <Pricing />
       </LazyLoad>

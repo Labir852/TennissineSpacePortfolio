@@ -9,6 +9,7 @@ export default function ContactPageClient() {
     name: "",
     email: "",
     subject: "",
+    budget: "",
     message: "",
   });
   const [submitStatus, setSubmitStatus] = useState<{
@@ -20,7 +21,7 @@ export default function ContactPageClient() {
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     setFormData({
       ...formData,
@@ -38,6 +39,9 @@ export default function ContactPageClient() {
     }
     if (formData.subject.trim().length < 3) {
       nextErrors.subject = "Subject must be at least 3 characters.";
+    }
+    if (!formData.budget) {
+      nextErrors.budget = "Please select an estimated budget.";
     }
     if (formData.message.trim().length < 20) {
       nextErrors.message = "Share a bit more detail (20+ characters).";
@@ -72,7 +76,7 @@ export default function ContactPageClient() {
           type: "success",
           message: "Thank you! Your message has been sent successfully. We'll get back to you soon.",
         });
-        setFormData({ name: "", email: "", subject: "", message: "" });
+        setFormData({ name: "", email: "", subject: "", budget: "", message: "" });
         setErrors({});
       } else {
         setSubmitStatus({
@@ -263,6 +267,43 @@ export default function ContactPageClient() {
                   />
                   {errors.subject && <p className="mt-2 text-sm text-destructive">{errors.subject}</p>}
                 </div>
+
+            <div>
+              <label
+                htmlFor="budget"
+                className="block text-sm font-medium mb-2 text-foreground"
+              >
+                Estimated budget <span className="text-destructive">*</span>
+              </label>
+              <select
+                id="budget"
+                name="budget"
+                required
+                value={formData.budget}
+                onChange={handleChange}
+                aria-invalid={Boolean(errors.budget)}
+                className={`w-full px-4 py-3 rounded-lg bg-background border text-foreground focus:outline-none focus:ring-2 focus:ring-gradient-from focus:border-transparent transition-all ${
+                  errors.budget ? "border-destructive/80" : "border-border"
+                }`}
+              >
+                <option value="" disabled>
+                  Select a range
+                </option>
+                <option value="Below $3000">
+                  Below $3000
+                </option>
+                <option value="$3000 – $10000">
+                  $3000 – $10000
+                </option>
+                <option value="$10000 – $40000">
+                  $10000 – $40000
+                </option>
+                <option value="$50000+">
+                  $50000+
+                </option>
+              </select>
+              {errors.budget && <p className="mt-2 text-sm text-destructive">{errors.budget}</p>}
+            </div>
 
                 <div>
                   <label

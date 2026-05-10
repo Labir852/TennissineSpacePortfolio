@@ -35,23 +35,23 @@ export default function DesktopNav() {
     {
       category: "Business Solutions",
       items: [
-        { 
-          label: "Custom Software", 
-          href: "/services/software",
+        {
+          label: "Custom Software",
+          href: "/#features",
           icon: <Code className="h-4 w-4" />,
           description: "Tailored solutions for your unique needs",
           features: ["Scalable", "Secure", "Maintainable"]
         },
-        { 
-          label: "ERP Systems", 
-          href: "/services/erp",
+        {
+          label: "ERP Systems",
+          href: "/#features",
           icon: <Database className="h-4 w-4" />,
           description: "Complete business management",
           features: ["Inventory", "Accounting", "HR"]
         },
-        { 
-          label: "E-commerce", 
-          href: "/services/ecommerce",
+        {
+          label: "E-commerce",
+          href: "/#features",
           icon: <ShoppingBag className="h-4 w-4" />,
           description: "Online stores that drive sales",
           features: ["Payment Gateway", "Inventory", "Analytics"]
@@ -61,23 +61,23 @@ export default function DesktopNav() {
     {
       category: "Technical Services",
       items: [
-        { 
-          label: "POS Solutions", 
-          href: "/services/pos",
+        {
+          label: "POS Solutions",
+          href: "/#features",
           icon: <CreditCard className="h-4 w-4" />,
           description: "Retail & restaurant systems",
           features: ["Offline Mode", "Reporting", "Multi-store"]
         },
-        { 
-          label: "SaaS Platforms", 
-          href: "/services/saas",
+        {
+          label: "SaaS Platforms",
+          href: "/#features",
           icon: <Cloud className="h-4 w-4" />,
           description: "Cloud-based software",
           features: ["Subscription", "Multi-tenant", "API"]
         },
-        { 
-          label: "Web Development", 
-          href: "/services/web",
+        {
+          label: "Web Development",
+          href: "/#features",
           icon: <Globe className="h-4 w-4" />,
           description: "Responsive websites",
           features: ["SEO", "Fast", "Mobile-friendly"]
@@ -87,23 +87,23 @@ export default function DesktopNav() {
     {
       category: "Specialized",
       items: [
-        { 
-          label: "Automation", 
-          href: "/services/automation",
+        {
+          label: "Automation",
+          href: "/#features",
           icon: <Zap className="h-4 w-4" />,
           description: "Workflow automation",
           features: ["AI", "Bots", "Scheduling"]
         },
-        { 
-          label: "Integration", 
-          href: "/services/integration",
+        {
+          label: "Integration",
+          href: "/#features",
           icon: <Cpu className="h-4 w-4" />,
           description: "Connect your systems",
           features: ["API", "Real-time", "Secure"]
         },
-        { 
-          label: "Consulting", 
-          href: "/services/consulting",
+        {
+          label: "Consulting",
+          href: "/#features",
           icon: <Users className="h-4 w-4" />,
           description: "Strategy & planning",
           features: ["Audit", "Roadmap", "Implementation"]
@@ -117,21 +117,21 @@ export default function DesktopNav() {
     {
       category: "About",
       items: [
-        { 
-          label: "Our Story", 
-          href: "/about",
+        {
+          label: "Our Story",
+          href: "/#process",
           icon: <Users className="h-4 w-4" />,
           description: "Learn about our journey and mission"
         },
-        { 
-          label: "Our Process", 
-          href: "/process",
+        {
+          label: "Our Process",
+          href: "/#process",
           icon: <BookOpen className="h-4 w-4" />,
           description: "How we deliver exceptional results"
         },
-        { 
-          label: "Case Studies", 
-          href: "/cases",
+        {
+          label: "Case Studies",
+          href: "/#workmodels",
           icon: <FileText className="h-4 w-4" />,
           description: "Success stories from our clients"
         },
@@ -140,21 +140,21 @@ export default function DesktopNav() {
     {
       category: "Connect",
       items: [
-        { 
-          label: "Testimonials", 
-          href: "/testimonials",
+        {
+          label: "Testimonials",
+          href: "/#testimonials",
           icon: <MessageSquare className="h-4 w-4" />,
           description: "What our clients say about us"
         },
-        { 
-          label: "Blog & Insights", 
-          href: "/blog",
-          icon: <Sparkles className="h-4 w-4" />,
-          description: "Latest trends and insights"
-        },
-        { 
-          label: "Careers", 
-          href: "/careers",
+        // {
+        //   label: "Blog & Insights",
+        //   href: "/#blog",
+        //   icon: <Sparkles className="h-4 w-4" />,
+        //   description: "Latest trends and insights"
+        // },
+        {
+          label: "Careers",
+          href: "/contact",
           icon: <Briefcase className="h-4 w-4" />,
           description: "Join our talented team"
         },
@@ -415,7 +415,7 @@ export default function DesktopNav() {
 
         {/* Testimonials */}
         <Link
-          href="/testimonials"
+          href="/#testimonials"
           className="text-foreground/90 hover:text-foreground py-2 transition-colors text-sm relative group"
           onMouseEnter={() => setActiveDropdown(null)}
         >
@@ -424,14 +424,14 @@ export default function DesktopNav() {
         </Link>
 
         {/* Blog */}
-        <Link
-          href="/blog"
+        {/* <Link
+          href="/#blog"
           className="text-foreground/90 hover:text-foreground py-2 transition-colors text-sm relative group"
           onMouseEnter={() => setActiveDropdown(null)}
         >
           Blog
           <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-gradient-from to-gradient-to group-hover:w-full transition-all duration-300"></span>
-        </Link>
+        </Link> */}
       </nav>
 
       {/* Right Actions - Minimal */}

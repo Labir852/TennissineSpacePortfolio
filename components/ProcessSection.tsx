@@ -237,27 +237,48 @@ export default function ProcessSection() {
                       ))}
                     </div>
 
-                    {/* Navigation Actions */}
-                    <div className="flex items-center justify-between pt-10 border-t border-border/30">
-                       <button
-                        onClick={() => goToStep((activeIndex - 1 + processSteps.length) % processSteps.length)}
-                        className="flex items-center gap-2 text-sm font-bold text-foreground/50 hover:text-foreground transition-colors group"
-                      >
-                        <ChevronLeft className="h-5 w-5 group-hover:-translate-x-1 transition-transform" />
-                        Previous
-                      </button>
-                      
-                      <Link
-                        href="/contact"
-                        className="flex items-center gap-3 bg-gradient-to-r from-gradient-from to-gradient-to text-white px-8 py-4 rounded-2xl font-bold hover:shadow-xl hover:shadow-gradient-from/20 transition-all scale-100 hover:scale-105"
-                      >
-                        Start {activeStep.title.split(" ")[0]} <ArrowRight className="h-5 w-5" />
-                      </Link>
-                    </div>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
+                {/* Navigation Buttons */}
+                <div className="flex items-center justify-between pt-6 border-t border-border/30">
+                  <button
+                    onClick={() => goToStep("prev")}
+                    className="flex items-center gap-2 text-sm text-foreground/70 hover:text-foreground transition-colors"
+                  >
+                    <ChevronLeft className="h-4 w-4" />
+                    Previous
+                  </button>
+                  
+                  <button
+                    onClick={() => goToStep("next")}
+                    className="flex items-center gap-2 text-sm bg-gradient-to-r from-gradient-from to-gradient-to text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
+                  >
+                    Next Step
+                    <ChevronRight className="h-4 w-4" />
+                  </button>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+
+            {/* CTA */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              className="mt-8 text-center"
+            >
+              <p className="text-sm text-foreground/70 mb-4">
+                Ready to start your project?
+              </p>
+              <button className="group relative overflow-hidden bg-gradient-to-r from-gradient-from to-gradient-to text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition-all">
+                <span className="relative z-10 flex items-center gap-2">
+                  Start Your Project
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </span>
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-gradient-to to-gradient-from opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  initial={false}
+                />
+              </button>
+            </motion.div>
           </div>
         </div>
       </div>

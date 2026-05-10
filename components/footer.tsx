@@ -46,27 +46,27 @@ export default function ModernFooter() {
   ]
 
   const companyLinks = [
-    { label: "About", href: "/about" },
+    { label: "About", href: "/#process" },
     { label: "Contact", href: "/contact" },
     { label: "FAQ", href: "/#faq" },
-    { label: "Blog", href: "/blog" },
+    { label: "Blog", href: "/#blog" },
   ]
 
   const socialLinks = [
-    { icon: <Twitter className="h-4 w-4" />, href: "#", label: "Twitter" },
-    { icon: <Linkedin className="h-4 w-4" />, href: "#", label: "LinkedIn" },
-    { icon: <Instagram className="h-4 w-4" />, href: "#", label: "Instagram" },
-    { icon: <Github className="h-4 w-4" />, href: "#", label: "GitHub" },
+    { icon: <Twitter className="h-4 w-4" />, href: "https://twitter.com", label: "Twitter" },
+    { icon: <Linkedin className="h-4 w-4" />, href: "https://www.linkedin.com/company/tennissinespace", label: "LinkedIn" },
+    { icon: <Instagram className="h-4 w-4" />, href: "https://www.instagram.com", label: "Instagram" },
+    { icon: <Github className="h-4 w-4" />, href: "https://github.com", label: "GitHub" },
   ]
 
   const contactInfo = [
-    { icon: <Mail className="h-4 w-4" />, text: "tennissine.space@gmail.com" },
-    { icon: <Phone className="h-4 w-4" />, text: "+8801842724386" },
-    { icon: <MapPin className="h-4 w-4" />, text: "Dhaka, Bangladesh" },
+    { icon: <Mail className="h-4 w-4" />, text: "tennissine.space@gmail.com", href:"mailto:tennissine.space@gmail.com" },
+    { icon: <Phone className="h-4 w-4" />, text: "+8801842724386", href:"tel:+8801842724386" },
+    { icon: <MapPin className="h-4 w-4" />, text: "Dhaka, Bangladesh", href:"https://www.google.com/maps/place/Dhaka,+Bangladesh" },
   ]
 
   return (
-    <footer className="relative bg-background border-t border-border/30 pt-12 pb-8 overflow-hidden">
+    <footer className="relative bg-background border-t border-border/30 pt-12 pb-8 pl-8 pr-8 overflow-hidden">
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from to-gradient-to rounded-full blur-[100px]"></div>
         <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-r from-gradient-from to-gradient-to hover:opacity-90 rounded-full blur-[100px]"></div>
@@ -103,10 +103,15 @@ export default function ModernFooter() {
             {/* Contact info */}
             <div className="space-y-2 mb-6">
               {contactInfo.map((item, index) => (
-                <div key={index} className="flex items-center gap-2 text-sm text-foreground/60">
-                  {item.icon}
-                  <span>{item.text}</span>
-                </div>
+                <Link
+                  key={index}
+                  href={item.href}
+                  className="flex items-center gap-2 text-sm text-foreground/60"
+                >
+                    {item.icon}
+                    <span>{item.text}</span>
+                  
+                </Link>
               ))}
             </div>
 

@@ -6,6 +6,7 @@ import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowRight, ChevronRight, Sparkles, Zap, Shield, Cpu, Wrench } from "lucide-react";
 import { useTheme } from "next-themes";
+import Link from "next/link";
 
 export default function HowItWorks() {
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -24,7 +25,7 @@ export default function HowItWorks() {
     {
       number: "001",
       title: "5+ Years of Experience",
-      description: "Our team brings over 10 years of experience, with senior experts leading every project. Hence, you get unmatched expertise, strategic insight, and results aligned with your goals.",
+      description: "Our team brings over 5 years of experience, with senior experts leading every project. Hence, you get unmatched expertise, strategic insight, and results aligned with your goals.",
       icon: <Zap className="h-5 w-5" />,
       color: "from-blue-500 to-cyan-500",
       gradient: "bg-gradient-to-br from-blue-500/20 to-cyan-500/20",
@@ -277,11 +278,21 @@ export default function HowItWorks() {
                   {/* Number with animated gradient */}
                   <div className="relative mb-4">
                     <motion.h1
-                      className="text-5xl font-black opacity-90 group-hover:opacity-100"
+                      className="text-5xl font-black text-foreground opacity-90 group-hover:opacity-100"
+                      // style={{
+                      //   WebkitTextStroke: `1.5px transparent`,
+                      //   background: `linear-gradient(135deg, ${step.color.split(' ')[1].replace('from-', '')}, ${step.color.split(' ')[3]})`,
+                        
+                      //   WebkitBackgroundClip: 'text',
+                      //   backgroundClip: 'text',
+                      // }}
                       style={{
-                        WebkitTextStroke: isDark ? `1px rgba(255, 255, 255, 0.4)` : `1px hsl(var(--gradient-from) / 0.5)`,
+                        WebkitTextStroke: `1.5px transparent`,
+                        background: `linear-gradient(135deg, ${step.color.split(' ')[1].replace('from-', '')}, ${step.color.split(' ')[3]})`,
+                        
+                        WebkitBackgroundClip: 'text',
+                        backgroundClip: 'text',
                         color: 'transparent',
-                        WebkitTextFillColor: 'transparent',
                       }}
                       animate={hoveredIndex === index ? {
                         scale: [1, 1.05, 1],
@@ -412,10 +423,19 @@ export default function HowItWorks() {
                     >
                       <h1
                         className="text-4xl font-black mb-4"
+                        // style={{
+                        //   WebkitTextStroke: `1px transparent`,
+                        //   background: `linear-gradient(135deg, ${step.color.split(' ')[1].replace('from-', '')}, ${step.color.split(' ')[3]})`,
+                        //   WebkitBackgroundClip: 'text',
+                        //   backgroundClip: 'text',
+                        //   color: 'transparent',
+                        // }}
                         style={{
-                          WebkitTextStroke: isDark ? `1px rgba(255, 255, 255, 0.4)` : `1px hsl(var(--gradient-from) / 0.5)`,
+                          WebkitTextStroke: `1px transparent`,
+                          background: `linear-gradient(135deg, ${step.color.split(' ')[1].replace('from-', '')}, ${step.color.split(' ')[3]})`,
+                          WebkitBackgroundClip: 'text',
+                          backgroundClip: 'text',
                           color: 'transparent',
-                          WebkitTextFillColor: 'transparent',
                         }}
                       >
                         {step.number}
@@ -447,14 +467,18 @@ export default function HowItWorks() {
                     </div>
 
                     {/* Tap hint for mobile */}
+                    <Link href='/contact'>
                     <motion.div
                       className="flex items-center justify-center gap-1 mt-4 pt-3 border-t border-border/30"
                       animate={{ opacity: [0.5, 1, 0.5] }}
                       transition={{ duration: 2, repeat: Infinity }}
                     >
+                      
                       <span className="text-xs text-foreground/60">Tap for details</span>
                       <ChevronRight className="h-3 w-3 text-foreground/60" />
+                     
                     </motion.div>
+                     </Link>
                   </motion.div>
                 </div>
               ))}
@@ -507,6 +531,7 @@ export default function HowItWorks() {
           <p className="text-foreground/70 text-sm sm:text-base mb-6">
             Ready to experience our process?
           </p>
+          <Link href='/contact'>
           <motion.button
             className="group relative overflow-hidden bg-gradient-to-r from-gradient-from to-gradient-to text-white px-8 py-3 rounded-lg font-medium
               hover:shadow-xl hover:shadow-gradient-from/20 transition-all duration-300"
@@ -529,6 +554,7 @@ export default function HowItWorks() {
               initial={false}
             />
           </motion.button>
+          </Link>
         </motion.div>
       </div>
     </section>
