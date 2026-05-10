@@ -2,10 +2,8 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import ModernHeader from "@/components/header"
-import ModernFooter from "@/components/footer"
-import MotionEffects from "@/components/MotionEffects"
-import FloatingActions from "@/components/FloatingActions"
+import AuthProvider from "@/components/auth-provider"
+import PublicLayout from "@/components/PublicLayout"
 
 const inter = Inter({ subsets: ["latin"] })
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://tennissine.space"
@@ -48,12 +46,15 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} bg-background text-foreground`}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-          <MotionEffects />
-          <ModernHeader />
-          <main>{children}</main>
-          <ModernFooter />
-          <FloatingActions />
+        <ThemeProvider 
+          attribute="class" 
+          defaultTheme="light" 
+          enableSystem={true} 
+          disableTransitionOnChange
+        >
+          <AuthProvider>
+            <PublicLayout>{children}</PublicLayout>
+          </AuthProvider>
         </ThemeProvider>
       </body>
     </html>

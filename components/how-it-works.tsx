@@ -5,6 +5,7 @@ import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowRight, ChevronRight, Sparkles, Zap, Shield, Cpu, Wrench } from "lucide-react";
+import { useTheme } from "next-themes";
 
 export default function HowItWorks() {
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -13,8 +14,11 @@ export default function HowItWorks() {
   });
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme === "dark";
   const containerRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(containerRef, { once: true, amount: 0.2 });
+  const isInView = useInView(containerRef, { once: false, amount: 0.1 });
+  const [particleData, setParticleData] = useState<Array<{x: number[], y: number[], duration: number}>>([]);
 
   const steps = [
     {
@@ -60,6 +64,14 @@ export default function HowItWorks() {
   ];
   // Animated background particles
   useEffect(() => {
+    // Generate particle data on mount
+    const data = [...Array(15)].map(() => ({
+      x: [0, Math.random() * 100 - 50, Math.random() * 100 - 50, 0],
+      y: [0, Math.random() * 100 - 50, Math.random() * 100 - 50, 0],
+      duration: Math.random() * 15 + 10
+    }));
+    setParticleData(data);
+
     if (!containerRef.current) return;
 
     const particles = containerRef.current.querySelectorAll('.gradient-particle');
@@ -123,25 +135,27 @@ export default function HowItWorks() {
       {/* Animated Gradient Background */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         {/* Main animated gradients */}
-        <motion.div
-          className="absolute top-1/4 left-1/4 w-[500px] h-[500px] sm:w-[700px] sm:h-[700px] rounded-full"
-          animate={{
-            background: [
-              'radial-gradient(circle at 30% 30%, rgba(59, 130, 246, 0.2) 0%, rgba(6, 182, 212, 0.1) 25%, transparent 70%)',
-              'radial-gradient(circle at 70% 70%, rgba(168, 85, 247, 0.2) 0%, rgba(236, 72, 153, 0.1) 25%, transparent 70%)',
-              'radial-gradient(circle at 30% 70%, rgba(34, 197, 94, 0.2) 0%, rgba(52, 211, 153, 0.1) 25%, transparent 70%)',
-              'radial-gradient(circle at 70% 30%, rgba(59, 130, 246, 0.2) 0%, rgba(6, 182, 212, 0.1) 25%, transparent 70%)',
-            ],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
-        />
+        {isInView && (
+          <motion.div
+            className="absolute top-1/4 left-1/4 w-[500px] h-[500px] sm:w-[700px] sm:h-[700px] rounded-full"
+            animate={{
+              background: [
+                'radial-gradient(circle at 30% 30%, rgba(59, 130, 246, 0.2) 0%, rgba(6, 182, 212, 0.1) 25%, transparent 70%)',
+                'radial-gradient(circle at 70% 70%, rgba(168, 85, 247, 0.2) 0%, rgba(236, 72, 153, 0.1) 25%, transparent 70%)',
+                'radial-gradient(circle at 30% 70%, rgba(34, 197, 94, 0.2) 0%, rgba(52, 211, 153, 0.1) 25%, transparent 70%)',
+                'radial-gradient(circle at 70% 30%, rgba(59, 130, 246, 0.2) 0%, rgba(6, 182, 212, 0.1) 25%, transparent 70%)',
+              ],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}
+          />
+        )}
 
         {/* Moving gradient particles */}
-        {[...Array(15)].map((_, i) => (
+        {isInView && particleData.map((data, i) => (
           <motion.div
             key={i}
             className="gradient-particle absolute w-[80px] h-[80px] rounded-full blur-[40px]"
@@ -153,12 +167,12 @@ export default function HowItWorks() {
                 : 'radial-gradient(circle, rgba(34, 197, 94, 0.15), transparent 70%)',
             }}
             animate={{
-              x: [0, Math.random() * 100 - 50, Math.random() * 100 - 50, 0],
-              y: [0, Math.random() * 100 - 50, Math.random() * 100 - 50, 0],
+              x: data.x,
+              y: data.y,
               scale: [1, 1.2, 0.8, 1],
             }}
             transition={{
-              duration: Math.random() * 15 + 10,
+              duration: data.duration,
               repeat: Infinity,
               repeatType: "reverse",
               delay: i * 0.5,
@@ -265,12 +279,9 @@ export default function HowItWorks() {
                     <motion.h1
                       className="text-5xl font-black opacity-90 group-hover:opacity-100"
                       style={{
-                        WebkitTextStroke: `1.5px transparent`,
-                        background: `linear-gradient(135deg, ${step.color.split(' ')[1].replace('from-', '')}, ${step.color.split(' ')[3]})`,
-                        
-                        WebkitBackgroundClip: 'text',
-                        backgroundClip: 'text',
+                        WebkitTextStroke: isDark ? `1px rgba(255, 255, 255, 0.4)` : `1px hsl(var(--gradient-from) / 0.5)`,
                         color: 'transparent',
+                        WebkitTextFillColor: 'transparent',
                       }}
                       animate={hoveredIndex === index ? {
                         scale: [1, 1.05, 1],
@@ -402,11 +413,9 @@ export default function HowItWorks() {
                       <h1
                         className="text-4xl font-black mb-4"
                         style={{
-                          WebkitTextStroke: `1px transparent`,
-                          background: `linear-gradient(135deg, ${step.color.split(' ')[1].replace('from-', '')}, ${step.color.split(' ')[3]})`,
-                          WebkitBackgroundClip: 'text',
-                          backgroundClip: 'text',
+                          WebkitTextStroke: isDark ? `1px rgba(255, 255, 255, 0.4)` : `1px hsl(var(--gradient-from) / 0.5)`,
                           color: 'transparent',
+                          WebkitTextFillColor: 'transparent',
                         }}
                       >
                         {step.number}

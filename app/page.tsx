@@ -99,22 +99,16 @@ export default function Home() {
         <SocialProof />
       </LazyLoad>
       <LazyLoad>
-        <HowItWorks />
-      </LazyLoad>
-      <LazyLoad>
         <Features />
       </LazyLoad>
       <LazyLoad>
-        <Integrations />
+        <ProcessSection />
+      </LazyLoad>
+      <LazyLoad>
+        <HowItWorks />
       </LazyLoad>
       <LazyLoad>
         <Testimonials />
-      </LazyLoad>
-      <LazyLoad>
-        <BlogPreview />
-      </LazyLoad>
-      <LazyLoad>
-        <ProcessSection />
       </LazyLoad>
       <LazyLoad>
         <Pricing />
@@ -125,6 +119,14 @@ export default function Home() {
       <LazyLoad>
         <Cta />
       </LazyLoad>
+      {/* 
+      <LazyLoad>
+        <Integrations />
+      </LazyLoad>
+      <LazyLoad>
+        <BlogPreview />
+      </LazyLoad>
+      */}
     </div>
   );
 }

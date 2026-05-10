@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence, useInView } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Star, Sparkles, X, Play, Pause, Volume2, VolumeX, MessageSquare, ChevronRight, MousePointerClick, CheckCircle, Code, ShoppingCart, Globe, BarChart, Cpu, Database } from "lucide-react"
 import Link from "next/link"
@@ -23,27 +23,36 @@ export default function ModernHero() {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [typingSpeed, setTypingSpeed] = useState(100);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(sectionRef, { once: false, amount: 0.1 });
 
-  const [particlePositions, setParticlePositions] = useState<Array<{x: string, y: string, yMove: string, xMove: string}>>([]);
-const [smallParticlePositions, setSmallParticlePositions] = useState<Array<{x: string, y: string, yMove: string, xMove: string}>>([]);
+  const [particlePositions, setParticlePositions] = useState<Array<{x: string, y: string, yMove: string, xMove: string, duration: number}>>([]);
+const [smallParticlePositions, setSmallParticlePositions] = useState<Array<{x: string, y: string, yMove: string, xMove: string, duration: number, yMoveFinal: string}>>([]);
 
 // Add this useEffect to generate particles only on client
 useEffect(() => {
-  // Generate large particles (15)
-  const largeParticles = Array.from({ length: 15 }, () => ({
+  const isMobile = window.innerWidth < 768;
+  const largeCount = isMobile ? 6 : 15;
+  const smallCount = isMobile ? 8 : 20;
+
+  // Generate large particles
+  const largeParticles = Array.from({ length: largeCount }, () => ({
     x: Math.random() * 100 + 'vw',
     y: Math.random() * 100 + 'vh',
     yMove: `-${Math.random() * 100}px`,
-    xMove: `${Math.random() * 30 - 15}px`
+    xMove: `${Math.random() * 30 - 15}px`,
+    duration: Math.random() * 3 + 2
   }));
   setParticlePositions(largeParticles);
 
-  // Generate small particles (20)
-  const smallParticles = Array.from({ length: 20 }, () => ({
+  // Generate small particles
+  const smallParticles = Array.from({ length: smallCount }, () => ({
     x: Math.random() * 100 + 'vw',
     y: Math.random() * 100 + 'vh',
     yMove: `-${Math.random() * 200}px`,
-    xMove: `${Math.random() * 50 - 25}px`
+    xMove: `${Math.random() * 50 - 25}px`,
+    duration: Math.random() * 5 + 5,
+    yMoveFinal: `-${Math.random() * 200}px`
   }));
   setSmallParticlePositions(smallParticles);
 }, []);
@@ -202,32 +211,34 @@ useEffect(() => {
   };
 
   return (
-    <section className="relative min-h-[100svh] flex items-center  pt-16 sm:pt-20 overflow-hidden bg-background">
+    <section ref={sectionRef} className="relative min-h-[100svh] flex items-center  pt-16 sm:pt-20 overflow-hidden bg-background">
       
       {/* Interactive mouse trail */}
-      <div className="fixed inset-0 pointer-events-none z-20">
-        <motion.div
-          className="absolute w-6 h-6 rounded-full bg-gradient-to-r from-gradient-from/20 to-gradient-to/20 backdrop-blur-sm"
-          animate={{
-            x: mousePosition.x - 12,
-            y: mousePosition.y - 12,
-          }}
-          transition={{
-            type: "spring",
-            mass: 0.1,
-            stiffness: 100,
-            damping: 15
-          }}
-        />
-        {clickEffect && (
+      {isInView && window.innerWidth >= 768 && (
+        <div className="fixed inset-0 pointer-events-none z-20">
           <motion.div
-            initial={{ scale: 0, opacity: 1 }}
-            animate={{ scale: 3, opacity: 0 }}
-            className="absolute w-4 h-4 rounded-full bg-gradient-from/30"
-            style={{ left: clickEffect.x - 8, top: clickEffect.y - 8 }}
+            className="absolute w-6 h-6 rounded-full bg-gradient-to-r from-gradient-from/20 to-gradient-to/20 backdrop-blur-sm"
+            animate={{
+              x: mousePosition.x - 12,
+              y: mousePosition.y - 12,
+            }}
+            transition={{
+              type: "spring",
+              mass: 0.1,
+              stiffness: 100,
+              damping: 15
+            }}
           />
-        )}
-      </div>
+          {clickEffect && (
+            <motion.div
+              initial={{ scale: 0, opacity: 1 }}
+              animate={{ scale: 3, opacity: 0 }}
+              className="absolute w-4 h-4 rounded-full bg-gradient-from/30"
+              style={{ left: clickEffect.x - 8, top: clickEffect.y - 8 }}
+            />
+          )}
+        </div>
+      )}
 
        {/* Responsive background patterns */}
       <div className="absolute inset-0 z-0 overflow-hidden">
@@ -246,47 +257,47 @@ useEffect(() => {
         />
 
         {/* Responsive particles */}
-{particlePositions.map((particle, i) => (
-  <motion.div
-    key={i}
-    className="absolute w-[1px] h-[1px] sm:w-[2px] sm:h-[2px] rounded-full bg-gradient-from/40"
-    initial={{
-      x: particle.x,
-      y: particle.y,
-    }}
-    animate={{
-      y: [null, particle.yMove, particle.yMove],
-      x: [null, particle.xMove, particle.xMove],
-    }}
-    transition={{
-      duration: Math.random() * 3 + 2,
-      repeat: Infinity,
-      delay: i * 0.1,
-    }}
-  />
-))}
+        {isInView && particlePositions.map((particle, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-[1px] h-[1px] sm:w-[2px] sm:h-[2px] rounded-full bg-gradient-from/40"
+            initial={{
+              x: particle.x,
+              y: particle.y,
+            }}
+            animate={{
+              y: [null, particle.yMove, particle.yMove],
+              x: [null, particle.xMove, particle.xMove],
+            }}
+            transition={{
+              duration: particle.duration,
+              repeat: Infinity,
+              delay: i * 0.1,
+            }}
+          />
+        ))}
       </div>
 
       {/* Animated background particles */}
-{smallParticlePositions.map((particle, i) => (
-  <motion.div
-    key={i}
-    className="absolute w-1 h-1 rounded-full bg-gradient-from/30"
-    initial={{
-      x: particle.x,
-      y: particle.y,
-    }}
-    animate={{
-      y: [null, particle.yMove, `-${Math.random() * 200}px`],
-      x: [null, particle.xMove, particle.xMove],
-    }}
-    transition={{
-      duration: Math.random() * 5 + 5,
-      repeat: Infinity,
-      delay: i * 0.2,
-    }}
-  />
-))}
+      {isInView && smallParticlePositions.map((particle, i) => (
+        <motion.div
+          key={i}
+          className="absolute w-1 h-1 rounded-full bg-gradient-from/30"
+          initial={{
+            x: particle.x,
+            y: particle.y,
+          }}
+          animate={{
+            y: [null, particle.yMove, particle.yMoveFinal],
+            x: [null, particle.xMove, particle.xMove],
+          }}
+          transition={{
+            duration: particle.duration,
+            repeat: Infinity,
+            delay: i * 0.2,
+          }}
+        />
+      ))}
 
       {/* Animated background particles 
       <div className="absolute inset-0 z-0 overflow-hidden">

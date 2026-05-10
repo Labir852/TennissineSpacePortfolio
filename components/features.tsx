@@ -14,15 +14,25 @@ export default function ModernFeatures() {
   const [progress, setProgress] = useState(0)
   const isMobile = useIsMobile()
   const [mounted, setMounted] = useState(false)
+  const [particleData, setParticleData] = useState<Array<{x: number[], y: number[], duration: number}>>([])
   const containerRef = useRef<HTMLDivElement>(null)
-  const isInView = useInView(containerRef, { once: true, amount: 0.2 })
+  const isInView = useInView(containerRef, { once: false, amount: 0.1 })
   const tabsRef = useRef<HTMLDivElement>(null)
   const intervalRef = useRef<NodeJS.Timeout | null>(null)
 
-  // Set mounted state to true on client-side
+  // Set mounted state to true on client-side and generate particle data
   useEffect(() => {
     setMounted(true)
-  }, [])
+    
+    // Generate static random data once on mount to avoid hydration mismatch
+    const count = isMobile ? 4 : 12
+    const data = [...Array(count)].map(() => ({
+      x: [0, Math.random() * 100 - 50, Math.random() * 100 - 50, 0],
+      y: [0, Math.random() * 100 - 50, Math.random() * 100 - 50, 0],
+      duration: Math.random() * 10 + 10
+    }))
+    setParticleData(data)
+  }, [isMobile])
 
   // Auto-rotate tabs
   useEffect(() => {
@@ -212,7 +222,7 @@ export default function ModernFeatures() {
         />
 
         {/* Moving gradient particles */}
-        {[...Array(12)].map((_, i) => (
+        {particleData.map((data, i) => (
           <motion.div
             key={i}
             className="absolute w-[80px] h-[80px] rounded-full blur-[40px]"
@@ -225,13 +235,13 @@ export default function ModernFeatures() {
                 ? 'radial-gradient(circle, rgba(34, 197, 94, 0.15), transparent 70%)'
                 : 'radial-gradient(circle, rgba(245, 158, 11, 0.15), transparent 70%)',
             }}
-            animate={{
-              x: [0, Math.random() * 100 - 50, Math.random() * 100 - 50, 0],
-              y: [0, Math.random() * 100 - 50, Math.random() * 100 - 50, 0],
+            animate={isInView ? {
+              x: data.x,
+              y: data.y,
               scale: [1, 1.2, 0.8, 1],
-            }}
+            } : {}}
             transition={{
-              duration: Math.random() * 10 + 10,
+              duration: data.duration,
               repeat: Infinity,
               repeatType: "reverse",
               delay: i * 1.5,

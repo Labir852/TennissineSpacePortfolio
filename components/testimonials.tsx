@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
-import { motion, AnimatePresence, useMotionValue, useTransform } from "framer-motion"
+import { motion, AnimatePresence, useMotionValue, useTransform, useInView } from "framer-motion"
 import { ChevronLeft, ChevronRight, Quote, Star, Play, Pause, Volume2, Sparkles, Heart, ThumbsUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -74,6 +74,18 @@ export default function ModernTestimonials() {
   const [hoveredCompany, setHoveredCompany] = useState<number | null>(null)
   const [isLiked, setIsLiked] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
+  const isInView = useInView(containerRef, { once: false, amount: 0.1 });
+  const [particleData, setParticleData] = useState<Array<{left: string, top: string, duration: number}>>([]);
+
+  useEffect(() => {
+    // Generate particle data on mount
+    const data = [...Array(3)].map(() => ({
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      duration: Math.random() * 3 + 2
+    }));
+    setParticleData(data);
+  }, []);
   const x = useMotionValue(0)
   const rotateY = useTransform(x, [-100, 100], [-15, 15])
   const opacity = useTransform(x, [-100, 0, 100], [0.5, 1, 0.5])
@@ -145,37 +157,39 @@ export default function ModernTestimonials() {
       {/* Animated Gradient Background */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         {/* Main gradient */}
-        <motion.div
-          className="absolute top-1/3 left-1/3 w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] rounded-full blur-[100px]"
-          animate={{
-            background: [
-              'radial-gradient(circle at 30% 30%, rgba(59, 130, 246, 0.2) 0%, rgba(6, 182, 212, 0.1) 25%, transparent 70%)',
-              'radial-gradient(circle at 70% 70%, rgba(168, 85, 247, 0.2) 0%, rgba(236, 72, 153, 0.1) 25%, transparent 70%)',
-              'radial-gradient(circle at 30% 70%, rgba(34, 197, 94, 0.2) 0%, rgba(52, 211, 153, 0.1) 25%, transparent 70%)',
-            ],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
-        />
+        {isInView && (
+          <motion.div
+            className="absolute top-1/3 left-1/3 w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] rounded-full blur-[100px]"
+            animate={{
+              background: [
+                'radial-gradient(circle at 30% 30%, rgba(59, 130, 246, 0.2) 0%, rgba(6, 182, 212, 0.1) 25%, transparent 70%)',
+                'radial-gradient(circle at 70% 70%, rgba(168, 85, 247, 0.2) 0%, rgba(236, 72, 153, 0.1) 25%, transparent 70%)',
+                'radial-gradient(circle at 30% 70%, rgba(34, 197, 94, 0.2) 0%, rgba(52, 211, 153, 0.1) 25%, transparent 70%)',
+              ],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}
+          />
+        )}
 
         {/* Floating stars */}
-        {[...Array(3)].map((_, i) => (
+        {isInView && particleData.map((data, i) => (
           <motion.div
             key={i}
             className="absolute w-1 h-1 rounded-full bg-gradient-from/50"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              left: data.left,
+              top: data.top,
             }}
             animate={{
               opacity: [0.3, 1, 0.3],
               scale: [1, 1.5, 1],
             }}
             transition={{
-              duration: Math.random() * 3 + 2,
+              duration: data.duration,
               repeat: Infinity,
               delay: i * 0.2,
             }}

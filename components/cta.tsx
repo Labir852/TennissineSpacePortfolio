@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
+import { motion, useMotionValue, useSpring, useTransform, useInView } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Sparkles, Calendar, MessageSquare, Zap, CheckCircle, Clock } from "lucide-react"
 import Link from "next/link"
@@ -10,17 +10,32 @@ export default function ModernCta() {
   const [hoveredButton, setHoveredButton] = useState<string | null>(null)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const containerRef = useRef<HTMLDivElement>(null)
-  
-  
+  const isInView = useInView(containerRef, { once: false, amount: 0.1 });
+  const [particleData, setParticleData] = useState<Array<{x: string, y: string, xMove: string, yMove: string, duration: number}>>([]);
+
   const x = useMotionValue(0)
   const y = useMotionValue(0)
   const springX = useSpring(x, { stiffness: 150, damping: 20 })
   const springY = useSpring(y, { stiffness: 150, damping: 20 })
-  
+
   const rotateY = useTransform(springX, [-100, 100], [5, -5])
   const rotateX = useTransform(springY, [-100, 100], [-5, 5])
 
   useEffect(() => {
+    // Generate particle data on mount
+    const data = [...Array(8)].map(() => ({
+      x: Math.random() * 100 + 'vw',
+      y: Math.random() * 100 + 'vh',
+      xMove: `${Math.random() * 100 - 50}px`,
+      yMove: `${Math.random() * 100 - 50}px`,
+      duration: Math.random() * 10 + 10
+    }));
+    setParticleData(data);
+  }, []);
+
+  useEffect(() => {
+    if (window.innerWidth < 768) return;
+
     const handleMouseMove = (e: MouseEvent) => {
       if (!containerRef.current) return
       
@@ -60,20 +75,20 @@ export default function ModernCta() {
       {/* Animated background */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         {/* Moving gradient particles */}
-        {[...Array(8)].map((_, i) => (
+        {isInView && particleData.map((data, i) => (
           <motion.div
             key={i}
             className="absolute w-1 h-1 rounded-full bg-gradient-from/30"
             initial={{
-              x: Math.random() * 100 + 'vw',
-              y: Math.random() * 100 + 'vh',
+              x: data.x,
+              y: data.y,
             }}
             animate={{
-              x: [null, `${Math.random() * 100 - 50}px`],
-              y: [null, `${Math.random() * 100 - 50}px`],
+              x: [null, data.xMove],
+              y: [null, data.yMove],
             }}
             transition={{
-              duration: Math.random() * 10 + 10,
+              duration: data.duration,
               repeat: Infinity,
               repeatType: "reverse",
               delay: i * 0.5,

@@ -14,8 +14,21 @@ export default function Integrations() {
   const [isPlaying, setIsPlaying] = useState(true)
   const [rotationProgress, setRotationProgress] = useState(0)
   const containerRef = useRef<HTMLDivElement>(null)
-  const isInView = useInView(containerRef, { once: true, amount: 0.2 })
+  const isInView = useInView(containerRef, { once: false, amount: 0.1 })
   const rotationInterval = useRef<NodeJS.Timeout | null>(null)
+  const [particleData, setParticleData] = useState<Array<{left: string, top: string, x: number[], y: number[], duration: number}>>([]);
+
+  useEffect(() => {
+    // Generate particle data on mount
+    const data = [...Array(15)].map(() => ({
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      x: [0, Math.random() * 100 - 50, Math.random() * 100 - 50, 0],
+      y: [0, Math.random() * 100 - 50, Math.random() * 100 - 50, 0],
+      duration: Math.random() * 10 + 10
+    }));
+    setParticleData(data);
+  }, []);
 
   const integrations = [
     { name: "HTML", category: "Language", logo: "/images/TechStacks/html.png", color: "from-orange-500 to-red-500" },
@@ -120,22 +133,22 @@ export default function Integrations() {
       {/* Animated Background */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         {/* Gradient particles */}
-        {[...Array(15)].map((_, i) => (
+        {isInView && particleData.map((data, i) => (
           <motion.div
             key={i}
             className="absolute w-[60px] h-[60px] rounded-full blur-[30px]"
             style={{
               background: `radial-gradient(circle, rgba(59, 130, 246, 0.1), transparent 70%)`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              left: data.left,
+              top: data.top,
             }}
             animate={{
-              x: [0, Math.random() * 100 - 50, Math.random() * 100 - 50, 0],
-              y: [0, Math.random() * 100 - 50, Math.random() * 100 - 50, 0],
+              x: data.x,
+              y: data.y,
               scale: [1, 1.2, 0.8, 1],
             }}
             transition={{
-              duration: Math.random() * 10 + 10,
+              duration: data.duration,
               repeat: Infinity,
               repeatType: "reverse",
               delay: i * 0.5,

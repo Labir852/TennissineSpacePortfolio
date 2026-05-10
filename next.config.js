@@ -43,6 +43,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'flagcdn.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'i.pravatar.cc',
+      },
     ],
   },
   // Update experimental settings to disable scroll restoration

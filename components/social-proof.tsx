@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence, useInView } from "framer-motion"
 import { useState, useEffect, useRef } from "react";
 import { Code, ShoppingCart, Globe, BarChart, Cpu, Database, Zap, ChevronRight, Sparkles, CheckCircle, Play, Pause } from "lucide-react"
 
@@ -11,6 +11,18 @@ export default function SocialProof() {
   const [isPlaying, setIsPlaying] = useState(true);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef, { once: false, amount: 0.1 });
+  const [particleData, setParticleData] = useState<Array<{x: number[], y: number[], duration: number}>>([]);
+
+  useEffect(() => {
+    // Generate particle data on mount
+    const data = [...Array(8)].map(() => ({
+      x: [0, Math.random() * 200 - 100, Math.random() * 200 - 100, 0],
+      y: [0, Math.random() * 200 - 100, Math.random() * 200 - 100, 0],
+      duration: Math.random() * 10 + 10
+    }));
+    setParticleData(data);
+  }, []);
 
   const companies = [
     { name: "Bangladesh Army", logo: "/clients/bangladesharmylogonobg.png" },
@@ -124,6 +136,8 @@ export default function SocialProof() {
 
   // Mouse move effect for background
   useEffect(() => {
+    if (window.innerWidth < 768) return;
+
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
@@ -154,43 +168,47 @@ export default function SocialProof() {
       {/* Animated Gradient Background */}
 <div className="absolute inset-0 z-0 overflow-hidden">
   {/* Main animated gradients */}
-  <motion.div
-    className="absolute top-1/4 left-1/4 w-[500px] h-[500px] sm:w-[700px] sm:h-[700px] rounded-full"
-    animate={{
-      background: [
-        'radial-gradient(circle at 30% 30%, rgba(59, 130, 246, 0.3) 0%, rgba(6, 182, 212, 0.2) 25%, transparent 70%)',
-        'radial-gradient(circle at 70% 70%, rgba(168, 85, 247, 0.3) 0%, rgba(236, 72, 153, 0.2) 25%, transparent 70%)',
-        'radial-gradient(circle at 30% 70%, rgba(34, 197, 94, 0.3) 0%, rgba(52, 211, 153, 0.2) 25%, transparent 70%)',
-        'radial-gradient(circle at 70% 30%, rgba(59, 130, 246, 0.3) 0%, rgba(6, 182, 212, 0.2) 25%, transparent 70%)',
-      ],
-    }}
-    transition={{
-      duration: 8,
-      repeat: Infinity,
-      repeatType: "reverse",
-    }}
-  />
+  {isInView && (
+    <>
+      <motion.div
+        className="absolute top-1/4 left-1/4 w-[500px] h-[500px] sm:w-[700px] sm:h-[700px] rounded-full"
+        animate={{
+          background: [
+            'radial-gradient(circle at 30% 30%, rgba(59, 130, 246, 0.3) 0%, rgba(6, 182, 212, 0.2) 25%, transparent 70%)',
+            'radial-gradient(circle at 70% 70%, rgba(168, 85, 247, 0.3) 0%, rgba(236, 72, 153, 0.2) 25%, transparent 70%)',
+            'radial-gradient(circle at 30% 70%, rgba(34, 197, 94, 0.3) 0%, rgba(52, 211, 153, 0.2) 25%, transparent 70%)',
+            'radial-gradient(circle at 70% 30%, rgba(59, 130, 246, 0.3) 0%, rgba(6, 182, 212, 0.2) 25%, transparent 70%)',
+          ],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          repeatType: "reverse",
+        }}
+      />
 
-  <motion.div
-    className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] rounded-full"
-    animate={{
-      background: [
-        'radial-gradient(circle at 70% 30%, rgba(236, 72, 153, 0.3) 0%, rgba(168, 85, 247, 0.2) 25%, transparent 70%)',
-        'radial-gradient(circle at 30% 70%, rgba(6, 182, 212, 0.3) 0%, rgba(59, 130, 246, 0.2) 25%, transparent 70%)',
-        'radial-gradient(circle at 70% 70%, rgba(245, 158, 11, 0.3) 0%, rgba(239, 68, 68, 0.2) 25%, transparent 70%)',
-        'radial-gradient(circle at 30% 30%, rgba(236, 72, 153, 0.3) 0%, rgba(168, 85, 247, 0.2) 25%, transparent 70%)',
-      ],
-    }}
-    transition={{
-      duration: 6,
-      repeat: Infinity,
-      repeatType: "reverse",
-      delay: 2,
-    }}
-  />
+      <motion.div
+        className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] rounded-full"
+        animate={{
+          background: [
+            'radial-gradient(circle at 70% 30%, rgba(236, 72, 153, 0.3) 0%, rgba(168, 85, 247, 0.2) 25%, transparent 70%)',
+            'radial-gradient(circle at 30% 70%, rgba(6, 182, 212, 0.3) 0%, rgba(59, 130, 246, 0.2) 25%, transparent 70%)',
+            'radial-gradient(circle at 70% 70%, rgba(245, 158, 11, 0.3) 0%, rgba(239, 68, 68, 0.2) 25%, transparent 70%)',
+            'radial-gradient(circle at 30% 30%, rgba(236, 72, 153, 0.3) 0%, rgba(168, 85, 247, 0.2) 25%, transparent 70%)',
+          ],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          repeatType: "reverse",
+          delay: 2,
+        }}
+      />
+    </>
+  )}
 
   {/* Moving gradient particles */}
-  {[...Array(8)].map((_, i) => (
+  {isInView && particleData.map((data, i) => (
     <motion.div
       key={i}
       className="absolute w-[100px] h-[100px] sm:w-[150px] sm:h-[150px] rounded-full blur-[40px] sm:blur-[60px]"
@@ -202,12 +220,12 @@ export default function SocialProof() {
           : 'radial-gradient(circle, rgba(34, 197, 94, 0.2), transparent 70%)',
       }}
       animate={{
-        x: [0, Math.random() * 200 - 100, Math.random() * 200 - 100, 0],
-        y: [0, Math.random() * 200 - 100, Math.random() * 200 - 100, 0],
+        x: data.x,
+        y: data.y,
         scale: [1, 1.2, 0.8, 1],
       }}
       transition={{
-        duration: Math.random() * 10 + 10,
+        duration: data.duration,
         repeat: Infinity,
         repeatType: "reverse",
         delay: i * 1.5,

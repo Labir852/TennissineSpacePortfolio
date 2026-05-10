@@ -320,7 +320,7 @@ export default function MobileNav({ isOpen }: MobileNavProps) {
 
         {/* Work Link */}
         <Link
-          href="/work"
+          href="/cases"
           className="flex items-center justify-between py-3 px-2 border-b border-border/30 text-foreground/90 hover:text-foreground transition-colors"
           onClick={() => setActiveDropdown(null)}
         >

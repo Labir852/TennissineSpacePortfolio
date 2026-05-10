@@ -306,7 +306,7 @@ export default function DesktopNav() {
 
         {/* Work - Simple Link */}
         <Link
-          href="/work"
+          href="/cases"
           className="text-foreground/90 hover:text-foreground py-2 transition-colors text-sm relative group"
           onMouseEnter={() => setActiveDropdown(null)}
         >

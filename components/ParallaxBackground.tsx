@@ -16,16 +16,16 @@ export default function ParallaxBackground() {
     <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
       {/* gradient layer 1 */}
       <motion.div
-        style={{ y: y1 }}
-        className="absolute -top-1/4 -left-1/4 w-[60vw] h-[60vw] rounded-full blur-[120px] opacity-30"
+        style={{ y: y1, willChange: "transform" }}
+        className="absolute -top-1/4 -left-1/4 w-[60vw] h-[60vw] rounded-full blur-[80px] sm:blur-[120px] opacity-30"
       >
         <div className="w-full h-full rounded-full bg-gradient-to-br from-gradient-from to-gradient-to" />
       </motion.div>
 
       {/* gradient layer 2 */}
       <motion.div
-        style={{ y: y2 }}
-        className="absolute -bottom-1/4 -right-1/4 w-[60vw] h-[60vw] rounded-full blur-[140px] opacity-20"
+        style={{ y: y2, willChange: "transform" }}
+        className="absolute -bottom-1/4 -right-1/4 w-[60vw] h-[60vw] rounded-full blur-[80px] sm:blur-[140px] opacity-20"
       >
         <div className="w-full h-full rounded-full bg-gradient-to-tr from-gradient-to to-gradient-from" />
       </motion.div>
