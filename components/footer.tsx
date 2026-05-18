@@ -39,17 +39,17 @@ export default function ModernFooter() {
   }
 
   const quickLinks = [
-    { label: "Services", href: "/#features" },
-    { label: "Process", href: "/#process" },
-    { label: "Work", href: "/#workmodels" },
-    { label: "Testimonials", href: "/#testimonials" },
+    { label: "Services", href: "/services" },
+    { label: "Process", href: "/process" },
+    { label: "Work", href: "/cases" },
+    { label: "Testimonials", href: "/testimonials" },
   ]
 
   const companyLinks = [
-    { label: "About", href: "/#process" },
+    { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
     { label: "FAQ", href: "/#faq" },
-    { label: "Blog", href: "/#blog" },
+    { label: "Blog", href: "/blog" },
   ]
 
   const socialLinks = [

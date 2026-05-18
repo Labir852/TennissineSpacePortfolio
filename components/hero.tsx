@@ -32,8 +32,8 @@ const [smallParticlePositions, setSmallParticlePositions] = useState<Array<{x: s
 // Add this useEffect to generate particles only on client
 useEffect(() => {
   const isMobile = window.innerWidth < 768;
-  const largeCount = isMobile ? 6 : 15;
-  const smallCount = isMobile ? 8 : 20;
+  const largeCount = isMobile ? 3 : 4;
+  const smallCount = isMobile ? 4 : 6;
 
   // Generate large particles
   const largeParticles = Array.from({ length: largeCount }, () => ({
@@ -147,32 +147,25 @@ useEffect(() => {
     }
   }, [typingText, isDeleting, currentWordIndex]);
 
-  // Interactive mouse trail
+  // Interactive mouse trail — throttled to avoid excessive re-renders
   useEffect(() => {
+    let lastTime = 0;
+    const THROTTLE_MS = 50; // ~20fps is plenty for a subtle parallax
+
     const handleMouseMove = (e: MouseEvent) => {
-      if (!parallaxRef.current) return;
-      
-      setMousePosition({ x: e.clientX, y: e.clientY });
-      
-      // Parallax effect for desktop
-      if (window.innerWidth >= 768) {
-        const { clientX, clientY } = e;
-        const { innerWidth, innerHeight } = window;
-        
-        const moveX = (clientX - innerWidth / 2) / 50;
-        const moveY = (clientY - innerHeight / 2) / 50;
-        
+      const now = performance.now();
+      if (now - lastTime < THROTTLE_MS) return;
+      lastTime = now;
+
+      // Parallax effect for desktop — direct DOM, no React state
+      if (parallaxRef.current && window.innerWidth >= 768) {
+        const moveX = (e.clientX - window.innerWidth / 2) / 50;
+        const moveY = (e.clientY - window.innerHeight / 2) / 50;
         parallaxRef.current.style.transform = `translate(${moveX}px, ${moveY}px)`;
       }
     };
 
-    const handleClick = (e: MouseEvent) => {
-      setClickEffect({ x: e.clientX, y: e.clientY });
-      setTimeout(() => setClickEffect(null), 1000);
-    };
-
-    document.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("click", handleClick);
+    document.addEventListener("mousemove", handleMouseMove, { passive: true });
     
     // Auto-rotate services
     const serviceInterval = setInterval(() => {
@@ -186,7 +179,6 @@ useEffect(() => {
 
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("click", handleClick);
       clearInterval(serviceInterval);
       clearTimeout(welcomeTimer);
     };

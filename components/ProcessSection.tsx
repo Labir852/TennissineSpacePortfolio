@@ -78,11 +78,18 @@ export default function ProcessSection() {
     };
   }, [isPlaying, inView]);
 
-  const goToStep = (index: number) => {
-    setActiveIndex(index);
+  const goToStep = (index: number | "prev" | "next") => {
     setIsPlaying(false);
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
+    }
+    
+    if (index === "prev") {
+      setActiveIndex((prev) => (prev - 1 + processSteps.length) % processSteps.length);
+    } else if (index === "next") {
+      setActiveIndex((prev) => (prev + 1) % processSteps.length);
+    } else {
+      setActiveIndex(index);
     }
   };
 
@@ -255,9 +262,11 @@ export default function ProcessSection() {
                     <ChevronRight className="h-4 w-4" />
                   </button>
                 </div>
-              </motion.div>
-            </AnimatePresence>
-
+              </div>
+            </motion.div>
+          </AnimatePresence>
+            </div>
+            
             {/* CTA */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -282,6 +291,7 @@ export default function ProcessSection() {
           </div>
         </div>
       </div>
+      
     </section>
   );
 }

@@ -55,7 +55,16 @@ const nextConfig = {
     optimizePackageImports: [
       'motion',
       'framer-motion',
-      '@tabler/icons-react'
+      'lucide-react',
+      'embla-carousel-react',
+      'recharts',
+      'date-fns',
+      '@radix-ui/react-accordion',
+      '@radix-ui/react-dialog',
+      '@radix-ui/react-dropdown-menu',
+      '@radix-ui/react-tabs',
+      '@radix-ui/react-tooltip',
+      '@tabler/icons-react',
     ],
     // Disable scroll restoration to prevent auto-scrolling on refresh
     scrollRestoration: false,

@@ -37,21 +37,21 @@ export default function DesktopNav() {
       items: [
         {
           label: "Custom Software",
-          href: "/#features",
+          href: "/services/software",
           icon: <Code className="h-4 w-4" />,
           description: "Tailored solutions for your unique needs",
           features: ["Scalable", "Secure", "Maintainable"]
         },
         {
           label: "ERP Systems",
-          href: "/#features",
+          href: "/services/erp",
           icon: <Database className="h-4 w-4" />,
           description: "Complete business management",
           features: ["Inventory", "Accounting", "HR"]
         },
         {
           label: "E-commerce",
-          href: "/#features",
+          href: "/services/ecommerce",
           icon: <ShoppingBag className="h-4 w-4" />,
           description: "Online stores that drive sales",
           features: ["Payment Gateway", "Inventory", "Analytics"]
@@ -63,21 +63,21 @@ export default function DesktopNav() {
       items: [
         {
           label: "POS Solutions",
-          href: "/#features",
+          href: "/services/pos",
           icon: <CreditCard className="h-4 w-4" />,
           description: "Retail & restaurant systems",
           features: ["Offline Mode", "Reporting", "Multi-store"]
         },
         {
           label: "SaaS Platforms",
-          href: "/#features",
+          href: "/services/saas",
           icon: <Cloud className="h-4 w-4" />,
           description: "Cloud-based software",
           features: ["Subscription", "Multi-tenant", "API"]
         },
         {
           label: "Web Development",
-          href: "/#features",
+          href: "/services/web",
           icon: <Globe className="h-4 w-4" />,
           description: "Responsive websites",
           features: ["SEO", "Fast", "Mobile-friendly"]
@@ -89,21 +89,21 @@ export default function DesktopNav() {
       items: [
         {
           label: "Automation",
-          href: "/#features",
+          href: "/services/automation",
           icon: <Zap className="h-4 w-4" />,
           description: "Workflow automation",
           features: ["AI", "Bots", "Scheduling"]
         },
         {
           label: "Integration",
-          href: "/#features",
+          href: "/services/integration",
           icon: <Cpu className="h-4 w-4" />,
           description: "Connect your systems",
           features: ["API", "Real-time", "Secure"]
         },
         {
           label: "Consulting",
-          href: "/#features",
+          href: "/services/consulting",
           icon: <Users className="h-4 w-4" />,
           description: "Strategy & planning",
           features: ["Audit", "Roadmap", "Implementation"]
@@ -119,19 +119,19 @@ export default function DesktopNav() {
       items: [
         {
           label: "Our Story",
-          href: "/#process",
+          href: "/about",
           icon: <Users className="h-4 w-4" />,
           description: "Learn about our journey and mission"
         },
         {
           label: "Our Process",
-          href: "/#process",
+          href: "/process",
           icon: <BookOpen className="h-4 w-4" />,
           description: "How we deliver exceptional results"
         },
         {
           label: "Case Studies",
-          href: "/#workmodels",
+          href: "/cases",
           icon: <FileText className="h-4 w-4" />,
           description: "Success stories from our clients"
         },
@@ -142,19 +142,19 @@ export default function DesktopNav() {
       items: [
         {
           label: "Testimonials",
-          href: "/#testimonials",
+          href: "/testimonials",
           icon: <MessageSquare className="h-4 w-4" />,
           description: "What our clients say about us"
         },
         // {
         //   label: "Blog & Insights",
-        //   href: "/#blog",
+        //   href: "/blog",
         //   icon: <Sparkles className="h-4 w-4" />,
         //   description: "Latest trends and insights"
         // },
         {
           label: "Careers",
-          href: "/contact",
+          href: "/careers",
           icon: <Briefcase className="h-4 w-4" />,
           description: "Join our talented team"
         },
@@ -415,7 +415,7 @@ export default function DesktopNav() {
 
         {/* Testimonials */}
         <Link
-          href="/#testimonials"
+          href="/testimonials"
           className="text-foreground/90 hover:text-foreground py-2 transition-colors text-sm relative group"
           onMouseEnter={() => setActiveDropdown(null)}
         >

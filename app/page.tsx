@@ -49,13 +49,6 @@ const Pricing = dynamic(() => import("@/components/pricing"), {
   ssr: false,
 });
 
-const Integrations = dynamic(() => import("@/components/integrations"), {
-  ssr: false,
-});
-
-const BlogPreview = dynamic(() => import("@/components/blog-preview"), {
-  ssr: false,
-});
 const ProcessSection = dynamic(() => import("@/components/ProcessSection"), {
   ssr: false,
 });
@@ -110,12 +103,6 @@ export default function Home() {
       <LazyLoad>
         <Testimonials />
       </LazyLoad>
-      {/* <LazyLoad>
-        <BlogPreview />
-      </LazyLoad> */}
-      <LazyLoad>
-        <ProcessSection />
-      </LazyLoad>
       <LazyLoad>
         <Pricing />
       </LazyLoad>
@@ -125,14 +112,6 @@ export default function Home() {
       <LazyLoad>
         <Cta />
       </LazyLoad>
-      {/* 
-      <LazyLoad>
-        <Integrations />
-      </LazyLoad>
-      <LazyLoad>
-        <BlogPreview />
-      </LazyLoad>
-      */}
     </div>
   );
 }

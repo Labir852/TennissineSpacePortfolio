@@ -29,6 +29,7 @@ export default function HowItWorks() {
       icon: <Zap className="h-5 w-5" />,
       color: "from-blue-500 to-cyan-500",
       gradient: "bg-gradient-to-br from-blue-500/20 to-cyan-500/20",
+      strokeColor: "#3b82f6",
     },
     {
       number: "002",
@@ -37,6 +38,7 @@ export default function HowItWorks() {
       icon: <Cpu className="h-5 w-5" />,
       color: "from-purple-500 to-pink-500",
       gradient: "bg-gradient-to-br from-purple-500/20 to-pink-500/20",
+      strokeColor: "#a855f7",
     },
     {
       number: "003",
@@ -45,6 +47,7 @@ export default function HowItWorks() {
       icon: <Shield className="h-5 w-5" />,
       color: "from-green-500 to-emerald-500",
       gradient: "bg-gradient-to-br from-green-500/20 to-emerald-500/20",
+      strokeColor: "#22c55e",
     },
     {
       number: "004",
@@ -53,6 +56,7 @@ export default function HowItWorks() {
       icon: <Wrench className="h-5 w-5" />,
       color: "from-orange-500 to-red-500",
       gradient: "bg-gradient-to-br from-orange-500/20 to-red-500/20",
+      strokeColor: "#f97316",
     },
     {
       number: "005",
@@ -61,12 +65,13 @@ export default function HowItWorks() {
       icon: <Sparkles className="h-5 w-5" />,
       color: "from-indigo-500 to-blue-500",
       gradient: "bg-gradient-to-br from-indigo-500/20 to-blue-500/20",
+      strokeColor: "#6366f1",
     },
   ];
   // Animated background particles
   useEffect(() => {
     // Generate particle data on mount
-    const data = [...Array(15)].map(() => ({
+    const data = [...Array(5)].map(() => ({
       x: [0, Math.random() * 100 - 50, Math.random() * 100 - 50, 0],
       y: [0, Math.random() * 100 - 50, Math.random() * 100 - 50, 0],
       duration: Math.random() * 15 + 10
@@ -278,21 +283,10 @@ export default function HowItWorks() {
                   {/* Number with animated gradient */}
                   <div className="relative mb-4">
                     <motion.h1
-                      className="text-5xl font-black text-foreground opacity-90 group-hover:opacity-100"
-                      // style={{
-                      //   WebkitTextStroke: `1.5px transparent`,
-                      //   background: `linear-gradient(135deg, ${step.color.split(' ')[1].replace('from-', '')}, ${step.color.split(' ')[3]})`,
-                        
-                      //   WebkitBackgroundClip: 'text',
-                      //   backgroundClip: 'text',
-                      // }}
+                      className="text-5xl font-black opacity-90 group-hover:opacity-100"
                       style={{
-                        WebkitTextStroke: `1.5px transparent`,
-                        background: `linear-gradient(135deg, ${step.color.split(' ')[1].replace('from-', '')}, ${step.color.split(' ')[3]})`,
-                        
-                        WebkitBackgroundClip: 'text',
-                        backgroundClip: 'text',
-                        color: 'transparent',
+                        WebkitTextStroke: `1.5px ${step.strokeColor}`,
+                        color: isDark ? "#ffffff" : "#000000",
                       }}
                       animate={hoveredIndex === index ? {
                         scale: [1, 1.05, 1],
@@ -423,19 +417,9 @@ export default function HowItWorks() {
                     >
                       <h1
                         className="text-4xl font-black mb-4"
-                        // style={{
-                        //   WebkitTextStroke: `1px transparent`,
-                        //   background: `linear-gradient(135deg, ${step.color.split(' ')[1].replace('from-', '')}, ${step.color.split(' ')[3]})`,
-                        //   WebkitBackgroundClip: 'text',
-                        //   backgroundClip: 'text',
-                        //   color: 'transparent',
-                        // }}
                         style={{
-                          WebkitTextStroke: `1px transparent`,
-                          background: `linear-gradient(135deg, ${step.color.split(' ')[1].replace('from-', '')}, ${step.color.split(' ')[3]})`,
-                          WebkitBackgroundClip: 'text',
-                          backgroundClip: 'text',
-                          color: 'transparent',
+                          WebkitTextStroke: `1.5px ${step.strokeColor}`,
+                          color: isDark ? "#ffffff" : "#000000",
                         }}
                       >
                         {step.number}
